@@ -61,7 +61,9 @@ python3 render_v2.py ... --vertical --seconds-per-step 0.6 --out out/X_short.mp4
 - Hashtag popup appears in the description — press Escape after each hashtag.
 - Schedule: pick the date in the calendar, then pick the time from the listbox option (typing doesn't stick). Time zone is GMT+2.
 - Add end screen (last 10 s) on long videos. Custom thumbnails work (phone verified).
-- Linking a Short to its long video needs Advanced-features ID verification (owner hasn't done it yet).
+- Advanced features are verified (8 Nov 2026). Link every Short to its long video: Short edit page → "Related video" →
+  pick the long video → Save. The picker only lists PUBLIC videos, so link right after the long video goes live.
+  TODO: Short wg9tOlzGIM4 → long k_mEu5f5vz0 once it publishes (Tue 10 Nov 22:00).
 
 ## Cross-posting
 - **TikTok** (@numbersinmotion01, logged in on owner's Chrome): upload each Short, caption = hook question + 5 hashtags,
