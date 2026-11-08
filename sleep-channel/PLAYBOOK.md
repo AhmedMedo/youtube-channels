@@ -1,6 +1,6 @@
 # Sleep Channel — Team 2 Playbook
 
-Status: **pilot** (Nov 2026). Episode 001 rendered; channel name pending Ahmed's choice.
+Status: **pilot** (Nov 2026). Channel name: **Driftlight**. Episode 001 rendered, awaiting scene tweaks + owner OK.
 
 Owner: Ahmed (Cairo, GMT+2), replies in Egyptian Arabic.
 
@@ -18,7 +18,8 @@ Owner: Ahmed (Cairo, GMT+2), replies in Egyptian Arabic.
 | `../shared/ambient.py` | Procedural sleep music (pads, sparse bells, rain/wind bed, reverb). Chunked → any length. |
 | `render_scene.py` | Scenes (currently `night_sky`), seamless loop → stream-copied to full length, muxed with music. Also writes `_thumb.jpg`, `_still.png`. |
 | `metadata.py` | Episode N → scene / mood / seed / length / title / description / tags (JSON). |
-| `brand/make_brand.py` | Logo + banner candidates (Driftlight, Night Hollow, Slowmoon). |
+| `brand/make_brand.py` | Logo + banner (Driftlight chosen; other two kept as history). |
+| `../shared/yt_upload.py` | Resumable upload to YouTube as Private via Data API v3 (creds from env vars only). |
 
 ## One episode, by hand
 ```bash
@@ -33,7 +34,7 @@ Output ≈ 1.0–1.3 GB per hour at crf 22.
 ## Scheduled run ("Team 2") — every 3–4 days
 1. `git pull`; read this file; `python metadata.py N` where N = last episode in `episodes.md` + 1.
 2. Render with the recipe. Check: `ffprobe` duration ≥ planned, audio present, thumbnail looks right.
-3. Upload **Private** with title/description/tags/thumbnail from the JSON, madeForKids=false.
+3. `python ../shared/yt_upload.py --video … --meta ep00N.json --thumb …_thumb.jpg` (Private; needs YT_CLIENT_ID / YT_CLIENT_SECRET / YT_REFRESH_TOKEN in env).
 4. Append a line to `episodes.md` (episode, date, title, video id, duration) and commit.
 5. Report to Ahmed in Egyptian Arabic: title, length, link, anything odd. Ask nothing unless blocked.
 
@@ -41,5 +42,4 @@ Blocked = upload credentials missing/expired, render failed twice, or disk < 5 G
 
 ## Still to do
 - More scenes: `rain_window`, `ocean_night`, `fireplace` (each must be seamless-loop + seed-driven).
-- Upload method decided with Ahmed (YouTube Data API OAuth vs. Chrome on his machine).
-- Channel name final → set `CHANNEL` in `metadata.py`, keep only that brand in `brand/`.
+- Ahmed: create the Driftlight channel + upload logo/banner, do the one-time OAuth in `yt_upload.py --auth`, store the 3 secrets.
