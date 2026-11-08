@@ -18,6 +18,7 @@ He is busy and dislikes slow polishing loops: ship good-enough fast, flag issues
 | 1 | Most populous countries 1952–2007 | youtu.be/qu2fFubfuw4 | shorts/UCvmSYu-_6c |
 | 2 | USA vs China GDP 1960–2024 | youtu.be/MN99yzjSa5Y | shorts/jR2Aca42xcI |
 | 3 | Richest countries per person 1960–2024 | youtu.be/k_mEu5f5vz0 (sched. 10 Nov 2026) | shorts/wg9tOlzGIM4 (sched.) |
+| 4 | Biggest military budgets 1960–2023 (for Sat 14 Nov 2026) | rendered, NOT uploaded (Chrome not selected) | rendered, NOT uploaded |
 
 **Slot rule (overrides the run prompt's Wed→Sat / Sun→Tue mapping):** before producing, check YouTube Studio
 (Content tab, scheduled items) and the table above. If the target slot already has a scheduled or published long video,
@@ -29,6 +30,12 @@ Life expectancy · Most visited countries (tourism) · Biggest cities · Footbal
 Append each finished topic to the table above and commit.
 
 ## Data
+- If api.worldbank.org / OWID are blocked in the sandbox and Chrome is unavailable: World Bank bulk CSVs
+  (`API_<CODE>_DS2_en_csv_v2_*.csv`) mirrored on GitHub are reachable via raw.githubusercontent.com (find with
+  `gh api search/code -f q='<CODE> filename:csv'`), convert with `python3 wb_bulk_to_csv.py raw.csv out.csv 15`. Check the
+  "Last Updated Date" line; the military file (2025-04-15) ends at 2023. Cross-check the final year against SIPRI.
+- Military data: drop Poland/Romania before 1990 (broken communist-era exchange rates) and Russia's zero values pre-1993.
+- Chrome: 3 browsers are connected to the account; a scheduled run can't pick one without Ahmed → ask him which one is his main Chrome.
 - Preferred source: **World Bank API** (`https://api.worldbank.org/v2/country/all/indicator/<CODE>?format=json&per_page=20000&date=1960:2024`).
   The sandbox shell usually cannot reach it — fetch it from the owner's Chrome (javascript_tool `fetch`, write result into
   `document.body.innerText`, read with get_page_text), save to `data/<topic>_raw.txt`, then convert to tidy CSV
