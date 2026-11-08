@@ -19,6 +19,11 @@ He is busy and dislikes slow polishing loops: ship good-enough fast, flag issues
 | 2 | USA vs China GDP 1960–2024 | youtu.be/MN99yzjSa5Y | shorts/jR2Aca42xcI |
 | 3 | Richest countries per person 1960–2024 | youtu.be/k_mEu5f5vz0 (sched. 10 Nov 2026) | shorts/wg9tOlzGIM4 (sched.) |
 
+**Slot rule (overrides the run prompt's Wed→Sat / Sun→Tue mapping):** before producing, check YouTube Studio
+(Content tab, scheduled items) and the table above. If the target slot already has a scheduled or published long video,
+prepare the NEXT free Tuesday/Saturday 22:00 slot instead. Never put two long videos on the same day.
+(Example: on Sun 8 Nov 2026, Tue 10 Nov is taken by #3 → that run prepares Sat 14 Nov.)
+
 Topic backlog (pick next unused): Military spending USA vs China vs Russia · Internet users · CO₂ emissions ·
 Life expectancy · Most visited countries (tourism) · Biggest cities · Football World Cup wins · Billionaires by country.
 Append each finished topic to the table above and commit.
