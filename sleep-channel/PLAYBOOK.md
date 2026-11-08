@@ -1,6 +1,6 @@
 # Sleep Channel — Team 2 Playbook
 
-Status: **pilot** (Nov 2026). Channel **Driftlight** live: https://www.youtube.com/@Driftlight-sleep (id UChs7vK3HA0kBj-uJEtMj5nQ) — logo, banner, watermark, description, keywords, not-for-kids and Private/Music upload defaults all set. Episode 001 delivered.
+Status: **live** (Nov 2026). Ep001 Public since 2026-11-08. Channel **Driftlight** live: https://www.youtube.com/@Driftlight-sleep (id UChs7vK3HA0kBj-uJEtMj5nQ) — logo, banner, watermark, description, keywords, not-for-kids and Private/Music upload defaults all set. Episode 001 delivered.
 
 Owner: Ahmed (Cairo, GMT+2), replies in Egyptian Arabic.
 
@@ -18,6 +18,7 @@ Owner: Ahmed (Cairo, GMT+2), replies in Egyptian Arabic.
 | `../shared/ambient.py` | Procedural sleep music (pads, sparse bells, rain/wind bed, reverb). Chunked → any length. |
 | `render_scene.py` | Scenes (currently `night_sky`), seamless loop → stream-copied to full length, muxed with music. Also writes `_thumb.jpg`, `_still.png`. |
 | `metadata.py` | Episode N → scene / mood / seed / length / title / description / tags (JSON). |
+| `make_extras.py` | Per-episode promo pack: vertical 45 s Short, black-screen version (same music), Pinterest pin. |
 | `brand/make_brand.py` | Logo + banner (Driftlight chosen; other two kept as history). |
 | `../shared/yt_upload.py` | Resumable upload to YouTube as Private via Data API v3 (creds from env vars only). |
 
@@ -34,7 +35,7 @@ Output ≈ 1.0–1.3 GB per hour at crf 22.
 ## Scheduled run ("Team 2") — every 3–4 days
 1. `git pull`; read this file; `python metadata.py N` where N = last episode in `episodes.md` + 1.
 2. Render with the recipe. Check: `ffprobe` duration ≥ planned, audio present, thumbnail looks right.
-3. **Ahmed uploads by hand** (decided 2026-11-08). The run delivers: the MP4 (keep it under 400 MiB → re-encode the loop at crf 29 and remux, see below), `_thumb.jpg`, and `ep00N_metadata.txt` (title/description/tags). `yt_upload.py` stays as an option for later.
+3. Run `make_extras.py` for the Short / black-screen / pin. **Ahmed uploads by hand** (decided 2026-11-08). The run delivers: the MP4 (keep it under 400 MiB → re-encode the loop at crf 29 and remux, see below), `_thumb.jpg`, and `ep00N_metadata.txt` (title/description/tags). `yt_upload.py` stays as an option for later.
 4. Append a line to `episodes.md` (episode, date, title, video id, duration) and commit.
 5. Report to Ahmed in Egyptian Arabic: title, length, link, anything odd. Ask nothing unless blocked.
 
