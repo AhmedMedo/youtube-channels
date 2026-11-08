@@ -1,6 +1,6 @@
 # Sleep Channel — Team 2 Playbook
 
-Status: **pilot** (Nov 2026). Channel name: **Driftlight**. Episode 001 rendered, awaiting scene tweaks + owner OK.
+Status: **pilot** (Nov 2026). Channel **Driftlight** live: https://www.youtube.com/@Driftlight-sleep (id UChs7vK3HA0kBj-uJEtMj5nQ) — logo, banner, watermark, description, keywords, not-for-kids and Private/Music upload defaults all set. Episode 001 delivered.
 
 Owner: Ahmed (Cairo, GMT+2), replies in Egyptian Arabic.
 
@@ -34,11 +34,19 @@ Output ≈ 1.0–1.3 GB per hour at crf 22.
 ## Scheduled run ("Team 2") — every 3–4 days
 1. `git pull`; read this file; `python metadata.py N` where N = last episode in `episodes.md` + 1.
 2. Render with the recipe. Check: `ffprobe` duration ≥ planned, audio present, thumbnail looks right.
-3. `python ../shared/yt_upload.py --video … --meta ep00N.json --thumb …_thumb.jpg` (Private; needs YT_CLIENT_ID / YT_CLIENT_SECRET / YT_REFRESH_TOKEN in env).
+3. **Ahmed uploads by hand** (decided 2026-11-08). The run delivers: the MP4 (keep it under 400 MiB → re-encode the loop at crf 29 and remux, see below), `_thumb.jpg`, and `ep00N_metadata.txt` (title/description/tags). `yt_upload.py` stays as an option for later.
 4. Append a line to `episodes.md` (episode, date, title, video id, duration) and commit.
 5. Report to Ahmed in Egyptian Arabic: title, length, link, anything odd. Ask nothing unless blocked.
 
-Blocked = upload credentials missing/expired, render failed twice, or disk < 5 GB. Then stop and report.
+Blocked = render failed twice or disk < 5 GB. Then stop and report.
+
+Size limit for delivery (400 MiB): after render, re-encode only the loop and remux — takes ~2 min:
+```bash
+ffmpeg -y -i video_loop.mp4 -c:v libx264 -crf 29 -preset medium -tune stillimage -g 48 -pix_fmt yuv420p -an loop_small.mp4
+ffmpeg -y -stream_loop $((LOOPS-1)) -i loop_small.mp4 -i video.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 128k -t $DURATION -movflags +faststart final.mp4
+```
+(1 h ≈ 336 MB at crf 29. For 2 h+ use crf 31–33 or deliver in parts.)
+Rendering must be polled in the foreground (sleep + tail the log); a background process left alone is killed within minutes.
 
 ## Still to do
 - More scenes: `rain_window`, `ocean_night`, `fireplace` (each must be seamless-loop + seed-driven).
