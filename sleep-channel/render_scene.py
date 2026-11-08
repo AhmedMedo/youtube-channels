@@ -129,6 +129,37 @@ class NightSky:
         sx = rng.uniform(0.15, 0.6) * W
         sy = rng.uniform(0.08, 0.3) * H
         self.shoot = (sx, sy, sx + rng.uniform(240, 420), sy + rng.uniform(90, 170))
+        # --- parallax cloud wisps (two periodic layers, 1 and 2 wraps per loop)
+        self.clouds = []
+        for k, (cy0, hh, speed, alpha) in enumerate(((0.05, 260, 1, 0.16), (0.30, 220, 2, 0.11))):
+            cn = periodic_noise(rng, W, hh, 7 + k, 2, 3)
+            fy = np.sin(np.linspace(0, math.pi, hh, dtype=np.float32))[:, None]
+            cn = np.clip((cn - 0.45) * 2.2, 0, 1) * fy * alpha
+            self.clouds.append((int(H * cy0), cn.astype(np.float32), speed))
+        self.cloud_col = np.array([150, 150, 200], np.float32)
+        # --- lake: everything below lake_y is a rippling reflection of what is above it
+        self.lake_y = int(H * 0.76)
+        self.lake_h = H - self.lake_y
+        self.lake_col = np.array([10, 12, 34], np.float32)
+        ry = np.arange(self.lake_h, dtype=np.float32)
+        self.ripple_phase = (2 * np.pi * ry / rng.uniform(9, 14))[:, None]
+        self.ripple_k = int(rng.integers(12, 20))  # ripple cycles per loop
+        self.ripple_amp = (2.0 + 6.0 * ry / self.lake_h)[:, None]
+        self.lake_fade = (0.55 - 0.35 * (ry / self.lake_h) ** 0.8)[:, None, None].astype(np.float32)
+        self.xidx = np.arange(W)[None, :]
+        # moonlight path on the water: a soft vertical streak under the moon, widening towards the viewer
+        lx = np.arange(W, dtype=np.float32)[None, :]
+        width = (40 + 120 * ry / self.lake_h)[:, None]
+        streak = np.exp(-((lx - self.moon_x) ** 2) / (2 * width ** 2)) * (0.35 + 0.25 * ry / self.lake_h)[:, None]
+        self.moon_path = (streak[:, :, None] * np.array([70, 62, 40], np.float32)).astype(np.float32)
+        # --- mascot (Driftlight cloud) asleep top-left, breathing, with floating zzz
+        mpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "brand", "out", "driftlight_character_rgba.png")
+        self.mascot = Image.open(mpath).convert("RGBA") if os.path.exists(mpath) else None
+        self.mascot_size = 340
+        self.mascot_pos = (int(W * 0.06), int(H * 0.10))
+        self.breath_k = int(rng.integers(28, 40))  # breaths per loop (≈ 4.5–6.5 s each)
+        self.zzz_k = self.breath_k // 2             # one zzz cycle every two breaths
+        self.font_z = font(54, "Bold")
         # --- vignette
         vx = (np.arange(W, dtype=np.float32) - W / 2) / (W / 2)
         vy = (np.arange(H, dtype=np.float32) - H / 2) / (H / 2)
@@ -141,7 +172,8 @@ class NightSky:
         glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
         ImageDraw.Draw(glow).ellipse([x - r * 2.6, y - r * 2.6, x + r * 2.6, y + r * 2.6], fill=(255, 236, 200, 90))
         glow = glow.filter(ImageFilter.GaussianBlur(r * 1.1))
-        img.alpha_composite(glow)
+        ga = np.asarray(glow, np.float32)
+        self.moon_glow = (ga[:, :, :3] * ga[:, :, 3:4] / 255.0, ga[:, :, 3:4] / 255.0)
         disc = Image.new("L", (W, H), 0)
         dd = ImageDraw.Draw(disc)
         dd.ellipse([x - r, y - r, x + r, y + r], fill=255)
@@ -158,7 +190,7 @@ class NightSky:
         m = Image.new("L", (W, H), 0)
         d = ImageDraw.Draw(m)
         # two mountain ridges
-        for ridge, base, amp, col in ((0, 0.72, 0.16, 120), (1, 0.80, 0.10, 255)):
+        for ridge, base, amp, col in ((0, 0.60, 0.14, 120), (1, 0.68, 0.08, 255)):
             pts = [(0, H)]
             x = 0
             y = base * H
@@ -177,7 +209,7 @@ class NightSky:
             if len(ys) == 0:
                 continue
             y = ys[0] + rng.uniform(-6, 14)
-            h = rng.uniform(70, 170)
+            h = rng.uniform(60, 140)
             d.rectangle([x - h * 0.03, y - h * 0.3, x + h * 0.03, y + 10], fill=255)
             for k in range(4):
                 w = h * (0.13 + 0.08 * k)
@@ -213,7 +245,16 @@ class NightSky:
         dt = t - self.shoot_t
         if 0 <= dt < 1.1:
             img += self._shoot(dt)
-        # moon over the stars
+        # parallax cloud wisps over the stars
+        for y0, cn, speed in self.clouds:
+            sh = int(((t / T) * W * speed) % W)
+            c = np.roll(cn, sh, axis=1)[:, :, None]
+            reg = img[y0: y0 + cn.shape[0]]
+            img[y0: y0 + cn.shape[0]] = reg * (1 - c) + self.cloud_col * c
+        # moon with breathing glow
+        grgb, galpha = self.moon_glow
+        breathe = 0.85 + 0.15 * math.sin(2 * math.pi * self.breath_k * t / T)
+        img = img * (1 - galpha * breathe) + grgb * breathe
         mrgb, malpha = self.moon_rgb
         img = img * (1 - malpha) + mrgb
         # fog (drifts the other way)
@@ -225,8 +266,51 @@ class NightSky:
         # foreground
         img = img * (1 - self.fg_mask) + self.fg_rgb * self.fg_mask
         img = img + fog_full[:, :, None] * self.fog_col[None, None, :] * (0.4 + 0.6 * self.fg_mask)
+        # lake: rippling reflection of the band just above the shoreline
+        # mirror of the shoreline band + the drifting stars "in the water" + a moonlight path
+        src = img[self.lake_y - self.lake_h: self.lake_y][::-1] * 0.6 + sky_layer[: self.lake_h][::-1] * 0.9
+        shift = np.rint(self.ripple_amp * np.sin(self.ripple_phase + 2 * np.pi * self.ripple_k * t / T)).astype(np.int32)
+        idx = (self.xidx + shift) % W
+        refl = np.take_along_axis(src, idx[:, :, None], axis=1)
+        shimmer = 0.8 + 0.2 * np.sin(self.ripple_phase * 1.7 + 2 * np.pi * (self.ripple_k + 3) * t / T)
+        path = self.moon_path * shimmer[:, :, None] if False else self.moon_path * shimmer[:, :, None]
+        img[self.lake_y:] = self.lake_col * (1 - self.lake_fade) + refl * self.lake_fade + path
+        # shoreline: thin soft highlight
+        img[self.lake_y: self.lake_y + 2] = img[self.lake_y: self.lake_y + 2] * 0.6 + np.array([60, 60, 100], np.float32) * 0.4
         img *= self.vig
-        return np.clip(img, 0, 255).astype(np.uint8)
+        out = np.clip(img, 0, 255).astype(np.uint8)
+        if self.mascot is not None:
+            out = self._mascot(out, t)
+        return out
+
+    def _mascot(self, frame_u8, t):
+        T = self.loop
+        pil = Image.fromarray(frame_u8)
+        # breathing: gentle scale around the bottom-centre
+        ph = 2 * math.pi * self.breath_k * t / T
+        sc = 1 + 0.035 * math.sin(ph)
+        size = int(round(self.mascot_size * sc))
+        m = self.mascot.resize((size, size), Image.LANCZOS)
+        x0, y0 = self.mascot_pos
+        px = x0 + (self.mascot_size - size) // 2
+        py = y0 + (self.mascot_size - size)
+        pil.alpha_composite(m, (px, py)) if pil.mode == "RGBA" else pil.paste(m, (px, py), m)
+        # zzz: three z's rising and fading one after another
+        layer = Image.new("RGBA", pil.size, (0, 0, 0, 0))
+        d = ImageDraw.Draw(layer)
+        cyc = (self.zzz_k * t / T) % 1.0
+        for k in range(3):
+            u = (cyc - k * 0.22) % 1.0
+            if u > 0.7:
+                continue
+            alpha = int(255 * math.sin(math.pi * u / 0.7))
+            zx = x0 + self.mascot_size * 0.80 + k * 26 + u * 40
+            zy = y0 + self.mascot_size * 0.28 - k * 28 - u * 70
+            sz = 0.6 + 0.4 * (k / 2)
+            fnt = self.font_z if k == 2 else font(int(54 * (0.65 + 0.2 * k)), "Bold")
+            d.text((zx, zy), "z", font=fnt, fill=(255, 236, 180, alpha))
+        pil = Image.alpha_composite(pil.convert("RGBA"), layer).convert("RGB")
+        return np.asarray(pil)
 
     def _shoot(self, dt):
         x0, y0, x1, y1 = self.shoot
@@ -248,7 +332,9 @@ SCENES = {"night_sky": NightSky}
 
 
 def thumbnail(scene, path, title, sub):
+    m0, scene.mascot = scene.mascot, None  # scene without the small mascot; the big one goes on the right
     fr = Image.fromarray(scene.frame(scene.loop * 0.37)).resize((1280, 720), Image.LANCZOS)
+    scene.mascot = m0
     d = ImageDraw.Draw(fr, "RGBA")
     d.rectangle([0, 430, 1280, 720], fill=(0, 0, 0, 0))
     f1, f2 = font(92, "Bold"), font(40, "Medium")
@@ -256,6 +342,9 @@ def thumbnail(scene, path, title, sub):
         d.text((70 + dx, 470 + dy), title, font=f1, fill=(0, 0, 0, 180))
     d.text((70, 470), title, font=f1, fill=(255, 240, 215))
     d.text((74, 585), sub, font=f2, fill=(200, 200, 230))
+    if scene.mascot is not None:
+        m = scene.mascot.resize((460, 460), Image.LANCZOS)
+        fr.paste(m, (1280 - 470, 30), m)
     fr.save(path, quality=92)
 
 
