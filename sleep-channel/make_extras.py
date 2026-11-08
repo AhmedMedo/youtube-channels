@@ -10,6 +10,7 @@ Inputs expected in --episode-dir (as render_scene.py writes them):
 Outputs:
     <base>_short.mp4          1080x1920, 45 s, scene strip + big mascot + title, audio from --short-start
     <base>_blackscreen.mp4    full length, black video (tiny file), same music
+    <base>_blackscreen_thumb.jpg  thumbnail for the black-screen upload
     <base>_pin.jpg            1000x1500 Pinterest image
 """
 import argparse
@@ -76,6 +77,25 @@ def make_blackscreen(ep, base, duration):
     return out
 
 
+def make_blackscreen_thumb(ep, base, title, hours):
+    """Dark variant of the episode thumbnail with a BLACK SCREEN badge."""
+    from PIL import ImageEnhance
+    # the episode thumbnail is already rendered without the small mascot; erase its title, then darken
+    im = Image.open(os.path.join(ep, f"{base}_thumb.jpg")).convert("RGB").resize((1280, 720), Image.LANCZOS)
+    ImageDraw.Draw(im).rectangle([60, 460, 800, 650], fill=(8, 8, 16))
+    im = ImageEnhance.Brightness(im).enhance(0.35)
+    m = Image.open(MASCOT).convert("RGBA").resize((460, 460), Image.LANCZOS)
+    im.paste(m, (1280 - 470, 30), m)
+    d = ImageDraw.Draw(im, "RGBA")
+    d.rounded_rectangle([66, 370, 470, 440], radius=14, fill=(0, 0, 0, 230), outline=(255, 236, 180, 255), width=3)
+    d.text((88, 380), "BLACK SCREEN", font=font(44), fill=(255, 236, 180))
+    d.text((70, 470), title, font=font(92), fill=(255, 240, 215))
+    d.text((74, 585), f"{hours} Hour{'s' if hours > 1 else ''} · Sleep Music · Screen Off", font=font(40, "Medium"), fill=(200, 200, 230))
+    out = os.path.join(ep, f"{base}_blackscreen_thumb.jpg")
+    im.save(out, quality=92)
+    return out
+
+
 def make_pin(ep, base, title, hours):
     still = Image.open(os.path.join(ep, f"{base}_still.png")).convert("RGB")
     # 1000x1500: scene crop (top), dark panel with mascot + title (bottom)
@@ -113,4 +133,5 @@ if __name__ == "__main__":
     a = ap.parse_args()
     print(make_short(a.episode_dir, a.base, a.title, a.hours, a.short_start))
     print(make_blackscreen(a.episode_dir, a.base, a.hours * 3600))
+    print(make_blackscreen_thumb(a.episode_dir, a.base, a.title, a.hours))
     print(make_pin(a.episode_dir, a.base, a.title, a.hours))
