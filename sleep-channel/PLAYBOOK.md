@@ -47,6 +47,8 @@ ffmpeg -y -i video_loop.mp4 -c:v libx264 -crf 29 -preset medium -tune stillimage
 ffmpeg -y -stream_loop $((LOOPS-1)) -i loop_small.mp4 -i video.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 128k -t $DURATION -movflags +faststart final.mp4
 ```
 (1 h ≈ 336 MB at crf 29. For 2 h+ use crf 31–33 or deliver in parts.)
+Measured on ep002 (2 h, 180 s loop, 128k audio): crf 31 → ~549 MiB, crf 34 → ~422 MiB, **crf 36 → 367 MiB** (used; still looks clean on the night sky). Audio alone is ~110 MiB per 2 h, so check `loop_size × loops + audio` before remuxing.
+`brand/out/` is not in git: on a fresh clone run `cd brand && python3 final_brand.py out` before `make_extras.py` (it needs `driftlight_character_rgba.png`). The `render_scene.py` thumbnail has no mascot — composite it in (ep002: 250 px at x=1005,y=440 on the 1280×720 thumb).
 Rendering must be polled in the foreground (sleep + tail the log); a background process left alone is killed within minutes.
 
 ## Still to do
