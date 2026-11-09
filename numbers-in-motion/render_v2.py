@@ -555,6 +555,41 @@ class Renderer:
             y += f.size + 34
         return img
 
+def overlay_text_block(img, lines, k, box=True):
+    """lines: [(text, font, color)]; centered block with dark plate; k = opacity 0..1"""
+    if k <= 0.01:
+        return img
+    d0 = ImageDraw.Draw(img)
+    widths, heights = [], []
+    wrapped = []
+    for text, f, col in lines:
+        words, cur, out = text.split(), "", []
+        for w_ in words:
+            t = (cur + " " + w_).strip()
+            if d0.textlength(t, font=f) <= W - 140 or not cur:
+                cur = t
+            else:
+                out.append(cur); cur = w_
+        if cur:
+            out.append(cur)
+        for ln in out:
+            wrapped.append((ln, f, col))
+    total = sum(f.size * 1.18 for _, f, _ in wrapped)
+    maxw = max(d0.textlength(t, font=f) for t, f, _ in wrapped)
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ld = ImageDraw.Draw(layer)
+    y = H * 0.42 - total / 2
+    if box:
+        ld.rounded_rectangle([(W - maxw) / 2 - 50, y - 40, (W + maxw) / 2 + 50, y + total + 30], radius=36,
+                             fill=(10, 11, 16, int(235 * k)))
+    for t, f, col in wrapped:
+        tw = ld.textlength(t, font=f)
+        ld.text(((W - tw) / 2, y), t, font=f, fill=col + (int(255 * k),))
+        y += f.size * 1.18
+    base = img.convert("RGBA")
+    base.alpha_composite(layer)
+    return base.convert("RGB")
+
 
 # ----------------------------------------------------------------------------- main
 def main():
@@ -578,6 +613,12 @@ def main():
     ap.add_argument("--question-secs", type=float, default=4.0)
     ap.add_argument("--outro", type=float, default=4.0)
     ap.add_argument("--prefix", default="")
+    ap.add_argument("--start-year", type=float, default=None, help="skip frames before this year")
+    ap.add_argument("--hook", default="", help="Shorts v2: huge centered question over the race for the first seconds")
+    ap.add_argument("--hook-secs", type=float, default=2.2)
+    ap.add_argument("--reveal", action="store_true", help="Shorts v2: big '#1 is ...' reveal + comment CTA outro")
+    ap.add_argument("--cta", default="Comment your country ↓")
+    ap.add_argument("--reveal-text", default="", help="custom reveal lines separated by | (2nd line is the big one)")
     ap.add_argument("--podium-ranks", type=int, default=3, help="overtakes into these top ranks count as big moments")
     a = ap.parse_args()
     global W, H
@@ -612,9 +653,23 @@ def main():
             push(r.card([(a.title, F_Q, FG), (a.subtitle, F_Q2, MUTED)], i / n))
     r.sfx_events.append((fi, "whoosh", 0.8))
     frames = list(interpolate(s, step_frames))
+    if a.start_year is not None:
+        frames = [f_ for f_ in frames if f_[0] >= a.start_year]
+        r.fired_events.update(yr for yr, _ in r.events if yr < a.start_year)
+        v0 = frames[0][1]
+        order0 = sorted(range(len(s.entities)), key=lambda k: -np.nan_to_num(v0[k], nan=-1))
+        for rk, k in enumerate(order0):
+            r.pos[s.entities[k]] = rk if rk < r.top else r.top + 1.5
+    F_HOOK = font(118 if a.vertical else 110, "Black") if os.path.exists(os.path.join(FONT_DIR, "Inter-Black.otf")) else font(118, "Bold")
     last = None
     for i, (year, vals) in enumerate(frames):
-        push(r.frame(fi, year, vals, alpha=min(1.0, i / (fps * 0.5))))
+        img = r.frame(fi, year, vals, alpha=1.0 if a.hook else min(1.0, i / (fps * 0.5)))
+        if a.hook:
+            t_ = i / fps
+            k = 1.0 if t_ < a.hook_secs - 0.35 else max(0.0, (a.hook_secs - t_) / 0.35)
+            if k > 0:
+                img = overlay_text_block(img, [(a.hook, F_HOOK, (255, 209, 64))], k)
+        push(img)
         last = (year, vals)
         if i % (fps * 5) == 0:
             print(f"  {i}/{len(frames)} year={year:.1f}", flush=True)
@@ -622,6 +677,22 @@ def main():
     final_rank = sorted(range(len(s.entities)), key=lambda k: -np.nan_to_num(last[1][k], nan=-1))
     r.sfx_events.append((fi, "fanfare", 0.8))
     reveal = "Did you guess right? Tell us below ↓"
+    if a.reveal:
+        top1 = s.entities[final_rank[0]]
+        F_R1, F_R2 = font(64, "Bold"), font(120, "Bold")
+        for i in range(int(fps * a.outro)):
+            img = r.frame(fi, *last)
+            k = min(1.0, i / (fps * 0.25))
+            if a.reveal_text:
+                parts = a.reveal_text.split("|")
+                lines = [(t_, F_R2 if j == 1 else F_R1, (255, 209, 64) if j == 1 else (230, 230, 235))
+                         for j, t_ in enumerate(parts)]
+            else:
+                lines = [(f"#1 in {int(last[0])}:", F_R1, (230, 230, 235)),
+                         (short(top1).upper(), F_R2, (255, 209, 64))]
+            img = overlay_text_block(img, lines + [(a.cta, F_R1, (230, 230, 235))], k)
+            push(img)
+        a.outro = 0
     for i in range(int(fps * a.outro)):
         img = r.frame(fi, *last)
         d = ImageDraw.Draw(img)

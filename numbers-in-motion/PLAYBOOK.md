@@ -17,8 +17,8 @@ He is busy and dislikes slow polishing loops: ship good-enough fast, flag issues
 |---|---|---|---|
 | 1 | Most populous countries 1952–2007 | youtu.be/qu2fFubfuw4 | shorts/UCvmSYu-_6c |
 | 2 | USA vs China GDP 1960–2024 | youtu.be/MN99yzjSa5Y | shorts/jR2Aca42xcI |
-| 3 | Richest countries per person 1960–2024 | youtu.be/k_mEu5f5vz0 (sched. 10 Nov 2026) | shorts/wg9tOlzGIM4 (sched.) |
-| 4 | Biggest military budgets 1960–2023 (for Sat 14 Nov 2026) | rendered, NOT uploaded (Chrome not selected) | rendered, NOT uploaded |
+| 3 | Richest countries per person 1960–2024 | youtu.be/k_mEu5f5vz0 (PRIVATE — pulled 9 Nov, old format) | shorts/wg9tOlzGIM4 (PRIVATE) |
+| 4 | Biggest military budgets 1960–2023 (8:30 long + Shorts v2) | delivered to Ahmed 9 Nov, awaiting upload | delivered, awaiting upload |
 
 **Slot rule (overrides the run prompt's Wed→Sat / Sun→Tue mapping):** before producing, check YouTube Studio
 (Content tab, scheduled items) and the table above. If the target slot already has a scheduled or published long video,
@@ -42,6 +42,22 @@ Append each finished topic to the table above and commit.
   `entity,group,year,value`. Verify a few values against the browser before rendering.
 - Filters used so far: drop aggregates (World, regions, income groups), territories (HKG, MAC, BMU…), countries < 500k pop.
 - Events CSV (`data/<topic>_events.csv`, columns `year,label`) adds on-screen history cards (e.g. 1973 oil crisis, 2008 crisis).
+
+## Shorts v2 format (from 9 Nov 2026 — MANDATORY for every Short)
+First Shorts had ~50% "stayed to watch" (target 70–80%+): the opening was slow (started at the earliest, dullest year,
+question in small text). Every Short now uses:
+```bash
+python3 render_v2.py --csv data/X.csv --vertical --title "..." --subtitle "... · Top 10" --source "..." \
+  --start-year <a year where things already move> --seconds-per-step 0.5 \
+  --hook "SHORT BIG QUESTION?" --hook-secs 2.2 \
+  --reveal --reveal-text "line|BIG PAYOFF|line" --outro 3.5 --prefix '$' --podium-ranks 2 --out out/X_short.mp4
+```
+- Length 18–25 s. No `--events` in Shorts (tickers overlap at fast pace).
+- Hook = rivalry/curiosity question, ≤ 6 words, no emoji (font can't render them). Payoff = one surprising, VERIFIED fact
+  (e.g. "USA spends more than THE NEXT 9 countries COMBINED" — check the arithmetic in the data first).
+- Topics with obvious rivalry win (USA vs China, Messi vs Ronaldo, iPhone vs Samsung).
+- Data sanity: before rendering, list every entity that ever reaches the top 10 and eyeball jumps; drop broken
+  exchange-rate series (Myanmar 1989–2011 in military data was ~10× too high).
 
 ## Render
 ```bash
