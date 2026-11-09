@@ -494,7 +494,7 @@ class Renderer:
             fade = 1.0 if self.pos[e] < self.top - 0.5 else max(0.0, self.top + 0.6 - self.pos[e])
             mixc = lambda c: tuple(int(BG[i] + (c[i] - BG[i]) * fade) for i in range(3))
             tgt_e = rank[e] if rank[e] < self.top else self.top + 1.5
-            tfade = fade * max(0.25, min(1.0, 1 - (abs(self.pos[e] - tgt_e) - 0.12) * 2.2))
+            tfade = fade * max(0.0, min(1.0, 1 - (abs(self.pos[e] - tgt_e) - 0.08) * 3.2))
             mixt = lambda c: tuple(int(BG[i] + (c[i] - BG[i]) * tfade) for i in range(3))
             d.rounded_rectangle([self.cl, y, max(self.cl + self.bar_h, x1), y + self.bar_h],
                                 radius=int(self.bar_h / 2), fill=mixc(self.colors[e]))
@@ -644,6 +644,11 @@ def stack_scene(r, a, last, final_rank, fi0):
         d.text((xl + colw / 2 - d.textlength(nm, font=F_MID) / 2, base_y + (150 if vert else 120)), nm, font=F_MID, fill=FG)
         lt = fmt(lv * g, a.prefix)
         d.text((xl + colw / 2 - d.textlength(lt, font=F_MID) / 2, base_y - h - 74), lt, font=F_MID, fill=FG)
+        # dashed line at the lead's height
+        if g >= 1:
+            yy = base_y - lv * sc
+            for xx in range(int(xl), int(xr), 28):
+                d.line([(xx, yy), (xx + 14, yy)], fill=(255, 255, 255), width=3)
         # stacked column: segments drop in from above
         y = base_y
         shown = 0.0
@@ -661,35 +666,34 @@ def stack_scene(r, a, last, final_rank, fi0):
                 f2 = load_flag(e, fd)
                 if f2 is not None:
                     img.paste(f2, (int(xr + 12), int(top_ + (sh - fd) / 2)), f2)
-                lbl = short(e)
-                if sh > 46 and d.textlength(lbl, font=F_SM) < colw - fd - 30:
-                    d.text((xr + fd + 24, top_ + sh / 2 - F_SM.size * 0.6), lbl, font=F_SM, fill=(15, 16, 20))
+            lbl = short(e)
+            if sh > 46 and d.textlength(lbl, font=F_SM) < colw - (fd if sh > 46 else 0) - 30:
+                d.text((xr + fd + 24, top_ + sh / 2 - F_SM.size * 0.6), lbl, font=F_SM, fill=(15, 16, 20))
+            else:  # thin or long-named segment: label outside, right of the column
+                F_T = font(30 if vert else 26, "SemiBold")
+                lbl = "Saudi" if lbl == "Saudi Arabia" else lbl
+                d.text((xr + colw + 14, top_ + sh / 2 - F_T.size * 0.6), lbl, font=F_T, fill=FG)
             y -= sh
             shown += v(e) * (1 if k >= 1 else k)
-        if shown > 0:
+        if t >= t_drop0 + t_gap * len(rest) + 0.3:
             tt = fmt(shown, a.prefix)
             d.text((xr + colw / 2 - d.textlength(tt, font=F_MID) / 2, y - 74), tt, font=F_MID,
                    fill=(255, 209, 64) if shown > lv else FG)
         lab = a.stack_label or f"Next {len(rest)}"
         d.text((xr + colw / 2 - d.textlength(lab, font=F_MID) / 2, base_y + (150 if vert else 120)), lab, font=F_MID, fill=FG)
         d.text((xr + colw / 2 - d.textlength("combined", font=F_SM) / 2, base_y + (220 if vert else 180)), "combined", font=F_SM, fill=MUTED)
-        # dashed line at the lead's height
-        if g >= 1:
-            yy = base_y - lv * sc
-            for xx in range(int(xl), int(xr + colw), 28):
-                d.line([(xx, yy), (xx + 14, yy)], fill=(255, 255, 255), width=3)
         img_out = img
         if t >= t_text and lines:
             k = min(1.0, (t - t_text) / 0.25)
             F_R1 = font(54 if vert else 46, "Bold")
             tl = [(ln, F_BIG if j == 1 else F_R1, (255, 209, 64) if j == 1 else (235, 235, 240)) for j, ln in enumerate(lines)]
-            img_out = overlay_text_block(img, tl, k, box=False, cy=(300 if vert else 430), cx=(W / 2 if vert else W * 0.72),
-                                         maxw_=(W - 120 if vert else 900))
+            img_out = overlay_text_block(img, tl, k, box=False, cy=(300 if vert else 430), cx=(W / 2 if vert else W * 0.75),
+                                         maxw_=(W - 120 if vert else 760))
         if t >= t_text + 0.6 and a.cta:
             k = min(1.0, (t - t_text - 0.6) / 0.25)
-            img_out = overlay_text_block(img_out, [(a.cta, F_SM if not vert else F_MID, ACCENT)], k, box=False,
-                                         cy=(1830 if vert else 640), cx=(W / 2 if vert else W * 0.72),
-                                         maxw_=(W - 120 if vert else 900))
+            img_out = overlay_text_block(img_out, [(a.cta, F_MID, ACCENT)], k, box=False,
+                                         cy=(1830 if vert else 640), cx=(W / 2 if vert else W * 0.75),
+                                         maxw_=(W - 120 if vert else 760))
         yield img_out
     return
 
@@ -786,7 +790,7 @@ def main():
     hs = a.hook_size or (104 if a.vertical else 96)
     F_HOOK = font(hs, "Black") if os.path.exists(os.path.join(FONT_DIR, "Inter-Black.otf")) else font(hs, "Bold")
     # vertical: hook sits in the header band above the chart; horizontal: in the empty lower-right area
-    hook_pos = dict(cy=290, cx=W / 2, maxw_=W - 120) if a.vertical else dict(cy=H * 0.66, cx=W * 0.66, maxw_=980)
+    hook_pos = dict(cy=290, cx=W / 2, maxw_=W - 120) if a.vertical else dict(cy=H * 0.46, cx=W * 0.62, maxw_=980)
     last = None
     for i, (year, vals) in enumerate(frames):
         r.hide_header = bool(a.hook) and i / fps < a.hook_secs - 0.2
