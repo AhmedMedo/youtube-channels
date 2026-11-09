@@ -1,0 +1,1593 @@
+entity,group,year,value
+Argentina,Americas,1960,0
+Argentina,Americas,1961,0
+Argentina,Americas,1962,305162407
+Argentina,Americas,1963,242219771
+Argentina,Americas,1964,245740498
+Argentina,Americas,1965,252407603
+Argentina,Americas,1966,279225436
+Argentina,Americas,1967,251930719
+Argentina,Americas,1968,337142857
+Argentina,Americas,1969,442857143
+Argentina,Americas,1970,445713894
+Argentina,Americas,1971,519719484
+Argentina,Americas,1972,766000000
+Argentina,Americas,1973,1294000000
+Argentina,Americas,1974,1626000000
+Argentina,Americas,1975,798359535
+Argentina,Americas,1976,2050248959
+Argentina,Americas,1977,2058223942
+Argentina,Americas,1978,3103989947
+Argentina,Americas,1979,5057062803
+Argentina,Americas,1980,6477389013
+Argentina,Americas,1981,5882767126
+Argentina,Americas,1982,2279872697
+Argentina,Americas,1983,2848053181
+Argentina,Americas,1984,2527749815
+Argentina,Americas,1985,2027221261
+Argentina,Americas,1986,2449545721
+Argentina,Americas,1987,2485659656
+Argentina,Americas,1988,2696341658
+Argentina,Americas,1989,1440922190
+Argentina,Americas,1990,2050907629
+Argentina,Americas,1991,2858778842
+Argentina,Americas,1992,3254455192
+Argentina,Americas,1993,3368550452
+Argentina,Americas,1994,3754724687
+Argentina,Americas,1995,3801950488
+Argentina,Americas,1996,3379138770
+Argentina,Americas,1997,3340670335
+Argentina,Americas,1998,3398699350
+Argentina,Americas,1999,3461730865
+Argentina,Americas,2000,3266633317
+Argentina,Americas,2001,3183591796
+Argentina,Americas,2002,1114172483
+Argentina,Americas,2003,1374873734
+Argentina,Americas,2004,1465809188
+Argentina,Americas,2005,1699579152
+Argentina,Americas,2006,1847553130
+Argentina,Americas,2007,2296448242
+Argentina,Americas,2008,2788980205
+Argentina,Americas,2009,2981852290
+Argentina,Americas,2010,3475348407
+Argentina,Americas,2011,4051930105
+Argentina,Americas,2012,4563217859
+Argentina,Americas,2013,5137974301
+Argentina,Americas,2014,4979442724
+Argentina,Americas,2015,5482616701
+Argentina,Americas,2016,4509647660
+Argentina,Americas,2017,5459643672
+Argentina,Americas,2018,3842852365
+Argentina,Americas,2019,3132654926
+Argentina,Americas,2020,2830929705
+Argentina,Americas,2021,3073433323
+Argentina,Americas,2022,4338261310
+Argentina,Americas,2023,3121892360
+Australia,Oceania,1960,459760074
+Australia,Oceania,1961,470960075
+Australia,Oceania,1962,489440078
+Australia,Oceania,1963,553280089
+Australia,Oceania,1964,655760105
+Australia,Oceania,1965,787360126
+Australia,Oceania,1966,986720158
+Australia,Oceania,1967,1197840192
+Australia,Oceania,1968,1321600211
+Australia,Oceania,1969,1314880210
+Australia,Oceania,1970,1277360204
+Australia,Oceania,1971,1331754789
+Australia,Oceania,1972,1484443745
+Australia,Oceania,1973,1855729307
+Australia,Oceania,1974,2127274763
+Australia,Oceania,1975,2268707674
+Australia,Oceania,1976,2441084025
+Australia,Oceania,1977,2500485127
+Australia,Oceania,1978,2816316206
+Australia,Oceania,1979,3100685079
+Australia,Oceania,1980,3657867290
+Australia,Oceania,1981,4323644157
+Australia,Oceania,1982,4459544582
+Australia,Oceania,1983,4511671066
+Australia,Oceania,1984,4925319433
+Australia,Oceania,1985,4386859326
+Australia,Oceania,1986,4606710028
+Australia,Oceania,1987,5057135655
+Australia,Oceania,1988,5836347868
+Australia,Oceania,1989,6300015815
+Australia,Oceania,1990,6704213698
+Australia,Oceania,1991,7023509067
+Australia,Oceania,1992,6882091580
+Australia,Oceania,1993,6733829290
+Australia,Oceania,1994,7459696582
+Australia,Oceania,1995,7665878446
+Australia,Oceania,1996,8202776517
+Australia,Oceania,1997,7936884917
+Australia,Oceania,1998,7107542891
+Australia,Oceania,1999,7770250653
+Australia,Oceania,2000,7273760313
+Australia,Oceania,2001,7043145895
+Australia,Oceania,2002,7946766202
+Australia,Oceania,2003,9926649415
+Australia,Oceania,2004,11995219710
+Australia,Oceania,2005,13237798499
+Australia,Oceania,2006,14239779513
+Australia,Oceania,2007,17186440962
+Australia,Oceania,2008,18633092318
+Australia,Oceania,2009,18960138513
+Australia,Oceania,2010,23217692816
+Australia,Oceania,2011,26597198655
+Australia,Oceania,2012,26216580848
+Australia,Oceania,2013,24825262589
+Australia,Oceania,2014,25783708714
+Australia,Oceania,2015,24046205860
+Australia,Oceania,2016,26382947050
+Australia,Oceania,2017,27691112417
+Australia,Oceania,2018,26839820914
+Australia,Oceania,2019,26079346314
+Australia,Oceania,2020,27300894701
+Australia,Oceania,2021,32718066817
+Australia,Oceania,2022,32445330432
+Australia,Oceania,2023,32340013665
+Belgium,Europe,1960,383220247
+Belgium,Europe,1961,391218827
+Belgium,Europe,1962,422220788
+Belgium,Europe,1963,444601322
+Belgium,Europe,1964,497059227
+Belgium,Europe,1965,500722083
+Belgium,Europe,1966,563377895
+Belgium,Europe,1967,607918707
+Belgium,Europe,1968,646381115
+Belgium,Europe,1969,675078864
+Belgium,Europe,1970,747755089
+Belgium,Europe,1971,828721558
+Belgium,Europe,1972,1026588091
+Belgium,Europe,1973,1296519775
+Belgium,Europe,1974,1482318436
+Belgium,Europe,1975,1927662478
+Belgium,Europe,1976,2109619988
+Belgium,Europe,1977,2496513862
+Belgium,Europe,1978,3166647025
+Belgium,Europe,1979,3631580468
+Belgium,Europe,1980,3958575327
+Belgium,Europe,1981,3385176171
+Belgium,Europe,1982,2891774968
+Belgium,Europe,1983,2671831608
+Belgium,Europe,1984,2407447484
+Belgium,Europe,1985,2428223977
+Belgium,Europe,1986,3404311038
+Belgium,Europe,1987,4162992929
+Belgium,Europe,1988,4097149308
+Belgium,Europe,1989,3880733006
+Belgium,Europe,1990,4644324241
+Belgium,Europe,1991,4624500746
+Belgium,Europe,1992,4131298112
+Belgium,Europe,1993,3746042851
+Belgium,Europe,1994,3944101813
+Belgium,Europe,1995,4449014835
+Belgium,Europe,1996,4241865968
+Belgium,Europe,1997,3684095389
+Belgium,Europe,1998,3664288413
+Belgium,Europe,1999,3598447520
+Belgium,Europe,2000,3190805233
+Belgium,Europe,2001,3036035472
+Belgium,Europe,2002,3147146017
+Belgium,Europe,2003,3875697772
+Belgium,Europe,2004,4262663513
+Belgium,Europe,2005,4228224643
+Belgium,Europe,2006,4307895341
+Belgium,Europe,2007,5163979974
+Belgium,Europe,2008,6295821584
+Belgium,Europe,2009,5620670063
+Belgium,Europe,2010,5244720513
+Belgium,Europe,2011,5499370964
+Belgium,Europe,2012,5168997834
+Belgium,Europe,2013,5263164883
+Belgium,Europe,2014,5191507315
+Belgium,Europe,2015,4202062770
+Belgium,Europe,2016,4255489555
+Belgium,Europe,2017,4432808396
+Belgium,Europe,2018,4840126058
+Belgium,Europe,2019,4761195701
+Belgium,Europe,2020,5317451271
+Belgium,Europe,2021,6239356670
+Belgium,Europe,2022,6890161300
+Belgium,Europe,2023,7629396589
+Brazil,Americas,1960,382729752
+Brazil,Americas,1961,342339721
+Brazil,Americas,1962,387449036
+Brazil,Americas,1963,441999606
+Brazil,Americas,1964,354227857
+Brazil,Americas,1965,632869027
+Brazil,Americas,1966,718216575
+Brazil,Americas,1967,746139164
+Brazil,Americas,1968,755307567
+Brazil,Americas,1969,816622811
+Brazil,Americas,1970,1026234374
+Brazil,Americas,1971,1075071453
+Brazil,Americas,1972,1195501488
+Brazil,Americas,1973,1512670977
+Brazil,Americas,1974,1790114213
+Brazil,Americas,1975,2141126693
+Brazil,Americas,1976,2576476982
+Brazil,Americas,1977,2499644658
+Brazil,Americas,1978,2690623102
+Brazil,Americas,1979,2829161200
+Brazil,Americas,1980,2259307479
+Brazil,Americas,1981,2517859757
+Brazil,Americas,1982,3031328924
+Brazil,Americas,1983,2082669251
+Brazil,Americas,1984,2013151758
+Brazil,Americas,1985,2687049984
+Brazil,Americas,1986,2758186568
+Brazil,Americas,1987,4323674770
+Brazil,Americas,1988,5874167753
+Brazil,Americas,1989,8761486966
+Brazil,Americas,1990,9236296955
+Brazil,Americas,1991,6694665295
+Brazil,Americas,1992,4993804467
+Brazil,Americas,1993,7099899155
+Brazil,Americas,1994,10591499118
+Brazil,Americas,1995,14318919608
+Brazil,Americas,1996,14073226545
+Brazil,Americas,1997,13934266552
+Brazil,Americas,1998,14357357047
+Brazil,Americas,1999,9866973919
+Brazil,Americas,2000,11344032535
+Brazil,Americas,2001,10930231568
+Brazil,Americas,2002,9664561903
+Brazil,Americas,2003,8392905884
+Brazil,Americas,2004,9780111585
+Brazil,Americas,2005,13588619736
+Brazil,Americas,2006,16404867307
+Brazil,Americas,2007,20485758015
+Brazil,Americas,2008,24452903036
+Brazil,Americas,2009,25648809911
+Brazil,Americas,2010,34002944470
+Brazil,Americas,2011,36936209896
+Brazil,Americas,2012,33987005074
+Brazil,Americas,2013,32874787231
+Brazil,Americas,2014,32660239369
+Brazil,Americas,2015,24617701683
+Brazil,Americas,2016,24224746901
+Brazil,Americas,2017,29261833097
+Brazil,Americas,2018,28177406872
+Brazil,Americas,2019,25906871197
+Brazil,Americas,2020,19591209004
+Brazil,Americas,2021,19187122475
+Brazil,Americas,2022,20542063567
+Brazil,Americas,2023,22887482838
+Canada,Americas,1960,1702442711
+Canada,Americas,1961,1677820881
+Canada,Americas,1962,1671313753
+Canada,Americas,1963,1610091701
+Canada,Americas,1964,1657457283
+Canada,Americas,1965,1574704540
+Canada,Americas,1966,1614422827
+Canada,Americas,1967,1775500366
+Canada,Americas,1968,1797265817
+Canada,Americas,1969,1770108751
+Canada,Americas,1970,1889157918
+Canada,Americas,1971,2077659711
+Canada,Americas,1972,2233737031
+Canada,Americas,1973,2363060955
+Canada,Americas,1974,2809465529
+Canada,Americas,1975,3180915490
+Canada,Americas,1976,3581805735
+Canada,Americas,1977,3752174526
+Canada,Americas,1978,3969158477
+Canada,Americas,1979,4084145738
+Canada,Americas,1980,4744402251
+Canada,Americas,1981,5141128191
+Canada,Americas,1982,6017321456
+Canada,Americas,1983,6947104072
+Canada,Americas,1984,7349795764
+Canada,Americas,1985,7460563318
+Canada,Americas,1986,7780136740
+Canada,Americas,1987,8694447168
+Canada,Americas,1988,9897335684
+Canada,Americas,1989,10747134689
+Canada,Americas,1990,11414631847
+Canada,Americas,1991,11338503299
+Canada,Americas,1992,10788803124
+Canada,Americas,1993,10268822622
+Canada,Americas,1994,9577377640
+Canada,Americas,1995,9176903908
+Canada,Americas,1996,8615884471
+Canada,Americas,1997,7945140183
+Canada,Americas,1998,7748607984
+Canada,Americas,1999,8210778540
+Canada,Americas,2000,8299385231
+Canada,Americas,2001,8375571425
+Canada,Americas,2002,8495399281
+Canada,Americas,2003,9958245602
+Canada,Americas,2004,11336489831
+Canada,Americas,2005,12988132964
+Canada,Americas,2006,14809892803
+Canada,Americas,2007,17417139931
+Canada,Americas,2008,19342058405
+Canada,Americas,2009,18936226052
+Canada,Americas,2010,19315688825
+Canada,Americas,2011,21393720864
+Canada,Americas,2012,20452107111
+Canada,Americas,2013,18515731210
+Canada,Americas,2014,17853640478
+Canada,Americas,2015,17937641895
+Canada,Americas,2016,17782775543
+Canada,Americas,2017,22269696323
+Canada,Americas,2018,22729327580
+Canada,Americas,2019,22394875659
+Canada,Americas,2020,23082774049
+Canada,Americas,2021,25362240829
+Canada,Americas,2022,25567943876
+Canada,Americas,2023,27221543361
+China,Asia,1989,11251332630
+China,Asia,1990,9926349251
+China,Asia,1991,9802375366
+China,Asia,1992,12244267842
+China,Asia,1993,12360225861
+China,Asia,1994,9867120066
+China,Asia,1995,12385129475
+China,Asia,1996,14275400820
+China,Asia,1997,15699586769
+China,Asia,1998,17031780200
+China,Asia,1999,20473915095
+China,Asia,2000,22237140151
+China,Asia,2001,26561462998
+China,Asia,2002,30284127410
+China,Asia,2003,33144000481
+China,Asia,2004,37904571827
+China,Asia,2005,42789953651
+China,Asia,2006,51453373234
+China,Asia,2007,62136590755
+China,Asia,2008,78840802820
+China,Asia,2009,96601666753
+China,Asia,2010,105522648102
+China,Asia,2011,125286373164
+China,Asia,2012,145127609596
+China,Asia,2013,164070469322
+China,Asia,2014,182109204619
+China,Asia,2015,196538827231
+China,Asia,2016,198538361428
+China,Asia,2017,210443034741
+China,Asia,2018,232530595985
+China,Asia,2019,240332555458
+China,Asia,2020,257973429834
+China,Asia,2021,285930518056
+China,Asia,2022,291958428460
+China,Asia,2023,296438564343
+Egypt,Middle East,1962,249697767
+Egypt,Middle East,1963,335799698
+Egypt,Middle East,1964,448499596
+Egypt,Middle East,1965,515199536
+Egypt,Middle East,1966,481849566
+Egypt,Middle East,1967,508299543
+Egypt,Middle East,1968,648599416
+Egypt,Middle East,1969,888949200
+Egypt,Middle East,1970,1092499017
+Egypt,Middle East,1971,1266148860
+Egypt,Middle East,1972,1066049041
+Egypt,Middle East,1973,1243856105
+Egypt,Middle East,1974,1852779425
+Egypt,Middle East,1975,1926890602
+Egypt,Middle East,1976,2201613068
+Egypt,Middle East,1977,2751058001
+Egypt,Middle East,1978,2485279987
+Egypt,Middle East,1979,1152855496
+Egypt,Middle East,1980,1361426627
+Egypt,Middle East,1981,1817140261
+Egypt,Middle East,1982,2307139561
+Egypt,Middle East,1983,3004281422
+Egypt,Middle East,1984,3742137511
+Egypt,Middle East,1985,4203565423
+Egypt,Middle East,1986,4727136104
+Egypt,Middle East,1987,4805707420
+Egypt,Middle East,1988,4453565066
+Egypt,Middle East,1989,3516344801
+Egypt,Middle East,1990,2260645161
+Egypt,Middle East,1991,1345757343
+Egypt,Middle East,1992,1415819974
+Egypt,Middle East,1993,1526165392
+Egypt,Middle East,1994,1714409786
+Egypt,Middle East,1995,1948876986
+Egypt,Middle East,1996,2115742979
+Egypt,Middle East,1997,2267650314
+Egypt,Middle East,1998,2372048406
+Egypt,Middle East,1999,2447978794
+Egypt,Middle East,2000,2627698334
+Egypt,Middle East,2001,2834256230
+Egypt,Middle East,2002,2902768425
+Egypt,Middle East,2003,2383914898
+Egypt,Middle East,2004,2369743586
+Egypt,Middle East,2005,2659439714
+Egypt,Middle East,2006,2952520159
+Egypt,Middle East,2007,3306908257
+Egypt,Middle East,2008,3779880350
+Egypt,Middle East,2009,4017404478
+Egypt,Middle East,2010,4407286453
+Egypt,Middle East,2011,4463974191
+Egypt,Middle East,2012,4557748767
+Egypt,Middle East,2013,4359834244
+Egypt,Middle East,2014,5085121576
+Egypt,Middle East,2015,5475490833
+Egypt,Middle East,2016,4513022527
+Egypt,Middle East,2017,2765588434
+Egypt,Middle East,2018,3119587364
+Egypt,Middle East,2019,3743671452
+Egypt,Middle East,2020,4505374644
+Egypt,Middle East,2021,5165445627
+Egypt,Middle East,2022,4645922048
+Egypt,Middle East,2023,3164630287
+France,Europe,1960,3260127992
+France,Europe,1961,3469940419
+France,Europe,1962,3774280041
+France,Europe,1963,3887455990
+France,Europe,1964,4130961168
+France,Europe,1965,4304458189
+France,Europe,1966,4548130770
+France,Europe,1967,4918985396
+France,Europe,1968,5148997849
+France,Europe,1969,4964005294
+France,Europe,1970,4941059320
+France,Europe,1971,5291990761
+France,Europe,1972,6326060061
+France,Europe,1973,7976535302
+France,Europe,1974,8361637313
+France,Europe,1975,10945218802
+France,Europe,1976,11175248198
+France,Europe,1977,12634633833
+France,Europe,1978,15852894823
+France,Europe,1979,19040482589
+France,Europe,1980,22198183002
+France,Europe,1981,20047753849
+France,Europe,1982,18918492344
+France,Europe,1983,18188520275
+France,Europe,1984,16977866455
+France,Europe,1985,17455151458
+France,Europe,1986,23901440137
+France,Europe,1987,29280470206
+France,Europe,1988,30327270741
+France,Europe,1989,29665454335
+France,Europe,1990,35774430325
+France,Europe,1991,35869120915
+France,Europe,1992,37902269821
+France,Europe,1993,35775273293
+France,Europe,1994,37288606060
+France,Europe,1995,40124024138
+France,Europe,1996,38977734096
+France,Europe,1997,34697904099
+France,Europe,1998,33633561283
+France,Europe,1999,32672714285
+France,Europe,2000,28403138949
+France,Europe,2001,27951566384
+France,Europe,2002,30578398933
+France,Europe,2003,38569115813
+France,Europe,2004,44524579613
+France,Europe,2005,44442050523
+France,Europe,2006,45792148416
+France,Europe,2007,50684467384
+France,Europe,2008,55365965845
+France,Europe,2009,56441455398
+France,Europe,2010,52044060565
+France,Europe,2011,54120871010
+France,Europe,2012,50216507403
+France,Europe,2013,52001462448
+France,Europe,2014,53134750899
+France,Europe,2015,45647471641
+France,Europe,2016,47370589553
+France,Europe,2017,49195662250
+France,Europe,2018,51409812839
+France,Europe,2019,50118929212
+France,Europe,2020,52747064858
+France,Europe,2021,56646996216
+France,Europe,2022,53638748769
+France,Europe,2023,61301290833
+Germany,Europe,1960,2715197280
+Germany,Europe,1961,3074753151
+Germany,Europe,1962,4055355090
+Germany,Europe,1963,4688620298
+Germany,Europe,1964,4601309875
+Germany,Europe,1965,4686319021
+Germany,Europe,1966,4766403436
+Germany,Europe,1967,5037954037
+Germany,Europe,1968,4544109352
+Germany,Europe,1969,5150518691
+Germany,Europe,1970,5805254072
+Germany,Europe,1971,6829977561
+Germany,Europe,1972,8478070554
+Germany,Europe,1973,11237904808
+Germany,Europe,1974,12965199627
+Germany,Europe,1975,14381443616
+Germany,Europe,1976,14549820055
+Germany,Europe,1977,16288883939
+Germany,Europe,1978,20159786212
+Germany,Europe,1979,23323130253
+Germany,Europe,1980,25125769752
+Germany,Europe,1981,21738730858
+Germany,Europe,1982,21037571076
+Germany,Europe,1983,20828212902
+Germany,Europe,1984,18943609976
+Germany,Europe,1985,18752463333
+Germany,Europe,1986,26065367271
+Germany,Europe,1987,32131496921
+Germany,Europe,1988,33036667269
+Germany,Europe,1989,31631605145
+Germany,Europe,1990,39834666880
+Germany,Europe,1991,37196729730
+Germany,Europe,1992,39502452271
+Germany,Europe,1993,35030537589
+Germany,Europe,1994,34197705640
+Germany,Europe,1995,38742699103
+Germany,Europe,1996,36701189772
+Germany,Europe,1997,31267710403
+Germany,Europe,1998,31200768078
+Germany,Europe,1999,30690158426
+Germany,Europe,2000,26497593164
+Germany,Europe,2001,25815401959
+Germany,Europe,2002,27611355672
+Germany,Europe,2003,32997363017
+Germany,Europe,2004,35776573894
+Germany,Europe,2005,30324965179
+Germany,Europe,2006,35883657973
+Germany,Europe,2007,40110859276
+Germany,Europe,2008,45098956312
+Germany,Europe,2009,44528927836
+Germany,Europe,2010,43025915012
+Germany,Europe,2011,45163212878
+Germany,Europe,2012,43798225349
+Germany,Europe,2013,44242647303
+Germany,Europe,2014,44662831168
+Germany,Europe,2015,38170021071
+Germany,Europe,2016,39909678594
+Germany,Europe,2017,42281112685
+Germany,Europe,2018,46497675956
+Germany,Europe,2019,49079444693
+Germany,Europe,2020,53318705118
+Germany,Europe,2021,56513126774
+Germany,Europe,2022,56153121240
+Germany,Europe,2023,66826634284
+India,Asia,1960,681765682
+India,Asia,1961,748388248
+India,Asia,1962,1065436065
+India,Asia,1963,1795449295
+India,Asia,1964,1986654487
+India,Asia,1965,2125989626
+India,Asia,1966,1661154906
+India,Asia,1967,1487733333
+India,Asia,1968,1586866667
+India,Asia,1969,1691433333
+India,Asia,1970,1832966667
+India,Asia,1971,2255256983
+India,Asia,1972,2497244706
+India,Asia,1973,2529921054
+India,Asia,1974,2895415720
+India,Asia,1975,3323646801
+India,Asia,1976,3294910612
+India,Asia,1977,3477080945
+India,Asia,1978,3975819130
+India,Asia,1979,4589738352
+India,Asia,1980,5420809519
+India,Asia,1981,5879007036
+India,Asia,1982,6302107956
+India,Asia,1983,6830768698
+India,Asia,1984,6956682449
+India,Asia,1985,7567024020
+India,Asia,1986,9539363086
+India,Asia,1987,10877406164
+India,Asia,1988,11346419153
+India,Asia,1989,10589796925
+India,Asia,1990,10537035450
+India,Asia,1991,8622473881
+India,Asia,1992,8083231410
+India,Asia,1993,8253542581
+India,Asia,1994,8880551226
+India,Asia,1995,9754464630
+India,Asia,1996,9904672736
+India,Asia,1997,11464883390
+India,Asia,1998,11920610818
+India,Asia,1999,13895562461
+India,Asia,2000,14287514241
+India,Asia,2001,14600642346
+India,Asia,2002,14749667252
+India,Asia,2003,16333986643
+India,Asia,2004,20238566527
+India,Asia,2005,23072312925
+India,Asia,2006,23951927958
+India,Asia,2007,28254773450
+India,Asia,2008,33002376727
+India,Asia,2009,38722154392
+India,Asia,2010,46090445657
+India,Asia,2011,49633815794
+India,Asia,2012,47216920048
+India,Asia,2013,47403528801
+India,Asia,2014,50914096277
+India,Asia,2015,51295483754
+India,Asia,2016,56637622641
+India,Asia,2017,64559435281
+India,Asia,2018,66257801718
+India,Asia,2019,71468900524
+India,Asia,2020,72937064048
+India,Asia,2021,76348538794
+India,Asia,2022,79976789328
+India,Asia,2023,83574568840
+Iran,Middle East,1960,98679868
+Iran,Middle East,1961,105940594
+Iran,Middle East,1962,109900990
+Iran,Middle East,1963,128712871
+Iran,Middle East,1964,155445545
+Iran,Middle East,1965,200000000
+Iran,Middle East,1966,256105611
+Iran,Middle East,1967,331023102
+Iran,Middle East,1968,437293729
+Iran,Middle East,1969,566006601
+Iran,Middle East,1970,620132013
+Iran,Middle East,1971,402310231
+Iran,Middle East,1972,371947195
+Iran,Middle East,1973,480857167
+Iran,Middle East,1974,3877862663
+Iran,Middle East,1975,5951043742
+Iran,Middle East,1976,7186307294
+Iran,Middle East,1977,7617207960
+Iran,Middle East,1978,8113739881
+Iran,Middle East,1979,4993779939
+Iran,Middle East,1980,4874889400
+Iran,Middle East,1981,8121567621
+Iran,Middle East,1982,9703525315
+Iran,Middle East,1983,10550357293
+Iran,Middle East,1984,9926303622
+Iran,Middle East,1985,10706415945
+Iran,Middle East,1986,11741433342
+Iran,Middle East,1987,15263376570
+Iran,Middle East,1988,18889008563
+Iran,Middle East,1989,16301812932
+Iran,Middle East,1990,16474401698
+Iran,Middle East,1991,17549594830
+Iran,Middle East,1992,19732558015
+Iran,Middle East,1993,1448177703
+Iran,Middle East,1994,1703171536
+Iran,Middle East,1995,2501544190
+Iran,Middle East,1996,3550986964
+Iran,Middle East,1997,4642384616
+Iran,Middle East,1998,5479362942
+Iran,Middle East,1999,6650285144
+Iran,Middle East,2000,8327053824
+Iran,Middle East,2001,10378791766
+Iran,Middle East,2002,3243891033
+Iran,Middle East,2003,3717068450
+Iran,Middle East,2004,5243621133
+Iran,Middle East,2005,6796744965
+Iran,Middle East,2006,8751474767
+Iran,Middle East,2007,9330901882
+Iran,Middle East,2008,11081950209
+Iran,Middle East,2009,12584623339
+Iran,Middle East,2010,13561272454
+Iran,Middle East,2011,14277667361
+Iran,Middle East,2012,16493963287
+Iran,Middle East,2013,11997186984
+Iran,Middle East,2014,9901118855
+Iran,Middle East,2015,10588769671
+Iran,Middle East,2016,12263957415
+Iran,Middle East,2017,13931196490
+Iran,Middle East,2018,11230852288
+Iran,Middle East,2019,4837949177
+Iran,Middle East,2020,3335715149
+Iran,Middle East,2021,5679960983
+Iran,Middle East,2022,7334035773
+Iran,Middle East,2023,10283084402
+Israel,Middle East,1960,190277778
+Israel,Middle East,1961,241805556
+Israel,Middle East,1962,210604174
+Israel,Middle East,1963,259250864
+Israel,Middle East,1964,278584262
+Israel,Middle East,1965,313917713
+Israel,Middle East,1966,375501252
+Israel,Middle East,1967,605514168
+Israel,Middle East,1968,690001971
+Israel,Middle East,1969,872002491
+Israel,Middle East,1970,1259646456
+Israel,Middle East,1971,1270657787
+Israel,Middle East,1972,1461373750
+Israel,Middle East,1973,2574504910
+Israel,Middle East,1974,3475602770
+Israel,Middle East,1975,3758315381
+Israel,Middle East,1976,3648665017
+Israel,Middle East,1977,3180556220
+Israel,Middle East,1978,3117508058
+Israel,Middle East,1979,3394518704
+Israel,Middle East,1980,4120814786
+Israel,Middle East,1981,4700103232
+Israel,Middle East,1982,4518481889
+Israel,Middle East,1983,4265358582
+Israel,Middle East,1984,4214300331
+Israel,Middle East,1985,4004517114
+Israel,Middle East,1986,4386224325
+Israel,Middle East,1987,5995553855
+Israel,Middle East,1988,6999574985
+Israel,Middle East,1989,5550710260
+Israel,Middle East,1990,6528767331
+Israel,Middle East,1991,9337649895
+Israel,Middle East,1992,7313388390
+Israel,Middle East,1993,7752806700
+Israel,Middle East,1994,7772187268
+Israel,Middle East,1995,7945971520
+Israel,Middle East,1996,8499441747
+Israel,Middle East,1997,8580697530
+Israel,Middle East,1998,8095647853
+Israel,Middle East,1999,7652604037
+Israel,Middle East,2000,8327543753
+Israel,Middle East,2001,8504274012
+Israel,Middle East,2002,7981518926
+Israel,Middle East,2003,8225281206
+Israel,Middle East,2004,8605125436
+Israel,Middle East,2005,8921942198
+Israel,Middle East,2006,9315253568
+Israel,Middle East,2007,11382202878
+Israel,Middle East,2008,13803713497
+Israel,Middle East,2009,12754237935
+Israel,Middle East,2010,13875211596
+Israel,Middle East,2011,15100066208
+Israel,Middle East,2012,14524419594
+Israel,Middle East,2013,16247825942
+Israel,Middle East,2014,17737375714
+Israel,Middle East,2015,16457098752
+Israel,Middle East,2016,17434558599
+Israel,Middle East,2017,19357002461
+Israel,Middle East,2018,19899819040
+Israel,Middle East,2019,20339225589
+Israel,Middle East,2020,21816569767
+Israel,Middle East,2021,24340979541
+Israel,Middle East,2022,23406074573
+Israel,Middle East,2023,27498527857
+Italy,Europe,1960,1009308856
+Italy,Europe,1961,1062907313
+Italy,Europe,1962,1222013656
+Italy,Europe,1963,1463283724
+Italy,Europe,1964,1586666708
+Italy,Europe,1965,1719942315
+Italy,Europe,1966,1904604599
+Italy,Europe,1967,1928786564
+Italy,Europe,1968,1991165044
+Italy,Europe,1969,2003805617
+Italy,Europe,1970,2216771793
+Italy,Europe,1971,2648079366
+Italy,Europe,1972,3289362465
+Italy,Europe,1973,3638240139
+Italy,Europe,1974,3890003394
+Italy,Europe,1975,4217069829
+Italy,Europe,1976,3844185965
+Italy,Europe,1977,4556493518
+Italy,Europe,1978,5540992658
+Italy,Europe,1979,6904107163
+Italy,Europe,1980,7915696626
+Italy,Europe,1981,7387713298
+Italy,Europe,1982,8062597403
+Italy,Europe,1983,8409527116
+Italy,Europe,1984,8296144788
+Italy,Europe,1985,8253390533
+Italy,Europe,1986,11941809156
+Italy,Europe,1987,15653065895
+Italy,Europe,1988,17403664790
+Italy,Europe,1989,17675486539
+Italy,Europe,1990,20734625579
+Italy,Europe,1991,21585706772
+Italy,Europe,1992,22177090390
+Italy,Europe,1993,18242013901
+Italy,Europe,1994,18062459082
+Italy,Europe,1995,17185853004
+Italy,Europe,1996,20793128832
+Italy,Europe,1997,20156102258
+Italy,Europe,1998,20825125352
+Italy,Europe,1999,21016456910
+Italy,Europe,2000,19878720932
+Italy,Europe,2001,19519381482
+Italy,Europe,2002,21610059762
+Italy,Europe,2003,26824213292
+Italy,Europe,2004,30261076655
+Italy,Europe,2005,29737642392
+Italy,Europe,2006,29633022263
+Italy,Europe,2007,31982431792
+Italy,Europe,2008,36839989746
+Italy,Europe,2009,34054481324
+Italy,Europe,2010,32020819951
+Italy,Europe,2011,33828804971
+Italy,Europe,2012,29781008205
+Italy,Europe,2013,29957445905
+Italy,Europe,2014,27701034335
+Italy,Europe,2015,22180845070
+Italy,Europe,2016,25033027895
+Italy,Europe,2017,26447892915
+Italy,Europe,2018,28420098438
+Italy,Europe,2019,26380673981
+Italy,Europe,2020,32929093811
+Italy,Europe,2021,36232722327
+Italy,Europe,2022,34691881158
+Italy,Europe,2023,35528923816
+Japan,Asia,1960,480555556
+Japan,Asia,1961,492361111
+Japan,Asia,1962,538194444
+Japan,Asia,1963,629861111
+Japan,Asia,1964,718055556
+Japan,Asia,1965,821388889
+Japan,Asia,1966,932430556
+Japan,Asia,1967,1039027778
+Japan,Asia,1968,1168194444
+Japan,Asia,1969,1335416667
+Japan,Asia,1970,1575347222
+Japan,Asia,1971,1896540416
+Japan,Asia,1972,2567519428
+Japan,Asia,1973,3374561100
+Japan,Asia,1974,3962157887
+Japan,Asia,1975,4534902135
+Japan,Asia,1976,5008396504
+Japan,Asia,1977,6157312577
+Japan,Asia,1978,8657135933
+Japan,Asia,1979,9173587661
+Japan,Asia,1980,9711741591
+Japan,Asia,1981,10851176225
+Japan,Asia,1982,10193936012
+Japan,Asia,1983,11429317256
+Japan,Asia,1984,12225078098
+Japan,Asia,1985,13087751954
+Japan,Asia,1986,19457334441
+Japan,Asia,1987,23642290700
+Japan,Asia,1988,28216102753
+Japan,Asia,1989,27966353542
+Japan,Asia,1990,28800451682
+Japan,Asia,1991,32785415754
+Japan,Asia,1992,35999123576
+Japan,Asia,1993,41353936222
+Japan,Asia,1994,45285594083
+Japan,Asia,1995,49961673237
+Japan,Asia,1996,44047104680
+Japan,Asia,1997,40634840608
+Japan,Asia,1998,37849012643
+Japan,Asia,1999,43122898505
+Japan,Asia,2000,45509673827
+Japan,Asia,2001,40757967234
+Japan,Asia,2002,39333708170
+Japan,Asia,2003,42486177361
+Japan,Asia,2004,45339809415
+Japan,Asia,2005,44300613330
+Japan,Asia,2006,41552592886
+Japan,Asia,2007,40530045688
+Japan,Asia,2008,46361468280
+Japan,Asia,2009,51465158208
+Japan,Asia,2010,54655450735
+Japan,Asia,2011,60762213841
+Japan,Asia,2012,60011530195
+Japan,Asia,2013,49023932407
+Japan,Asia,2014,46903466613
+Japan,Asia,2015,42106103306
+Japan,Asia,2016,46471287714
+Japan,Asia,2017,45058468761
+Japan,Asia,2018,48535909411
+Japan,Asia,2019,50778006586
+Japan,Asia,2020,51396536059
+Japan,Asia,2021,50957471034
+Japan,Asia,2022,46880194665
+Japan,Asia,2023,50161085002
+Kuwait,Middle East,1970,68739973
+Kuwait,Middle East,1971,73434841
+Kuwait,Middle East,1972,90743550
+Kuwait,Middle East,1973,136560431
+Kuwait,Middle East,1974,426401411
+Kuwait,Middle East,1977,748518666
+Kuwait,Middle East,1978,738039578
+Kuwait,Middle East,1979,881077991
+Kuwait,Middle East,1980,950805965
+Kuwait,Middle East,1981,1042021630
+Kuwait,Middle East,1982,1285119360
+Kuwait,Middle East,1983,1425498410
+Kuwait,Middle East,1984,1465909168
+Kuwait,Middle East,1985,1379869860
+Kuwait,Middle East,1986,1295617612
+Kuwait,Middle East,1987,1336740077
+Kuwait,Middle East,1988,1704123944
+Kuwait,Middle East,1989,2076390756
+Kuwait,Middle East,1990,8961536461
+Kuwait,Middle East,1991,12924377966
+Kuwait,Middle East,1992,6316012045
+Kuwait,Middle East,1993,2980065532
+Kuwait,Middle East,1994,3296055513
+Kuwait,Middle East,1995,3692435533
+Kuwait,Middle East,1996,3241385529
+Kuwait,Middle East,1997,2454268845
+Kuwait,Middle East,1998,2282153592
+Kuwait,Middle East,1999,2286352512
+Kuwait,Middle East,2000,2697075596
+Kuwait,Middle East,2001,2685735278
+Kuwait,Middle East,2002,2821521878
+Kuwait,Middle East,2003,3130746413
+Kuwait,Middle East,2004,3450118765
+Kuwait,Middle East,2005,3509417808
+Kuwait,Middle East,2006,3597816498
+Kuwait,Middle East,2007,4115736734
+Kuwait,Middle East,2008,4430342077
+Kuwait,Middle East,2009,4208871206
+Kuwait,Middle East,2010,4335204653
+Kuwait,Middle East,2011,5393526319
+Kuwait,Middle East,2012,5941536637
+Kuwait,Middle East,2013,5697937802
+Kuwait,Middle East,2014,5832103420
+Kuwait,Middle East,2015,5735132890
+Kuwait,Middle East,2016,6446742131
+Kuwait,Middle East,2017,6764636914
+Kuwait,Middle East,2018,7165279060
+Kuwait,Middle East,2019,7373519737
+Kuwait,Middle East,2020,6941042345
+Kuwait,Middle East,2021,9024335548
+Kuwait,Middle East,2022,8244121401
+Kuwait,Middle East,2023,7755031936
+Myanmar,Asia,1960,89512590
+Myanmar,Asia,1961,85617086
+Myanmar,Asia,1962,90704341
+Myanmar,Asia,1963,100322350
+Myanmar,Asia,1964,97912598
+Myanmar,Asia,1965,107241857
+Myanmar,Asia,1966,105456855
+Myanmar,Asia,1967,102039102
+Myanmar,Asia,1968,104590605
+Myanmar,Asia,1969,114418614
+Myanmar,Asia,1970,122781873
+Myanmar,Asia,1971,127758750
+Myanmar,Asia,1972,117181275
+Myanmar,Asia,1973,152452317
+Myanmar,Asia,1974,159999342
+Myanmar,Asia,1975,138923723
+Myanmar,Asia,1976,155142207
+Myanmar,Asia,1977,169293678
+Myanmar,Asia,1978,183429289
+Myanmar,Asia,1979,190866354
+Myanmar,Asia,1980,202083467
+Myanmar,Asia,1981,205288117
+Myanmar,Asia,1982,195419416
+Myanmar,Asia,1983,192169991
+Myanmar,Asia,1984,188720829
+Myanmar,Asia,1985,196758645
+Myanmar,Asia,1986,231843370
+Myanmar,Asia,1987,203653744
+Myanmar,Asia,1988,255256828
+Myanmar,Asia,2012,2969236076
+Myanmar,Asia,2013,2366989085
+Myanmar,Asia,2014,2372895912
+Myanmar,Asia,2015,2552370442
+Myanmar,Asia,2016,2455784120
+Myanmar,Asia,2017,2221961060
+Myanmar,Asia,2018,1529364478
+Myanmar,Asia,2019,1532077146
+Myanmar,Asia,2020,2498229138
+Myanmar,Asia,2021,2642725509
+Myanmar,Asia,2022,2489905987
+Myanmar,Asia,2023,2493486451
+Netherlands,Europe,1960,454719432
+Netherlands,Europe,1961,551530520
+Netherlands,Europe,1962,603866852
+Netherlands,Europe,1963,637373073
+Netherlands,Europe,1964,735383641
+Netherlands,Europe,1965,749993912
+Netherlands,Europe,1966,770691796
+Netherlands,Europe,1967,883921397
+Netherlands,Europe,1968,905836803
+Netherlands,Europe,1969,1017240120
+Netherlands,Europe,1970,1079942533
+Netherlands,Europe,1971,1249389090
+Netherlands,Europe,1972,1522236183
+Netherlands,Europe,1973,1917119276
+Netherlands,Europe,1974,2285358296
+Netherlands,Europe,1975,2814545011
+Netherlands,Europe,1976,2898055461
+Netherlands,Europe,1977,3704801157
+Netherlands,Europe,1978,4226968876
+Netherlands,Europe,1979,5038015817
+Netherlands,Europe,1980,5269306825
+Netherlands,Europe,1981,4527100427
+Netherlands,Europe,1982,4829535607
+Netherlands,Europe,1983,4256634367
+Netherlands,Europe,1984,3977294580
+Netherlands,Europe,1985,3884181822
+Netherlands,Europe,1986,5351016847
+Netherlands,Europe,1987,6542917225
+Netherlands,Europe,1988,6728811707
+Netherlands,Europe,1989,6399237699
+Netherlands,Europe,1990,7420849636
+Netherlands,Europe,1991,7246192325
+Netherlands,Europe,1992,7904561273
+Netherlands,Europe,1993,7054868962
+Netherlands,Europe,1994,7137373801
+Netherlands,Europe,1995,8011539559
+Netherlands,Europe,1996,7829004728
+Netherlands,Europe,1997,6839136799
+Netherlands,Europe,1998,6836084823
+Netherlands,Europe,1999,7026433290
+Netherlands,Europe,2000,5971807629
+Netherlands,Europe,2001,6200391943
+Netherlands,Europe,2002,6728153969
+Netherlands,Europe,2003,8356338470
+Netherlands,Europe,2004,9377114724
+Netherlands,Europe,2005,9566980053
+Netherlands,Europe,2006,10217765740
+Netherlands,Europe,2007,11480377424
+Netherlands,Europe,2008,12374848940
+Netherlands,Europe,2009,12131812076
+Netherlands,Europe,2010,11220523280
+Netherlands,Europe,2011,11647934608
+Netherlands,Europe,2012,10364720787
+Netherlands,Europe,2013,10226260325
+Netherlands,Europe,2014,10332602878
+Netherlands,Europe,2015,8667849617
+Netherlands,Europe,2016,9115240932
+Netherlands,Europe,2017,9580685498
+Netherlands,Europe,2018,11114927470
+Netherlands,Europe,2019,12000671742
+Netherlands,Europe,2020,13085717542
+Netherlands,Europe,2021,14395695364
+Netherlands,Europe,2022,13632443394
+Netherlands,Europe,2023,16624820117
+Nigeria,Africa,1960,23379991
+Nigeria,Africa,1961,28279989
+Nigeria,Africa,1962,38639985
+Nigeria,Africa,1963,45499982
+Nigeria,Africa,1964,54319978
+Nigeria,Africa,1965,65939974
+Nigeria,Africa,1966,55719978
+Nigeria,Africa,1967,239959904
+Nigeria,Africa,1968,369039852
+Nigeria,Africa,1969,684459726
+Nigeria,Africa,1970,662339735
+Nigeria,Africa,1971,639259542
+Nigeria,Africa,1972,904095638
+Nigeria,Africa,1973,1020223592
+Nigeria,Africa,1974,1351141235
+Nigeria,Africa,1975,3028584797
+Nigeria,Africa,1976,2644426038
+Nigeria,Africa,1977,3138198948
+Nigeria,Africa,1978,3022642270
+Nigeria,Africa,1979,3070825338
+Nigeria,Africa,1980,3029915085
+Nigeria,Africa,1981,2135475014
+Nigeria,Africa,1982,1651914513
+Nigeria,Africa,1983,1627393327
+Nigeria,Africa,1984,1210916250
+Nigeria,Africa,1985,1091662993
+Nigeria,Africa,1986,516893509
+Nigeria,Africa,1987,201691218
+Nigeria,Africa,1988,271106047
+Nigeria,Africa,1989,170705511
+Nigeria,Africa,1990,277297783
+Nigeria,Africa,1991,243705781
+Nigeria,Africa,1992,173657679
+Nigeria,Africa,1993,289231104
+Nigeria,Africa,1994,319694490
+Nigeria,Africa,1995,639406631
+Nigeria,Africa,1996,701412879
+Nigeria,Africa,1997,818784525
+Nigeria,Africa,1998,1149684730
+Nigeria,Africa,1999,491671369
+Nigeria,Africa,2000,368644109
+Nigeria,Africa,2001,570632288
+Nigeria,Africa,2002,896913201
+Nigeria,Africa,2003,587461887
+Nigeria,Africa,2004,639990067
+Nigeria,Africa,2005,674208145
+Nigeria,Africa,2006,776148058
+Nigeria,Africa,2007,971321379
+Nigeria,Africa,2008,1615533211
+Nigeria,Africa,2009,1504486172
+Nigeria,Africa,2010,1990099669
+Nigeria,Africa,2011,2384936022
+Nigeria,Africa,2012,2316478200
+Nigeria,Africa,2013,2418760171
+Nigeria,Africa,2014,2357671219
+Nigeria,Africa,2015,2065557663
+Nigeria,Africa,2016,1723204266
+Nigeria,Africa,2017,1621218176
+Nigeria,Africa,2018,2043051719
+Nigeria,Africa,2019,1860260430
+Nigeria,Africa,2020,2567917819
+Nigeria,Africa,2021,4466397816
+Nigeria,Africa,2022,3109384939
+Nigeria,Africa,2023,3191915666
+Russia,Europe,1993,7766720078
+Russia,Europe,1994,13547871733
+Russia,Europe,1995,12741629470
+Russia,Europe,1996,15826340652
+Russia,Europe,1997,17577353181
+Russia,Europe,1998,7955730401
+Russia,Europe,1999,6469035211
+Russia,Europe,2000,9228204144
+Russia,Europe,2001,11683151345
+Russia,Europe,2002,13943825063
+Russia,Europe,2003,16973739085
+Russia,Europe,2004,20955413571
+Russia,Europe,2005,27336977274
+Russia,Europe,2006,34517781619
+Russia,Europe,2007,43534994996
+Russia,Europe,2008,56183785393
+Russia,Europe,2009,51532116798
+Russia,Europe,2010,58720227609
+Russia,Europe,2011,70237523951
+Russia,Europe,2012,81469399931
+Russia,Europe,2013,88352896464
+Russia,Europe,2014,84696504653
+Russia,Europe,2015,66421822180
+Russia,Europe,2016,69245294553
+Russia,Europe,2017,66913033537
+Russia,Europe,2018,61609204756
+Russia,Europe,2019,65201335848
+Russia,Europe,2020,61712537169
+Russia,Europe,2021,65907705047
+Russia,Europe,2022,102366636460
+Russia,Europe,2023,109454387532
+Saudi Arabia,Middle East,1960,140888889
+Saudi Arabia,Middle East,1961,71555556
+Saudi Arabia,Middle East,1962,84222222
+Saudi Arabia,Middle East,1963,113777778
+Saudi Arabia,Middle East,1964,123555556
+Saudi Arabia,Middle East,1965,177777778
+Saudi Arabia,Middle East,1966,300444444
+Saudi Arabia,Middle East,1967,336222222
+Saudi Arabia,Middle East,1968,338666667
+Saudi Arabia,Middle East,1969,429333333
+Saudi Arabia,Middle East,1970,471555556
+Saudi Arabia,Middle East,1971,587274312
+Saudi Arabia,Middle East,1972,930574824
+Saudi Arabia,Middle East,1973,1565589936
+Saudi Arabia,Middle East,1977,11584767351
+Saudi Arabia,Middle East,1978,13404087588
+Saudi Arabia,Middle East,1979,17616726771
+Saudi Arabia,Middle East,1980,20724493047
+Saudi Arabia,Middle East,1981,24399927864
+Saudi Arabia,Middle East,1982,27095797466
+Saudi Arabia,Middle East,1983,21872720536
+Saudi Arabia,Middle East,1984,22672050990
+Saudi Arabia,Middle East,1985,17656965219
+Saudi Arabia,Middle East,1987,14460266667
+Saudi Arabia,Middle East,1988,13354666667
+Saudi Arabia,Middle East,1989,12749866667
+Saudi Arabia,Middle East,1990,16355466667
+Saudi Arabia,Middle East,1991,16355466667
+Saudi Arabia,Middle East,1992,15360266667
+Saudi Arabia,Middle East,1993,16451200000
+Saudi Arabia,Middle East,1994,14279733333
+Saudi Arabia,Middle East,1995,13200266667
+Saudi Arabia,Middle East,1996,13340000000
+Saudi Arabia,Middle East,1997,18126666667
+Saudi Arabia,Middle East,1998,20861600000
+Saudi Arabia,Middle East,1999,18320000000
+Saudi Arabia,Middle East,2000,19964266667
+Saudi Arabia,Middle East,2001,21026666667
+Saudi Arabia,Middle East,2002,18501866667
+Saudi Arabia,Middle East,2003,18747466667
+Saudi Arabia,Middle East,2004,20910400000
+Saudi Arabia,Middle East,2005,25392038601
+Saudi Arabia,Middle East,2006,29580507343
+Saudi Arabia,Middle East,2007,35469513009
+Saudi Arabia,Middle East,2008,38222933333
+Saudi Arabia,Middle East,2009,41267200000
+Saudi Arabia,Middle East,2010,45244533333
+Saudi Arabia,Middle East,2011,48530933333
+Saudi Arabia,Middle East,2012,56497866667
+Saudi Arabia,Middle East,2013,67020000000
+Saudi Arabia,Middle East,2014,80762400000
+Saudi Arabia,Middle East,2015,87185866667
+Saudi Arabia,Middle East,2016,63672800000
+Saudi Arabia,Middle East,2017,70400000000
+Saudi Arabia,Middle East,2018,74612266667
+Saudi Arabia,Middle East,2019,65362666667
+Saudi Arabia,Middle East,2020,64558400000
+Saudi Arabia,Middle East,2021,63194666667
+Saudi Arabia,Middle East,2022,70920000000
+Saudi Arabia,Middle East,2023,75813333333
+South Korea,Asia,1960,275643564
+South Korea,Asia,1961,157061350
+South Korea,Asia,1962,186153846
+South Korea,Asia,1963,185384615
+South Korea,Asia,1964,137481470
+South Korea,Asia,1965,132131636
+South Korea,Asia,1966,176901786
+South Korea,Asia,1967,218100896
+South Korea,Asia,1968,278696524
+South Korea,Asia,1969,347028224
+South Korea,Asia,1970,386403740
+South Korea,Asia,1971,460899849
+South Korea,Asia,1972,531950093
+South Korea,Asia,1973,544785375
+South Korea,Asia,1974,852963864
+South Korea,Asia,1975,1030991736
+South Korea,Asia,1976,1708677686
+South Korea,Asia,1977,2237603306
+South Korea,Asia,1978,3190082645
+South Korea,Asia,1979,3543388430
+South Korea,Asia,1980,3980692489
+South Korea,Asia,1981,4463839960
+South Korea,Asia,1982,4646524886
+South Korea,Asia,1983,4714159753
+South Korea,Asia,1984,4759446931
+South Korea,Asia,1985,4883795775
+South Korea,Asia,1986,5325292074
+South Korea,Asia,1987,6040845305
+South Korea,Asia,1988,7732395676
+South Korea,Asia,1989,9468974884
+South Korea,Asia,1990,10110714871
+South Korea,Asia,1991,10956524348
+South Korea,Asia,1992,11614665196
+South Korea,Asia,1993,12377424873
+South Korea,Asia,1994,13519265763
+South Korea,Asia,1995,16085095679
+South Korea,Asia,1996,16408665267
+South Korea,Asia,1997,14848484530
+South Korea,Asia,1998,10457957529
+South Korea,Asia,1999,12095186824
+South Korea,Asia,2000,13801107024
+South Korea,Asia,2001,12941850828
+South Korea,Asia,2002,14101703315
+South Korea,Asia,2003,15847047272
+South Korea,Asia,2004,17829864143
+South Korea,Asia,2005,22159512557
+South Korea,Asia,2006,25177237741
+South Korea,Asia,2007,27726129585
+South Korea,Asia,2008,26072410508
+South Korea,Asia,2009,24575661939
+South Korea,Asia,2010,28175181219
+South Korea,Asia,2011,30991707946
+South Korea,Asia,2012,31951760810
+South Korea,Asia,2013,34311220715
+South Korea,Asia,2014,37552298954
+South Korea,Asia,2015,36570769323
+South Korea,Asia,2016,36885283430
+South Korea,Asia,2017,39170682136
+South Korea,Asia,2018,43069973343
+South Korea,Asia,2019,44102240752
+South Korea,Asia,2020,46117096575
+South Korea,Asia,2021,50873788105
+South Korea,Asia,2022,46365420707
+South Korea,Asia,2023,47925588087
+Spain,Europe,1960,232839816
+Spain,Europe,1961,239348772
+Spain,Europe,1962,308791693
+Spain,Europe,1963,316520311
+Spain,Europe,1964,386820001
+Spain,Europe,1965,439425746
+Spain,Europe,1966,560943077
+Spain,Europe,1967,545917156
+Spain,Europe,1968,668753625
+Spain,Europe,1969,805713226
+Spain,Europe,1970,859146962
+Spain,Europe,1971,900614349
+Spain,Europe,1972,1256164586
+Spain,Europe,1973,1521319435
+Spain,Europe,1974,1968178718
+Spain,Europe,1975,2108232941
+Spain,Europe,1976,2521013875
+Spain,Europe,1977,2808847050
+Spain,Europe,1978,3470695273
+Spain,Europe,1979,4910953932
+Spain,Europe,1980,5508356433
+Spain,Europe,1981,4977748533
+Spain,Europe,1982,4956242441
+Spain,Europe,1983,4770965313
+Spain,Europe,1984,4851949869
+Spain,Europe,1985,5077574145
+Spain,Europe,1986,6270618789
+Spain,Europe,1987,7921508651
+Spain,Europe,1988,8900414227
+Spain,Europe,1989,9302930296
+Spain,Europe,1990,11695038645
+Spain,Europe,1991,11680263754
+Spain,Europe,1992,12250195430
+Spain,Europe,1993,10041511353
+Spain,Europe,1994,10092671257
+Spain,Europe,1995,11439906271
+Spain,Europe,1996,11294316855
+Spain,Europe,1997,9865892241
+Spain,Europe,1998,10333417234
+Spain,Europe,1999,11113722490
+Spain,Europe,2000,10273779252
+Spain,Europe,2001,10222074075
+Spain,Europe,2002,10270839019
+Spain,Europe,2003,12880532801
+Spain,Europe,2004,15262458637
+Spain,Europe,2005,15997724220
+Spain,Europe,2006,17252217613
+Spain,Europe,2007,20065668635
+Spain,Europe,2008,22227721830
+Spain,Europe,2009,20178274985
+Spain,Europe,2010,19710785450
+Spain,Europe,2011,19695435494
+Spain,Europe,2012,18860623363
+Spain,Europe,2013,17242959322
+Spain,Europe,2014,17178549315
+Spain,Europe,2015,15187168681
+Spain,Europe,2016,14014439635
+Spain,Europe,2017,16043533257
+Spain,Europe,2018,17823271131
+Spain,Europe,2019,17189319301
+Spain,Europe,2020,17431779323
+Spain,Europe,2021,19544465468
+Spain,Europe,2022,20306570633
+Spain,Europe,2023,23699130514
+Sweden,Europe,1960,526848900
+Sweden,Europe,1961,564736402
+Sweden,Europe,1962,636258725
+Sweden,Europe,1963,697922566
+Sweden,Europe,1964,758619890
+Sweden,Europe,1965,844543330
+Sweden,Europe,1966,906980385
+Sweden,Europe,1967,921961413
+Sweden,Europe,1968,941001815
+Sweden,Europe,1969,1017260076
+Sweden,Europe,1970,1118164544
+Sweden,Europe,1971,1238804427
+Sweden,Europe,1972,1458082236
+Sweden,Europe,1973,1702215353
+Sweden,Europe,1974,1855084673
+Sweden,Europe,1975,2232315959
+Sweden,Europe,1976,2345444903
+Sweden,Europe,1977,2560335056
+Sweden,Europe,1978,2873317738
+Sweden,Europe,1979,3368143352
+Sweden,Europe,1980,3791756609
+Sweden,Europe,1981,3490216138
+Sweden,Europe,1982,2980130869
+Sweden,Europe,1983,2629021887
+Sweden,Europe,1984,2668524384
+Sweden,Europe,1985,2795295633
+Sweden,Europe,1986,3577484916
+Sweden,Europe,1987,4182359584
+Sweden,Europe,1988,4651754894
+Sweden,Europe,1989,4880345221
+Sweden,Europe,1990,5913117377
+Sweden,Europe,1991,5878822053
+Sweden,Europe,1992,6141834497
+Sweden,Europe,1993,4752660459
+Sweden,Europe,1994,4818836776
+Sweden,Europe,1995,4653429166
+Sweden,Europe,1996,4301745512
+Sweden,Europe,1997,5085207514
+Sweden,Europe,1998,5035805617
+Sweden,Europe,1999,5080829732
+Sweden,Europe,2000,4764337105
+Sweden,Europe,2001,4283625873
+Sweden,Europe,2002,4354573015
+Sweden,Europe,2003,5305640404
+Sweden,Europe,2004,5514710385
+Sweden,Europe,2005,5518466926
+Sweden,Europe,2006,5577203266
+Sweden,Europe,2007,6386221162
+Sweden,Europe,2008,6024791006
+Sweden,Europe,2009,5062962024
+Sweden,Europe,2010,5885935800
+Sweden,Europe,2011,6324747364
+Sweden,Europe,2012,6243671605
+Sweden,Europe,2013,6528737467
+Sweden,Europe,2014,6555518064
+Sweden,Europe,2015,5386942196
+Sweden,Europe,2016,5427549191
+Sweden,Europe,2017,5526592999
+Sweden,Europe,2018,5732822794
+Sweden,Europe,2019,5839555791
+Sweden,Europe,2020,6271285838
+Sweden,Europe,2021,7582555970
+Sweden,Europe,2022,7722479441
+Sweden,Europe,2023,8754872951
+Turkey,Middle East,1960,468810916
+Turkey,Middle East,1961,301330377
+Turkey,Middle East,1962,330376940
+Turkey,Middle East,1963,350000000
+Turkey,Middle East,1964,380897804
+Turkey,Middle East,1965,422676991
+Turkey,Middle East,1966,442035398
+Turkey,Middle East,1967,508407080
+Turkey,Middle East,1968,570685841
+Turkey,Middle East,1969,596792035
+Turkey,Middle East,1970,564858543
+Turkey,Middle East,1971,570873159
+Turkey,Middle East,1972,703957597
+Turkey,Middle East,1973,861625442
+Turkey,Middle East,1974,1136704698
+Turkey,Middle East,1975,2284986255
+Turkey,Middle East,1976,2534775215
+Turkey,Middle East,1977,2765773072
+Turkey,Middle East,1978,2727882976
+Turkey,Middle East,1979,3001142306
+Turkey,Middle East,1980,2671976286
+Turkey,Middle East,1981,2814869761
+Turkey,Middle East,1982,2754732303
+Turkey,Middle East,1983,2469375535
+Turkey,Middle East,1984,2190052307
+Turkey,Middle East,1985,2365977436
+Turkey,Middle East,1986,2769409588
+Turkey,Middle East,1987,2889593497
+Turkey,Middle East,1988,2663901290
+Turkey,Middle East,1989,3373741563
+Turkey,Middle East,1990,5315413395
+Turkey,Middle East,1991,5670666520
+Turkey,Middle East,1992,6157947273
+Turkey,Middle East,1993,7075086940
+Turkey,Middle East,1994,5293173966
+Turkey,Middle East,1995,6606245815
+Turkey,Middle East,1996,7512090796
+Turkey,Middle East,1997,7791986304
+Turkey,Middle East,1998,8781048158
+Turkey,Middle East,1999,9951788874
+Turkey,Middle East,2000,9993730197
+Turkey,Middle East,2001,7216051045
+Turkey,Middle East,2002,9050377182
+Turkey,Middle East,2003,10277901778
+Turkey,Middle East,2004,10920773882
+Turkey,Middle East,2005,12081156314
+Turkey,Middle East,2006,13036508103
+Turkey,Middle East,2007,14987758360
+Turkey,Middle East,2008,16809576495
+Turkey,Middle East,2009,16047510904
+Turkey,Middle East,2010,17650464118
+Turkey,Middle East,2011,17006477805
+Turkey,Middle East,2012,17694320713
+Turkey,Middle East,2013,18427646197
+Turkey,Middle East,2014,17576538471
+Turkey,Middle East,2015,15668750000
+Turkey,Middle East,2016,17827702151
+Turkey,Middle East,2017,17822738263
+Turkey,Middle East,2018,19648693824
+Turkey,Middle East,2019,20436917121
+Turkey,Middle East,2020,17478413685
+Turkey,Middle East,2021,15567410029
+Turkey,Middle East,2022,10779896285
+Turkey,Middle East,2023,15827853255
+Ukraine,Europe,1993,152233867
+Ukraine,Europe,1994,919044682
+Ukraine,Europe,1995,1046793431
+Ukraine,Europe,1996,1464905136
+Ukraine,Europe,1997,2068583952
+Ukraine,Europe,1998,1405161785
+Ukraine,Europe,1999,941788284
+Ukraine,Europe,2000,1136716646
+Ukraine,Europe,2001,1088575173
+Ukraine,Europe,2002,1176355738
+Ukraine,Europe,2003,1427984751
+Ukraine,Europe,2004,1685034159
+Ukraine,Europe,2005,2405492582
+Ukraine,Europe,2006,2986475248
+Ukraine,Europe,2007,4096039604
+Ukraine,Europe,2008,4811038840
+Ukraine,Europe,2009,3452511295
+Ukraine,Europe,2010,3729457233
+Ukraine,Europe,2011,3684633313
+Ukraine,Europe,2012,4136914809
+Ukraine,Europe,2013,4386419892
+Ukraine,Europe,2014,3961551379
+Ukraine,Europe,2015,3502733744
+Ukraine,Europe,2016,3423286811
+Ukraine,Europe,2017,3647565196
+Ukraine,Europe,2018,4750219031
+Ukraine,Europe,2019,6262432161
+Ukraine,Europe,2020,6838766421
+Ukraine,Europe,2021,6898123104
+Ukraine,Europe,2022,41183927473
+Ukraine,Europe,2023,64753191604
+United Kingdom,Europe,1960,5129857090
+United Kingdom,Europe,1961,5308314126
+United Kingdom,Europe,1962,5597132751
+United Kingdom,Europe,1963,5810811571
+United Kingdom,Europe,1964,6159898581
+United Kingdom,Europe,1965,6475329220
+United Kingdom,Europe,1966,6692138865
+United Kingdom,Europe,1967,6933197077
+United Kingdom,Europe,1968,6220499923
+United Kingdom,Europe,1969,6199702307
+United Kingdom,Europe,1970,6792098924
+United Kingdom,Europe,1971,7518385128
+United Kingdom,Europe,1972,8789192637
+United Kingdom,Europe,1973,9446894124
+United Kingdom,Europe,1974,10450754432
+United Kingdom,Europe,1975,12907674884
+United Kingdom,Europe,1976,12038757739
+United Kingdom,Europe,1977,12952124606
+United Kingdom,Europe,1978,15897336096
+United Kingdom,Europe,1979,20544684886
+United Kingdom,Europe,1980,28360159220
+United Kingdom,Europe,1981,26948261221
+United Kingdom,Europe,1982,27714188335
+United Kingdom,Europe,1983,26423122399
+United Kingdom,Europe,1984,25418839536
+United Kingdom,Europe,1985,26031881546
+United Kingdom,Europe,1986,30432577940
+United Kingdom,Europe,1987,34921759890
+United Kingdom,Europe,1988,38357236514
+United Kingdom,Europe,1989,37456646813
+United Kingdom,Europe,1990,43545094840
+United Kingdom,Europe,1991,47045457327
+United Kingdom,Europe,1992,45592591818
+United Kingdom,Europe,1993,38113206791
+United Kingdom,Europe,1994,38569013505
+United Kingdom,Europe,1995,38294283080
+United Kingdom,Europe,1996,38566134645
+United Kingdom,Europe,1997,39889947449
+United Kingdom,Europe,1998,41222125833
+United Kingdom,Europe,1999,40760400667
+United Kingdom,Europe,2000,39343711273
+United Kingdom,Europe,2001,39512579944
+United Kingdom,Europe,2002,44245265998
+United Kingdom,Europe,2003,52343122277
+United Kingdom,Europe,2004,60250782545
+United Kingdom,Europe,2005,61653635038
+United Kingdom,Europe,2006,64217619528
+United Kingdom,Europe,2007,73448032014
+United Kingdom,Europe,2008,72915407670
+United Kingdom,Europe,2009,64010506670
+United Kingdom,Europe,2010,63979111970
+United Kingdom,Europe,2011,66569552573
+United Kingdom,Europe,2012,65452487554
+United Kingdom,Europe,2013,63837724855
+United Kingdom,Europe,2014,66995468654
+United Kingdom,Europe,2015,59990205719
+United Kingdom,Europe,2016,53327366088
+United Kingdom,Europe,2017,52075008432
+United Kingdom,Europe,2018,55832916405
+United Kingdom,Europe,2019,56567602041
+United Kingdom,Europe,2020,58332371795
+United Kingdom,Europe,2021,65136216155
+United Kingdom,Europe,2022,64081634277
+United Kingdom,Europe,2023,74942843460
+United States,Americas,1960,47346552670
+United States,Americas,1961,49879770605
+United States,Americas,1962,54650942605
+United States,Americas,1963,54561215775
+United States,Americas,1964,53432327058
+United States,Americas,1965,54561791263
+United States,Americas,1966,66442751527
+United States,Americas,1967,78398442241
+United States,Americas,1968,84329031218
+United States,Americas,1969,84990165431
+United States,Americas,1970,83407993005
+United States,Americas,1971,78237979893
+United States,Americas,1972,80708070966
+United States,Americas,1973,81469794408
+United States,Americas,1974,89278920340
+United States,Americas,1975,92080928754
+United States,Americas,1976,94715251080
+United States,Americas,1977,104665218972
+United States,Americas,1978,113382063749
+United States,Americas,1979,126879927117
+United States,Americas,1980,143688354873
+United States,Americas,1981,176558875271
+United States,Americas,1982,221673542584
+United States,Americas,1983,223427165006
+United States,Americas,1984,245149168289
+United States,Americas,1985,272163229313
+United States,Americas,1986,295546223804
+United States,Americas,1987,304086648683
+United States,Americas,1988,309661269301
+United States,Americas,1989,321866558808
+United States,Americas,1990,325129313986
+United States,Americas,1991,299372779115
+United States,Americas,1992,325033735955
+United States,Americas,1993,316719443747
+United States,Americas,1994,308084000000
+United States,Americas,1995,295853097725
+United States,Americas,1996,287960668679
+United States,Americas,1997,293167825791
+United States,Americas,1998,290996055088
+United States,Americas,1999,298094891322
+United States,Americas,2000,320086324211
+United States,Americas,2001,331805610572
+United States,Americas,2002,378463138754
+United States,Americas,2003,440532069586
+United States,Americas,2004,492999376159
+United States,Americas,2005,533203000000
+United States,Americas,2006,558335000000
+United States,Americas,2007,589586000000
+United States,Americas,2008,656756000000
+United States,Americas,2009,705917000000
+United States,Americas,2010,738005000000
+United States,Americas,2011,752288000000
+United States,Americas,2012,725205000000
+United States,Americas,2013,679229000000
+United States,Americas,2014,647789000000
+United States,Americas,2015,633829639000
+United States,Americas,2016,639856443000
+United States,Americas,2017,646752927000
+United States,Americas,2018,682491400000
+United States,Americas,2019,734344100000
+United States,Americas,2020,778397200000
+United States,Americas,2021,806230200000
+United States,Americas,2022,860692200000
+United States,Americas,2023,916014700000

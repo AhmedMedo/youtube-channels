@@ -262,8 +262,8 @@ class Renderer:
                        for i, e in enumerate(s.entities)}
         self.pos = {e: float(self.top + 2) for e in s.entities}
         if a.vertical:
-            self.ct, self.cb = 580, 1600
-            self.cl, self.cr = 330, 800
+            self.ct, self.cb = 540, 1720
+            self.cl, self.cr = 350, 830
         else:
             self.ct, self.cb = 250, 940
             self.cl, self.cr = 430, 1560
@@ -305,6 +305,8 @@ class Renderer:
         return speaker, tpl.format(A=short(A), B=short(B), N=self.top, R=R)
 
     def propose(self, kind, frame, A, B="", R=0):
+        if self.a.no_captions:
+            return
         pair = frozenset((A, B)) if B else None
         if self.captions and self.captions[-1].start == frame:
             return
@@ -397,6 +399,9 @@ class Renderer:
         d = ImageDraw.Draw(img)
         t = fi / self.a.fps
         show_q = self.a.question and self.a.intro == "overlay" and t < self.a.question_secs
+        if self.a.vertical and getattr(self, "hide_header", False):
+            self.ticker_y = 420
+            return img, d
         if self.a.vertical:
             y = 90
             d.text((60, y), f"{self.a.channel} · Source: {self.a.source}", font=F_SMALL, fill=MUTED)
@@ -488,14 +493,18 @@ class Renderer:
             x1 = self.cl + val * scale
             fade = 1.0 if self.pos[e] < self.top - 0.5 else max(0.0, self.top + 0.6 - self.pos[e])
             mixc = lambda c: tuple(int(BG[i] + (c[i] - BG[i]) * fade) for i in range(3))
+            tgt_e = rank[e] if rank[e] < self.top else self.top + 1.5
+            tfade = fade * max(0.25, min(1.0, 1 - (abs(self.pos[e] - tgt_e) - 0.12) * 2.2))
+            mixt = lambda c: tuple(int(BG[i] + (c[i] - BG[i]) * tfade) for i in range(3))
             d.rounded_rectangle([self.cl, y, max(self.cl + self.bar_h, x1), y + self.bar_h],
                                 radius=int(self.bar_h / 2), fill=mixc(self.colors[e]))
-            rx, nx, nmax = (20, 62, 250) if self.a.vertical else (self.cl - 400, self.cl - 355, 330)
-            d.text((rx, cy - 18), f"{int(round(self.pos[e])) + 1}", font=F_RANK, fill=mixc(MUTED))
+            rx, nx, nmax = (20, 66, self.cl - 80) if self.a.vertical else (self.cl - 400, self.cl - 355, 330)
+            if rank[e] < self.top:
+                d.text((rx, cy - F_RANK.size * 0.6), f"{rank[e] + 1}", font=F_RANK, fill=mixt(MUTED))
             nm = short(e)
             while d.textlength(nm, font=F_LABEL) > nmax and len(nm) > 4:
                 nm = nm[:-2].rstrip() + "…" if not nm.endswith("…") else nm[:-2] + "…"
-            d.text((nx, cy - 23), nm, font=F_LABEL, fill=mixc(FG))
+            d.text((nx, cy - F_LABEL.size * 0.62), nm, font=F_LABEL, fill=mixt(FG))
             # face at the bar tip
             fx = max(self.cl + self.bar_h, x1) - self.face_d * 0.55
             fy = cy - self.face_d / 2
@@ -511,7 +520,7 @@ class Renderer:
                 draw_face(d, fx + self.face_d / 2, cy, self.face_d, mood, fi / self.a.fps, gaze)
             vx = fx + self.face_d + 14
             vtxt = fmt(val, self.a.prefix) + (f" {self.a.unit}" if self.a.unit else "")
-            d.text((vx, cy - 20), vtxt, font=F_VALUE, fill=mixc(FG))
+            d.text((vx, cy - F_VALUE.size * 0.6), vtxt, font=F_VALUE, fill=mixt(FG))
             bar_end[e] = (vx + d.textlength(vtxt, font=F_VALUE) + 18, cy)
         # captions
         for c in self.captions:
@@ -555,7 +564,7 @@ class Renderer:
             y += f.size + 34
         return img
 
-def overlay_text_block(img, lines, k, box=True):
+def overlay_text_block(img, lines, k, box=True, cy=None, cx=None, maxw_=None):
     """lines: [(text, font, color)]; centered block with dark plate; k = opacity 0..1"""
     if k <= 0.01:
         return img
@@ -566,7 +575,7 @@ def overlay_text_block(img, lines, k, box=True):
         words, cur, out = text.split(), "", []
         for w_ in words:
             t = (cur + " " + w_).strip()
-            if d0.textlength(t, font=f) <= W - 140 or not cur:
+            if d0.textlength(t, font=f) <= (maxw_ or W - 140) or not cur:
                 cur = t
             else:
                 out.append(cur); cur = w_
@@ -578,17 +587,123 @@ def overlay_text_block(img, lines, k, box=True):
     maxw = max(d0.textlength(t, font=f) for t, f, _ in wrapped)
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     ld = ImageDraw.Draw(layer)
-    y = H * 0.42 - total / 2
+    cx = W / 2 if cx is None else cx
+    y = (H * 0.42 if cy is None else cy) - total / 2
     if box:
-        ld.rounded_rectangle([(W - maxw) / 2 - 50, y - 40, (W + maxw) / 2 + 50, y + total + 30], radius=36,
+        ld.rounded_rectangle([cx - maxw / 2 - 50, y - 40, cx + maxw / 2 + 50, y + total + 30], radius=36,
                              fill=(10, 11, 16, int(235 * k)))
     for t, f, col in wrapped:
         tw = ld.textlength(t, font=f)
-        ld.text(((W - tw) / 2, y), t, font=f, fill=col + (int(255 * k),))
+        ld.text((cx - tw / 2, y), t, font=f, fill=col + (int(255 * k),))
         y += f.size * 1.18
     base = img.convert("RGBA")
     base.alpha_composite(layer)
     return base.convert("RGB")
+
+
+def stack_scene(r, a, last, final_rank, fi0):
+    """#1 as one column vs the next N stacked into one column; segments drop in one by one."""
+    s, fps = r.s, a.fps
+    year, vals = last
+    lead = s.entities[final_rank[0]]
+    rest = [s.entities[k] for k in final_rank[1:1 + a.stack]]
+    v = lambda e: float(vals[s.entities.index(e)])
+    lv, tot = v(lead), sum(v(e) for e in rest)
+    vert = a.vertical
+    base_y = 1480 if vert else 850
+    maxh = 880 if vert else 620
+    colw = 300 if vert else 290
+    xl = (W / 2 - colw - 70) if vert else 260
+    xr = (W / 2 + 70) if vert else 260 + colw + 130
+    sc = maxh / max(lv, tot)
+    F_BIG, F_MID, F_SM = font(96 if vert else 84, "Black"), font(58 if vert else 50, "Bold"), font(40 if vert else 34, "SemiBold")
+    lines = [t for t in (a.reveal_text.split("|") if a.reveal_text else [])]
+    n = int(fps * a.stack_secs)
+    t_drop0, t_gap = 0.7, 0.22
+    t_text = t_drop0 + t_gap * len(rest) + 0.3
+    r.sfx_events.append((fi0, "whoosh", 0.8))
+    for j in range(len(rest)):
+        r.sfx_events.append((fi0 + int((t_drop0 + t_gap * j + 0.2) * fps), "pop", 0.8))
+    r.sfx_events.append((fi0 + int(t_text * fps), "fanfare", 0.9))
+    for i in range(n):
+        t = i / fps
+        img = Image.new("RGB", (W, H), BG)
+        d = ImageDraw.Draw(img)
+        # header: year
+        d.text((60 if vert else 80, 90 if vert else 56), f"{a.title} · {int(year)}", font=F_SM, fill=MUTED)
+        # lead column grows
+        g = min(1.0, t / 0.6)
+        g = 1 - (1 - g) ** 3
+        h = lv * sc * g
+        d.rounded_rectangle([xl, base_y - h, xl + colw, base_y], radius=18, fill=r.colors[lead])
+        fl = load_flag(lead, 120 if vert else 96)
+        if fl is not None:
+            fx = int(xl + colw / 2 - fl.width / 2)
+            img.paste(fl, (fx, int(base_y + 20)), fl)
+        nm = short(lead)
+        d.text((xl + colw / 2 - d.textlength(nm, font=F_MID) / 2, base_y + (150 if vert else 120)), nm, font=F_MID, fill=FG)
+        lt = fmt(lv * g, a.prefix)
+        d.text((xl + colw / 2 - d.textlength(lt, font=F_MID) / 2, base_y - h - 74), lt, font=F_MID, fill=FG)
+        # stacked column: segments drop in from above
+        y = base_y
+        shown = 0.0
+        for j, e in enumerate(rest):
+            tj = t - (t_drop0 + t_gap * j)
+            if tj < 0:
+                break
+            k = min(1.0, tj / 0.25)
+            sh = v(e) * sc
+            off = (1 - (1 - (1 - k) ** 2)) * 300
+            top_ = y - sh - off
+            d.rounded_rectangle([xr, top_, xr + colw, y - off - 3], radius=10, fill=r.colors[e])
+            if sh > 46:
+                fd = int(min(sh - 10, 70 if vert else 56))
+                f2 = load_flag(e, fd)
+                if f2 is not None:
+                    img.paste(f2, (int(xr + 12), int(top_ + (sh - fd) / 2)), f2)
+                lbl = short(e)
+                if sh > 46 and d.textlength(lbl, font=F_SM) < colw - fd - 30:
+                    d.text((xr + fd + 24, top_ + sh / 2 - F_SM.size * 0.6), lbl, font=F_SM, fill=(15, 16, 20))
+            y -= sh
+            shown += v(e) * (1 if k >= 1 else k)
+        if shown > 0:
+            tt = fmt(shown, a.prefix)
+            d.text((xr + colw / 2 - d.textlength(tt, font=F_MID) / 2, y - 74), tt, font=F_MID,
+                   fill=(255, 209, 64) if shown > lv else FG)
+        lab = a.stack_label or f"Next {len(rest)}"
+        d.text((xr + colw / 2 - d.textlength(lab, font=F_MID) / 2, base_y + (150 if vert else 120)), lab, font=F_MID, fill=FG)
+        d.text((xr + colw / 2 - d.textlength("combined", font=F_SM) / 2, base_y + (220 if vert else 180)), "combined", font=F_SM, fill=MUTED)
+        # dashed line at the lead's height
+        if g >= 1:
+            yy = base_y - lv * sc
+            for xx in range(int(xl), int(xr + colw), 28):
+                d.line([(xx, yy), (xx + 14, yy)], fill=(255, 255, 255), width=3)
+        img_out = img
+        if t >= t_text and lines:
+            k = min(1.0, (t - t_text) / 0.25)
+            F_R1 = font(54 if vert else 46, "Bold")
+            tl = [(ln, F_BIG if j == 1 else F_R1, (255, 209, 64) if j == 1 else (235, 235, 240)) for j, ln in enumerate(lines)]
+            img_out = overlay_text_block(img, tl, k, box=False, cy=(300 if vert else 430), cx=(W / 2 if vert else W * 0.72),
+                                         maxw_=(W - 120 if vert else 900))
+        if t >= t_text + 0.6 and a.cta:
+            k = min(1.0, (t - t_text - 0.6) / 0.25)
+            img_out = overlay_text_block(img_out, [(a.cta, F_SM if not vert else F_MID, ACCENT)], k, box=False,
+                                         cy=(1830 if vert else 640), cx=(W / 2 if vert else W * 0.72),
+                                         maxw_=(W - 120 if vert else 900))
+        yield img_out
+    return
+
+
+def endcard(a, t):
+    img = Image.new("RGB", (W, H), BG)
+    d = ImageDraw.Draw(img)
+    f1 = font(64, "Bold")
+    k = min(1.0, t / 0.4)
+    col = tuple(int(BG[i] + (FG[i] - BG[i]) * k) for i in range(3))
+    tw = d.textlength(a.endcard_text, font=f1)
+    d.text(((W - tw) / 2, 110), a.endcard_text, font=f1, fill=col)
+    d.text(((W - d.textlength(a.channel, font=F_SUB)) / 2, H - 120), a.channel, font=F_SUB, fill=MUTED)
+    return img
 
 
 # ----------------------------------------------------------------------------- main
@@ -620,10 +735,18 @@ def main():
     ap.add_argument("--cta", default="Comment your country ↓")
     ap.add_argument("--reveal-text", default="", help="custom reveal lines separated by | (2nd line is the big one)")
     ap.add_argument("--podium-ranks", type=int, default=3, help="overtakes into these top ranks count as big moments")
+    ap.add_argument("--no-captions", action="store_true", help="no speech bubbles")
+    ap.add_argument("--hook-size", type=int, default=0)
+    ap.add_argument("--stack", type=int, default=0, help="outro: #1 vs the next N combined, stacked columns")
+    ap.add_argument("--stack-label", default="", help="label for the stacked column (default 'Next N')")
+    ap.add_argument("--stack-secs", type=float, default=6.0)
+    ap.add_argument("--endcard", type=float, default=0.0, help="seconds of clean end-screen hold (long videos)")
+    ap.add_argument("--endcard-text", default="Which race should we do next? ↓")
     a = ap.parse_args()
-    global W, H
+    global W, H, F_LABEL, F_VALUE, F_RANK
     if a.vertical:
         W, H = 1080, 1920
+        F_LABEL, F_VALUE, F_RANK = font(44, "SemiBold"), font(40, "Medium"), font(36, "Medium")
 
     os.makedirs(os.path.dirname(a.out) or ".", exist_ok=True)
     s = load(a.csv)
@@ -660,23 +783,38 @@ def main():
         order0 = sorted(range(len(s.entities)), key=lambda k: -np.nan_to_num(v0[k], nan=-1))
         for rk, k in enumerate(order0):
             r.pos[s.entities[k]] = rk if rk < r.top else r.top + 1.5
-    F_HOOK = font(118 if a.vertical else 110, "Black") if os.path.exists(os.path.join(FONT_DIR, "Inter-Black.otf")) else font(118, "Bold")
+    hs = a.hook_size or (104 if a.vertical else 96)
+    F_HOOK = font(hs, "Black") if os.path.exists(os.path.join(FONT_DIR, "Inter-Black.otf")) else font(hs, "Bold")
+    # vertical: hook sits in the header band above the chart; horizontal: in the empty lower-right area
+    hook_pos = dict(cy=290, cx=W / 2, maxw_=W - 120) if a.vertical else dict(cy=H * 0.66, cx=W * 0.66, maxw_=980)
     last = None
     for i, (year, vals) in enumerate(frames):
+        r.hide_header = bool(a.hook) and i / fps < a.hook_secs - 0.2
         img = r.frame(fi, year, vals, alpha=1.0 if a.hook else min(1.0, i / (fps * 0.5)))
         if a.hook:
             t_ = i / fps
             k = 1.0 if t_ < a.hook_secs - 0.35 else max(0.0, (a.hook_secs - t_) / 0.35)
+            r.hide_header = t_ < a.hook_secs - 0.2
             if k > 0:
-                img = overlay_text_block(img, [(a.hook, F_HOOK, (255, 209, 64))], k)
+                img = overlay_text_block(img, [(a.hook, F_HOOK, (255, 209, 64))], k, **hook_pos)
         push(img)
         last = (year, vals)
         if i % (fps * 5) == 0:
             print(f"  {i}/{len(frames)} year={year:.1f}", flush=True)
     # outro: hold final frame with reveal
     final_rank = sorted(range(len(s.entities)), key=lambda k: -np.nan_to_num(last[1][k], nan=-1))
-    r.sfx_events.append((fi, "fanfare", 0.8))
+    if not a.stack:
+        r.sfx_events.append((fi, "fanfare", 0.8))
     reveal = "Did you guess right? Tell us below ↓"
+    if a.stack:
+        for img in stack_scene(r, a, last, final_rank, fi):
+            push(img)
+        a.outro = 0
+        a.reveal = False
+    if a.endcard:
+        for i in range(int(fps * a.endcard)):
+            push(endcard(a, i / fps))
+        a.outro = 0
     if a.reveal:
         top1 = s.entities[final_rank[0]]
         F_R1, F_R2 = font(64, "Bold"), font(120, "Bold")

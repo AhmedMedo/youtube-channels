@@ -127,6 +127,8 @@ Australia,Oceania,2020,27300894701
 Australia,Oceania,2021,32718066817
 Australia,Oceania,2022,32445330432
 Australia,Oceania,2023,32340013665
+Australia,Oceania,2024,33799999999
+Australia,Oceania,2025,35300000000
 Belgium,Europe,1960,383220247
 Belgium,Europe,1961,391218827
 Belgium,Europe,1962,422220788
@@ -191,6 +193,8 @@ Belgium,Europe,2020,5317451271
 Belgium,Europe,2021,6239356670
 Belgium,Europe,2022,6890161300
 Belgium,Europe,2023,7629396589
+Belgium,Europe,2024,8600000000
+Belgium,Europe,2025,14500000000
 Brazil,Americas,1960,382729752
 Brazil,Americas,1961,342339721
 Brazil,Americas,1962,387449036
@@ -255,6 +259,8 @@ Brazil,Americas,2020,19591209004
 Brazil,Americas,2021,19187122475
 Brazil,Americas,2022,20542063567
 Brazil,Americas,2023,22887482838
+Brazil,Americas,2024,20900000000
+Brazil,Americas,2025,23900000000
 Canada,Americas,1960,1702442711
 Canada,Americas,1961,1677820881
 Canada,Americas,1962,1671313753
@@ -319,6 +325,8 @@ Canada,Americas,2020,23082774049
 Canada,Americas,2021,25362240829
 Canada,Americas,2022,25567943876
 Canada,Americas,2023,27221543361
+Canada,Americas,2024,29300000000
+Canada,Americas,2025,37500000000
 China,Asia,1989,11251332630
 China,Asia,1990,9926349251
 China,Asia,1991,9802375366
@@ -354,6 +362,8 @@ China,Asia,2020,257973429834
 China,Asia,2021,285930518056
 China,Asia,2022,291958428460
 China,Asia,2023,296438564343
+China,Asia,2024,314000000000
+China,Asia,2025,336000000000
 Egypt,Middle East,1962,249697767
 Egypt,Middle East,1963,335799698
 Egypt,Middle East,1964,448499596
@@ -480,6 +490,8 @@ France,Europe,2020,52747064858
 France,Europe,2021,56646996216
 France,Europe,2022,53638748769
 France,Europe,2023,61301290833
+France,Europe,2024,64700000000
+France,Europe,2025,68000000000
 Germany,Europe,1960,2715197280
 Germany,Europe,1961,3074753151
 Germany,Europe,1962,4055355090
@@ -544,6 +556,8 @@ Germany,Europe,2020,53318705118
 Germany,Europe,2021,56513126774
 Germany,Europe,2022,56153121240
 Germany,Europe,2023,66826634284
+Germany,Europe,2024,88500000000
+Germany,Europe,2025,114000000000
 India,Asia,1960,681765682
 India,Asia,1961,748388248
 India,Asia,1962,1065436065
@@ -608,6 +622,8 @@ India,Asia,2020,72937064048
 India,Asia,2021,76348538794
 India,Asia,2022,79976789328
 India,Asia,2023,83574568840
+India,Asia,2024,86100000000
+India,Asia,2025,92100000000
 Iran,Middle East,1960,98679868
 Iran,Middle East,1961,105940594
 Iran,Middle East,1962,109900990
@@ -672,6 +688,8 @@ Iran,Middle East,2020,3335715149
 Iran,Middle East,2021,5679960983
 Iran,Middle East,2022,7334035773
 Iran,Middle East,2023,10283084402
+Iran,Middle East,2024,7900000000
+Iran,Middle East,2025,7400000000
 Israel,Middle East,1960,190277778
 Israel,Middle East,1961,241805556
 Israel,Middle East,1962,210604174
@@ -736,6 +754,8 @@ Israel,Middle East,2020,21816569767
 Israel,Middle East,2021,24340979541
 Israel,Middle East,2022,23406074573
 Israel,Middle East,2023,27498527857
+Israel,Middle East,2024,46500000000
+Israel,Middle East,2025,48300000000
 Italy,Europe,1960,1009308856
 Italy,Europe,1961,1062907313
 Italy,Europe,1962,1222013656
@@ -800,6 +820,8 @@ Italy,Europe,2020,32929093811
 Italy,Europe,2021,36232722327
 Italy,Europe,2022,34691881158
 Italy,Europe,2023,35528923816
+Italy,Europe,2024,38000000000
+Italy,Europe,2025,48100000000
 Japan,Asia,1960,480555556
 Japan,Asia,1961,492361111
 Japan,Asia,1962,538194444
@@ -864,6 +886,8 @@ Japan,Asia,2020,51396536059
 Japan,Asia,2021,50957471034
 Japan,Asia,2022,46880194665
 Japan,Asia,2023,50161085002
+Japan,Asia,2024,55300000000
+Japan,Asia,2025,62200000000
 Kuwait,Middle East,1970,68739973
 Kuwait,Middle East,1971,73434841
 Kuwait,Middle East,1972,90743550
@@ -916,6 +940,8 @@ Kuwait,Middle East,2020,6941042345
 Kuwait,Middle East,2021,9024335548
 Kuwait,Middle East,2022,8244121401
 Kuwait,Middle East,2023,7755031936
+Kuwait,Middle East,2024,7800000000
+Kuwait,Middle East,2025,8100000000
 Myanmar,Asia,1960,89512590
 Myanmar,Asia,1961,85617086
 Myanmar,Asia,1962,90704341
@@ -1021,6 +1047,8 @@ Netherlands,Europe,2020,13085717542
 Netherlands,Europe,2021,14395695364
 Netherlands,Europe,2022,13632443394
 Netherlands,Europe,2023,16624820117
+Netherlands,Europe,2024,23200000000
+Netherlands,Europe,2025,28900000000
 Nigeria,Africa,1960,23379991
 Nigeria,Africa,1961,28279989
 Nigeria,Africa,1962,38639985
@@ -1116,6 +1144,8 @@ Russia,Europe,2020,61712537169
 Russia,Europe,2021,65907705047
 Russia,Europe,2022,102366636460
 Russia,Europe,2023,109454387532
+Russia,Europe,2024,149000000000
+Russia,Europe,2025,190000000000
 Saudi Arabia,Middle East,1960,140888889
 Saudi Arabia,Middle East,1961,71555556
 Saudi Arabia,Middle East,1962,84222222
@@ -1176,6 +1206,8 @@ Saudi Arabia,Middle East,2020,64558400000
 Saudi Arabia,Middle East,2021,63194666667
 Saudi Arabia,Middle East,2022,70920000000
 Saudi Arabia,Middle East,2023,75813333333
+Saudi Arabia,Middle East,2024,80300000000
+Saudi Arabia,Middle East,2025,83200000000
 South Korea,Asia,1960,275643564
 South Korea,Asia,1961,157061350
 South Korea,Asia,1962,186153846
@@ -1240,6 +1272,8 @@ South Korea,Asia,2020,46117096575
 South Korea,Asia,2021,50873788105
 South Korea,Asia,2022,46365420707
 South Korea,Asia,2023,47925588087
+South Korea,Asia,2024,47600000000
+South Korea,Asia,2025,47800000000
 Spain,Europe,1960,232839816
 Spain,Europe,1961,239348772
 Spain,Europe,1962,308791693
@@ -1304,6 +1338,8 @@ Spain,Europe,2020,17431779323
 Spain,Europe,2021,19544465468
 Spain,Europe,2022,20306570633
 Spain,Europe,2023,23699130514
+Spain,Europe,2024,24600000000
+Spain,Europe,2025,40200000000
 Sweden,Europe,1960,526848900
 Sweden,Europe,1961,564736402
 Sweden,Europe,1962,636258725
@@ -1368,6 +1404,8 @@ Sweden,Europe,2020,6271285838
 Sweden,Europe,2021,7582555970
 Sweden,Europe,2022,7722479441
 Sweden,Europe,2023,8754872951
+Sweden,Europe,2024,12000000000
+Sweden,Europe,2025,16500000000
 Turkey,Middle East,1960,468810916
 Turkey,Middle East,1961,301330377
 Turkey,Middle East,1962,330376940
@@ -1432,6 +1470,8 @@ Turkey,Middle East,2020,17478413685
 Turkey,Middle East,2021,15567410029
 Turkey,Middle East,2022,10779896285
 Turkey,Middle East,2023,15827853255
+Turkey,Middle East,2024,25000000000
+Turkey,Middle East,2025,30000000000
 Ukraine,Europe,1993,152233867
 Ukraine,Europe,1994,919044682
 Ukraine,Europe,1995,1046793431
@@ -1463,6 +1503,8 @@ Ukraine,Europe,2020,6838766421
 Ukraine,Europe,2021,6898123104
 Ukraine,Europe,2022,41183927473
 Ukraine,Europe,2023,64753191604
+Ukraine,Europe,2024,64700000000
+Ukraine,Europe,2025,84100000000
 United Kingdom,Europe,1960,5129857090
 United Kingdom,Europe,1961,5308314126
 United Kingdom,Europe,1962,5597132751
@@ -1527,6 +1569,8 @@ United Kingdom,Europe,2020,58332371795
 United Kingdom,Europe,2021,65136216155
 United Kingdom,Europe,2022,64081634277
 United Kingdom,Europe,2023,74942843460
+United Kingdom,Europe,2024,81800000000
+United Kingdom,Europe,2025,89000000000
 United States,Americas,1960,47346552670
 United States,Americas,1961,49879770605
 United States,Americas,1962,54650942605
@@ -1591,3 +1635,5 @@ United States,Americas,2020,778397200000
 United States,Americas,2021,806230200000
 United States,Americas,2022,860692200000
 United States,Americas,2023,916014700000
+United States,Americas,2024,997000000000
+United States,Americas,2025,954000000000

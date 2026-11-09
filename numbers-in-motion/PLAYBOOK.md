@@ -97,3 +97,13 @@ python3 render_v2.py ... --vertical --seconds-per-step 0.6 --out out/X_short.mp4
 
 ## Finish every run with
 A short Egyptian-Arabic message to the owner: what's ready, links, what needs his approval. Commit any new data/scripts.
+
+
+## Shorts v3 additions (10 Nov 2026, after independent review scored v2 at 4/10)
+- Hook sits in the header band (it never covers the bars). Always pass `--no-captions`: the speech bubbles were unreadable noise.
+- Rank numbers come from the target rank, and labels dim while rows cross, so there are no duplicate or ghost rows.
+- Payoff: `--stack N` animates #1 against the next N stacked into one column. Use `--reveal-text "small|BIG"` for the text and `--cta` for the call to action.
+- Long videos: about 3 min (`--seconds-per-step` around 4.3 over roughly 35 steps). Add `--endcard 16` for a clean hold where the end-screen elements go. Pass the hook with `--hook` too; it is placed in the lower right.
+- The story must have tension (a lead that changes, or a record that breaks). Verify the payoff claim against the CSV for every year.
+- Data must be current: add the latest SIPRI or World Bank year from the official fact sheet before rendering.
+- Military #4: data updated to 2025 (SIPRI fact sheets). 2025 is the first year since 1990 in which the next 9 combined outspend the USA. Renders are mil_short_v3.mp4 and NumbersInMotion_Military_Budgets_1990-2025.mp4; thumbnail is mil_thumb_v3.jpg.
