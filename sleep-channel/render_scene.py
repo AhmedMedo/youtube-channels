@@ -328,24 +328,48 @@ class NightSky:
         return a * np.array([255, 245, 225], np.float32)
 
 
-SCENES = {"night_sky": NightSky}
+from scene_rain_window import RainWindow  # noqa: E402
+
+SCENES = {"night_sky": NightSky, "rain_window": RainWindow}
 
 
-def thumbnail(scene, path, title, sub):
-    m0, scene.mascot = scene.mascot, None  # scene without the small mascot; the big one goes on the right
+def _fit(d, text, weight, max_w, start):
+    size = start
+    while size > 40 and d.textlength(text, font=font(size, weight)) > max_w:
+        size -= 6
+    return font(size, weight)
+
+
+def thumbnail(scene, path, big, sub, hours=None):
+    """Mobile-first thumbnail: scene frame + ONE big keyword, a short sub line and an hours badge (left side)."""
+    cozy = isinstance(scene, RainWindow)
+    m0 = scene.mascot
+    if not cozy:
+        scene.mascot = None   # night sky: hide the small mascot, paste a big one on the right
     fr = Image.fromarray(scene.frame(scene.loop * 0.37)).resize((1280, 720), Image.LANCZOS)
     scene.mascot = m0
+    if not cozy and m0 is not None:
+        m = m0.resize((460, 460), Image.LANCZOS)
+        fr.paste(m, (1280 - 480, 150), m)
     d = ImageDraw.Draw(fr, "RGBA")
-    d.rectangle([0, 430, 1280, 720], fill=(0, 0, 0, 0))
-    f1, f2 = font(92, "Bold"), font(40, "Medium")
-    for dx, dy in ((3, 3), (-2, 2), (2, -2), (-2, -2)):
-        d.text((70 + dx, 470 + dy), title, font=f1, fill=(0, 0, 0, 180))
-    d.text((70, 470), title, font=f1, fill=(255, 240, 215))
-    d.text((74, 585), sub, font=f2, fill=(200, 200, 230))
-    if scene.mascot is not None:
-        m = scene.mascot.resize((460, 460), Image.LANCZOS)
-        fr.paste(m, (1280 - 470, 30), m)
-    fr.save(path, quality=92)
+    ink = (10, 8, 30)
+    lines = big.upper().split("|")
+    f1 = min((_fit(d, ln, "Black", 560 if cozy else 720, 250 if len(lines) == 1 else 190) for ln in lines), key=lambda f: f.size)
+    y = 150 if len(lines) == 1 else 110
+    for ln in lines:
+        d.text((50, y), ln, font=f1, fill=(255, 243, 214), stroke_width=10, stroke_fill=ink)
+        y += int(f1.size * 1.0)
+    y += 14
+    if sub:
+        d.text((58, y), sub, font=font(64, "Bold"), fill=(196, 210, 255), stroke_width=6, stroke_fill=ink)
+        y += 104
+    if hours:
+        label = f"{hours} HOUR" + ("S" if hours > 1 else "")
+        fb = font(72, "Black")
+        w = d.textlength(label, font=fb)
+        d.rounded_rectangle([56, y, 56 + w + 60, y + 108], radius=54, fill=(255, 170, 70))
+        d.text((86, y + 12), label, font=fb, fill=(30, 16, 10))
+    fr.save(path, quality=93)
 
 
 def render(args):
@@ -357,12 +381,13 @@ def render(args):
     # 1) music
     if not (args.reuse_audio and os.path.exists(wav)):
         print("rendering music …", flush=True)
-        ambient.render(wav, args.duration + 1, seed=args.seed, key=args.key, mood=args.mood, gain=args.gain,
+        ambient.render(wav, args.duration + 1, seed=args.seed, key=args.key, mood=args.mood, rain=args.rain, gain=args.gain,
                        log=lambda s: print(s, flush=True))
     # 2) scene loop
     print("building scene …", flush=True)
     scene = SCENES[args.scene](args.seed, args.loop)
-    thumbnail(scene, base + "_thumb.jpg", args.title, args.subtitle)
+    thumbnail(scene, base + "_thumb.jpg", args.thumb_big or args.title, args.thumb_sub if args.thumb_big else args.subtitle,
+              max(1, round(args.duration / 3600)))
     Image.fromarray(scene.frame(0)).save(base + "_still.png")
     n_frames = int(args.loop * args.fps)
     print(f"rendering loop: {n_frames} frames", flush=True)
@@ -399,6 +424,9 @@ if __name__ == "__main__":
     ap.add_argument("--gain", type=float, default=2.5)
     ap.add_argument("--title", default="Starlight Drift")
     ap.add_argument("--subtitle", default="1 Hour · Original Sleep Music")
+    ap.add_argument("--thumb-big", default=None, help="big thumbnail keyword(s); use | for a line break")
+    ap.add_argument("--thumb-sub", default="")
+    ap.add_argument("--rain", type=float, default=None, help="rain bed level 0..1 (default: by mood)")
     ap.add_argument("--out", default="out/video.mp4")
     ap.add_argument("--reuse-audio", action="store_true")
     render(ap.parse_args())

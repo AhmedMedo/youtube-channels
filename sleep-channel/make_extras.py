@@ -78,19 +78,20 @@ def make_blackscreen(ep, base, duration):
 
 
 def make_blackscreen_thumb(ep, base, title, hours):
-    """Dark variant of the episode thumbnail with a BLACK SCREEN badge."""
+    """Dark variant of the scene still with a BLACK SCREEN badge, big keyword style (matches the v2 thumbnails)."""
     from PIL import ImageEnhance
-    # the episode thumbnail is already rendered without the small mascot; erase its title, then darken
-    im = Image.open(os.path.join(ep, f"{base}_thumb.jpg")).convert("RGB").resize((1280, 720), Image.LANCZOS)
-    ImageDraw.Draw(im).rectangle([60, 460, 800, 650], fill=(8, 8, 16))
-    im = ImageEnhance.Brightness(im).enhance(0.35)
-    m = Image.open(MASCOT).convert("RGBA").resize((460, 460), Image.LANCZOS)
-    im.paste(m, (1280 - 470, 30), m)
+    im = Image.open(os.path.join(ep, f"{base}_still.png")).convert("RGB").resize((1280, 720), Image.LANCZOS)
+    im = ImageEnhance.Brightness(im).enhance(0.3)
     d = ImageDraw.Draw(im, "RGBA")
-    d.rounded_rectangle([66, 370, 470, 440], radius=14, fill=(0, 0, 0, 230), outline=(255, 236, 180, 255), width=3)
-    d.text((88, 380), "BLACK SCREEN", font=font(44), fill=(255, 236, 180))
-    d.text((70, 470), title, font=font(92), fill=(255, 240, 215))
-    d.text((74, 585), f"{hours} Hour{'s' if hours > 1 else ''} · Sleep Music · Screen Off", font=font(40, "Medium"), fill=(200, 200, 230))
+    ink = (6, 6, 16)
+    d.text((50, 110), "BLACK", font=font(190, "Black"), fill=(255, 243, 214), stroke_width=10, stroke_fill=ink)
+    d.text((50, 300), "SCREEN", font=font(190, "Black"), fill=(255, 243, 214), stroke_width=10, stroke_fill=ink)
+    d.text((58, 510), title, font=font(52, "Bold"), fill=(196, 210, 255), stroke_width=5, stroke_fill=ink)
+    label = f"{hours} HOUR" + ("S" if hours > 1 else "")
+    fb = font(64, "Black")
+    w = d.textlength(label, font=fb)
+    d.rounded_rectangle([56, 590, 56 + w + 56, 690], radius=50, fill=(255, 170, 70))
+    d.text((84, 602), label, font=fb, fill=(30, 16, 10))
     out = os.path.join(ep, f"{base}_blackscreen_thumb.jpg")
     im.save(out, quality=92)
     return out
