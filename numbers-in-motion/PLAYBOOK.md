@@ -111,3 +111,32 @@ A short Egyptian-Arabic message to the owner: what's ready, links, what needs hi
 
 - New renderer flags (10 Nov): `--ease 0.35` makes rows snap faster, and names now always sit in their rank slot. For fast-moving data (exchange-rate swings), subsample to 2-year steps.
 - Check that any "X was #1" claim holds with full coverage. For example, Kuwait's data starts in 1962 and Qatar's and the UAE's in 1970, so the GDP-per-capita claim starts at 1970.
+
+
+## Format rotation (decided by Ahmed, 10 Nov 2026) — MANDATORY
+The channel no longer makes only bar chart races. Every new topic uses a **different idea from the last one**, in the
+**paper/sticker look** (`--theme paper` in render_v2.py; formats.py always uses it). Rotate in this order and add new
+ideas to the list when you have them:
+
+| Turn | Format | Tool | Status |
+|---|---|---|---|
+| #5 | **Quiz: "Who ___ more?"** two countries, timer, reveal, score | `formats.py quiz` | CO₂ 2024, rendered 10 Nov, awaiting Ahmed's OK to upload |
+| #6 | **Knockout: "Last Country Standing"** threshold rises, countries fall out | `formats.py knockout` | sample only (military 2025); needs a long (horizontal) version |
+| #7+ | New idea each time: countryball sprint race, real-size zoom-out, "X = how many Y" stacking, or the classic bar race in paper theme | to build | |
+
+Rules for every format:
+- Frame 0 must already show the question and something to look at (no slide-in, no blink on the first frame).
+- Everything must be readable on mute. Shorts 18–25 s. Long videos get `--endcard 14`.
+- Each topic ships: 1 long (horizontal), 1 Short (vertical), 1 thumbnail, 1 metadata txt. Upload as Private; Ahmed publishes or OKs.
+- Never state a made-up stat (no "90% fail"). Skip quiz pairs closer than about 5% (data revisions could flip them).
+- After each topic, compare the Short's "stayed to watch" with earlier formats here:
+  population 48.4% · GDP 52.1% · military v3 54.0% (AVD 0:20/0:22) · gdppc v3 (published 10 Nov, check).
+
+Quiz commands (CO₂ example; csv columns: entity,total,pc):
+```
+python3 formats.py quiz --csv data/co2_2024.csv --year 2024 --topic "CO₂ emissions" --rounds short --out out/co2_quiz_short.mp4
+python3 formats.py quiz --csv data/co2_2024.csv --year 2024 --topic "CO₂ emissions" --rounds long --horizontal --endcard 14 --out out/x.mp4
+python3 formats.py thumb --csv data/co2_2024.csv --out out/co2_thumb.jpg
+```
+Round lists (SHORT_ROUNDS, LONG_ROUNDS), the verb ("POLLUTES") and thumbnail text are set in formats.py; edit them per topic.
+CO₂ data: Our World in Data co2-data (GitHub raw), year 2024, countries over 1M people. 2025 values there are projections, so they were not used.
