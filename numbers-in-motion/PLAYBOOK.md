@@ -19,7 +19,8 @@ He is busy and dislikes slow polishing loops: ship good-enough fast, flag issues
 | 2 | USA vs China GDP 1960–2024 | youtu.be/MN99yzjSa5Y | shorts/jR2Aca42xcI |
 | 3 | Richest countries per person 1960–2024 | youtu.be/k_mEu5f5vz0 (PRIVATE — pulled 9 Nov, old format) | shorts/wg9tOlzGIM4 (PRIVATE) |
 | 4 | 9 Countries vs the USA: military budgets 1990–2025 (v3) | youtu.be/yU-GR4q5OG4 (public 10 Nov) | shorts/8RE6H7K-0lM (public 10 Nov; 54% stayed, AVD 0:20/0:22) |
-| 3b | Richest per person Short v3 (1970–2024, 2-year steps) | links to k_mEu5f5vz0 (went public 10 Nov) | gdppc_short_v3.mp4, uploading |
+| 3b | Richest per person Short v3 (1970–2024, 2-year steps) | links to k_mEu5f5vz0 | shorts/Ik1gzJl2umY (public 10 Nov) |
+| 5 | Who Pollutes More? CO₂ quiz 2024 | youtu.be/Clrd3W518lQ (public 10 Nov) | shorts/OXn1Nw7SF6s (public 10 Nov) |
 
 **Slot rule (overrides the run prompt's Wed→Sat / Sun→Tue mapping):** before producing, check YouTube Studio
 (Content tab, scheduled items) and the table above. If the target slot already has a scheduled or published long video,
@@ -120,14 +121,17 @@ ideas to the list when you have them:
 
 | Turn | Format | Tool | Status |
 |---|---|---|---|
-| #5 | **Quiz: "Who ___ more?"** two countries, timer, reveal, score | `formats.py quiz` | CO₂ 2024, rendered 10 Nov, awaiting Ahmed's OK to upload |
+| #5 | **Quiz: "Who ___ more?"** two countries, timer, reveal, score | `formats.py quiz` | CO₂ 2024 — PUBLIC 10 Nov: long youtu.be/Clrd3W518lQ · Short youtube.com/shorts/OXn1Nw7SF6s |
 | #6 | **Knockout: "Last Country Standing"** threshold rises, countries fall out | `formats.py knockout` | sample only (military 2025); needs a long (horizontal) version |
 | #7+ | New idea each time: countryball sprint race, real-size zoom-out, "X = how many Y" stacking, or the classic bar race in paper theme | to build | |
 
 Rules for every format:
 - Frame 0 must already show the question and something to look at (no slide-in, no blink on the first frame).
 - Everything must be readable on mute. Shorts 18–25 s. Long videos get `--endcard 14`.
-- Each topic ships: 1 long (horizontal), 1 Short (vertical), 1 thumbnail, 1 metadata txt. Upload as Private; Ahmed publishes or OKs.
+- Each topic ships: 1 long (horizontal), 1 Short (vertical), 1 thumbnail, 1 metadata txt. Upload as Private unless Ahmed says otherwise.
+- Browser upload limit is 3.8 MB per call, so re-encode before uploading: `-crf 26` for a Short, up to `-crf 33` for a long video (flat graphics survive it).
+- Before switching a video to Public, wait for "Checks complete. No issues found." YouTube warns that publishing during the check risks a strike or restricted visibility.
+- Link the Short to its long video with Related video after both are up.
 - Never state a made-up stat (no "90% fail"). Skip quiz pairs closer than about 5% (data revisions could flip them).
 - After each topic, compare the Short's "stayed to watch" with earlier formats here:
   population 48.4% · GDP 52.1% · military v3 54.0% (AVD 0:20/0:22) · gdppc v3 (published 10 Nov, check).
