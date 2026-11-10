@@ -18,7 +18,8 @@ He is busy and dislikes slow polishing loops: ship good-enough fast, flag issues
 | 1 | Most populous countries 1952–2007 | youtu.be/qu2fFubfuw4 | shorts/UCvmSYu-_6c |
 | 2 | USA vs China GDP 1960–2024 | youtu.be/MN99yzjSa5Y | shorts/jR2Aca42xcI |
 | 3 | Richest countries per person 1960–2024 | youtu.be/k_mEu5f5vz0 (PRIVATE — pulled 9 Nov, old format) | shorts/wg9tOlzGIM4 (PRIVATE) |
-| 4 | Biggest military budgets 1960–2023 (8:30 long + Shorts v2) | delivered to Ahmed 9 Nov, awaiting upload | delivered, awaiting upload |
+| 4 | 9 Countries vs the USA: military budgets 1990–2025 (v3) | youtu.be/yU-GR4q5OG4 (public 10 Nov) | shorts/8RE6H7K-0lM (public 10 Nov; 54% stayed, AVD 0:20/0:22) |
+| 3b | Richest per person Short v3 (1970–2024, 2-year steps) | links to k_mEu5f5vz0 (went public 10 Nov) | gdppc_short_v3.mp4, uploading |
 
 **Slot rule (overrides the run prompt's Wed→Sat / Sun→Tue mapping):** before producing, check YouTube Studio
 (Content tab, scheduled items) and the table above. If the target slot already has a scheduled or published long video,
@@ -107,3 +108,6 @@ A short Egyptian-Arabic message to the owner: what's ready, links, what needs hi
 - The story must have tension (a lead that changes, or a record that breaks). Verify the payoff claim against the CSV for every year.
 - Data must be current: add the latest SIPRI or World Bank year from the official fact sheet before rendering.
 - Military #4: data updated to 2025 (SIPRI fact sheets). 2025 is the first year since 1990 in which the next 9 combined outspend the USA. Renders are mil_short_v3.mp4 and NumbersInMotion_Military_Budgets_1990-2025.mp4; thumbnail is mil_thumb_v3.jpg.
+
+- New renderer flags (10 Nov): `--ease 0.35` makes rows snap faster, and names now always sit in their rank slot. For fast-moving data (exchange-rate swings), subsample to 2-year steps.
+- Check that any "X was #1" claim holds with full coverage. For example, Kuwait's data starts in 1962 and Qatar's and the UAE's in 1970, so the GDP-per-capita claim starts at 1970.

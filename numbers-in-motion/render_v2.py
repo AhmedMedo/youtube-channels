@@ -455,13 +455,13 @@ class Renderer:
             y = y + self.row_h * 0.95
         img.paste(layer, (int(x), int(y - layer.height / 2)), layer)
 
-    def frame(self, fi, year, vals, alpha=1.0, show_year=True):
+    def frame(self, fi, year, vals, alpha=1.0, show_year=True, rank_vals=None):
         img, d = self.base(year, fi)
-        rank = self.detect(fi, vals)
+        rank = self.detect(fi, vals if rank_vals is None else rank_vals)
         order = sorted(rank, key=rank.get)
         for e in self.s.entities:
             tgt = rank[e] if rank[e] < self.top else self.top + 1.5
-            self.pos[e] += (tgt - self.pos[e]) * 0.18
+            self.pos[e] += (tgt - self.pos[e]) * self.a.ease
         top_vals = [vals[self.s.entities.index(e)] for e in order[: self.top]]
         vmax = max(max(top_vals), 1e-9)
         scale = (self.cr - self.cl) / (vmax * 1.05)
@@ -500,11 +500,13 @@ class Renderer:
                                 radius=int(self.bar_h / 2), fill=mixc(self.colors[e]))
             rx, nx, nmax = (20, 66, self.cl - 80) if self.a.vertical else (self.cl - 400, self.cl - 355, 330)
             if rank[e] < self.top:
-                d.text((rx, cy - F_RANK.size * 0.6), f"{rank[e] + 1}", font=F_RANK, fill=mixt(MUTED))
+                d.text((rx, self.ct + rank[e] * self.row_h + self.bar_h / 2 - F_RANK.size * 0.6), f"{rank[e] + 1}", font=F_RANK, fill=MUTED)
             nm = short(e)
             while d.textlength(nm, font=F_LABEL) > nmax and len(nm) > 4:
                 nm = nm[:-2].rstrip() + "…" if not nm.endswith("…") else nm[:-2] + "…"
-            d.text((nx, cy - F_LABEL.size * 0.62), nm, font=F_LABEL, fill=mixt(FG))
+            if rank[e] < self.top:  # names snap to their target slot, so two names never overlap
+                cys = self.ct + rank[e] * self.row_h + self.bar_h / 2
+                d.text((nx, cys - F_LABEL.size * 0.62), nm, font=F_LABEL, fill=FG)
             # face at the bar tip
             fx = max(self.cl + self.bar_h, x1) - self.face_d * 0.55
             fy = cy - self.face_d / 2
@@ -740,6 +742,8 @@ def main():
     ap.add_argument("--reveal-text", default="", help="custom reveal lines separated by | (2nd line is the big one)")
     ap.add_argument("--podium-ranks", type=int, default=3, help="overtakes into these top ranks count as big moments")
     ap.add_argument("--no-captions", action="store_true", help="no speech bubbles")
+    ap.add_argument("--snap-ranks", action="store_true", help="rows reorder once per data step, not every frame")
+    ap.add_argument("--ease", type=float, default=0.18, help="row movement speed per frame (0.18 smooth, 0.35 snappy)")
     ap.add_argument("--hook-size", type=int, default=0)
     ap.add_argument("--stack", type=int, default=0, help="outro: #1 vs the next N combined, stacked columns")
     ap.add_argument("--stack-label", default="", help="label for the stacked column (default 'Next N')")
@@ -792,9 +796,18 @@ def main():
     # vertical: hook sits in the header band above the chart; horizontal: in the empty lower-right area
     hook_pos = dict(cy=290, cx=W / 2, maxw_=W - 120) if a.vertical else dict(cy=H * 0.46, cx=W * 0.62, maxw_=980)
     last = None
+    keyvals = {}
+    for y_, v_ in frames:
+        if abs(y_ - round(y_)) < 1e-6 and int(round(y_)) in {int(x) for x in s.years}:
+            keyvals.setdefault(round(y_), v_)
+    keys = sorted(keyvals)
     for i, (year, vals) in enumerate(frames):
         r.hide_header = bool(a.hook) and i / fps < a.hook_secs - 0.2
-        img = r.frame(fi, year, vals, alpha=1.0 if a.hook else min(1.0, i / (fps * 0.5)))
+        rv = None
+        if a.snap_ranks:  # reorder once per data step: rank by the upcoming keyframe
+            nxt = min((k for k in keys if k >= year - 1e-6), default=keys[-1])
+            rv = keyvals[nxt]
+        img = r.frame(fi, year, vals, alpha=1.0 if a.hook else min(1.0, i / (fps * 0.5)), rank_vals=rv)
         if a.hook:
             t_ = i / fps
             k = 1.0 if t_ < a.hook_secs - 0.35 else max(0.0, (a.hook_secs - t_) / 0.35)
@@ -832,7 +845,14 @@ def main():
             else:
                 lines = [(f"#1 in {int(last[0])}:", F_R1, (230, 230, 235)),
                          (short(top1).upper(), F_R2, (255, 209, 64))]
-            img = overlay_text_block(img, lines + [(a.cta, F_R1, (230, 230, 235))], k)
+            if a.vertical:  # keep the final ranking visible: text goes in the header band
+                r.hide_header = True
+                img = r.frame(fi, *last)
+                lines = [(t_, font(110, "Black") if f_ is F_R2 else font(56, "Bold"), c_) for t_, f_, c_ in lines]
+                img = overlay_text_block(img, lines, k, cy=270, maxw_=W - 100)
+                img = overlay_text_block(img, [(a.cta, font(54, "Bold"), (255, 209, 64))], k, box=False, cy=1810, maxw_=W - 100)
+            else:
+                img = overlay_text_block(img, lines + [(a.cta, F_R1, (230, 230, 235))], k)
             push(img)
         a.outro = 0
     for i in range(int(fps * a.outro)):
