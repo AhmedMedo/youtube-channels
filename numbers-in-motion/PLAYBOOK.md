@@ -154,3 +154,19 @@ Every new long video goes into the playlist for its format, and its description 
 video keeps going through the playlist, which is what grows watch hours toward the 4,000 the YPP needs.
 Studio flow: Content → Videos → tick the videos → Add to playlist → New playlist (or an existing one) → Save.
 The `/playlists` Studio URL 404s; reach them from Content → Playlists.
+
+## Shorts performance log + publishing rate (10 Nov 2026)
+"Stayed to watch" per Short, from YouTube Studio (Engagement → How viewers engaged):
+
+| Short | Stayed | AVD | Views | Note |
+|---|---|---|---|---|
+| Most populous (v1) | 48.4% | 0:21 / 0:30 | ~1,100 | |
+| GDP / USA vs China (v1) | 52.1% | 0:27 / 0:42 | ~1,250 | |
+| Military v3 (bar race, paper hook) | **54.0%** | 0:20 / 0:22 | 1,256 | best so far |
+| Richest per person v3 (bar race) | **16.4%** | 0:18 / 0:21 | 125 | died; 10 near-equal bars, nothing to look at in frame 1 |
+| CO₂ quiz (quiz format) | pending | | | published 10 Nov ~20:45 |
+
+Lessons:
+- A race only works when ONE bar dominates or the lead actually changes. Ten similar bars = an instant swipe.
+- **One Short per day, maximum.** Three went out on 10 Nov; the third got no seed views for hours. Space them out, and never publish a Short right after one that scored under ~40%.
+- Check "stayed to watch" for the previous Short before publishing the next one, and record it in this table.
