@@ -36,6 +36,37 @@ FG = (240, 240, 245)
 MUTED = (140, 145, 160)
 GRID = (40, 44, 56)
 ACCENT = (255, 196, 61)
+YEARCOL = (62, 66, 82)
+OUTLINE = None          # bar outline colour (None = flat bars)
+BAND = None             # (band fill, title text colour) behind the title
+PLATE = (10, 11, 16)    # hook / reveal plate fill
+PAPER = False           # squared-paper background
+_BGIMG = None
+THEMES = {
+    "dark": {},
+    "paper": dict(BG=(238, 233, 222), FG=(20, 26, 52), MUTED=(112, 108, 100), GRID=(214, 207, 192),
+                  YEARCOL=(208, 200, 184), OUTLINE=(20, 26, 52), BAND=((18, 30, 86), (255, 255, 255)),
+                  PLATE=(18, 30, 86), PAPER=True),
+    "pop": dict(BG=(16, 22, 62), FG=(255, 255, 255), MUTED=(160, 170, 215), GRID=(38, 48, 104),
+                YEARCOL=(44, 56, 120), OUTLINE=(255, 255, 255), BAND=((255, 209, 64), (16, 22, 62)),
+                PLATE=(8, 12, 40)),
+}
+
+
+def bg_image():
+    global _BGIMG
+    if _BGIMG is None:
+        im = Image.new("RGB", (W, H), BG)
+        if PAPER:
+            d = ImageDraw.Draw(im)
+            for x in range(0, W, 54):
+                d.line([(x, 0), (x, H)], fill=GRID, width=2)
+            for y in range(0, H, 54):
+                d.line([(0, y), (W, y)], fill=GRID, width=2)
+        _BGIMG = im
+    return _BGIMG.copy()
+
+
 BUBBLE = (250, 250, 252)
 BUBBLE_TXT = (20, 22, 30)
 
@@ -395,7 +426,7 @@ class Renderer:
         return lines
 
     def base(self, year, fi=0):
-        img = Image.new("RGB", (W, H), BG)
+        img = bg_image()
         d = ImageDraw.Draw(img)
         t = fi / self.a.fps
         show_q = self.a.question and self.a.intro == "overlay" and t < self.a.question_secs
@@ -406,9 +437,15 @@ class Renderer:
             y = 90
             d.text((60, y), f"{self.a.channel} · Source: {self.a.source}", font=F_SMALL, fill=MUTED)
             y += 50
-            for ln in self.wrap(d, self.a.title, F_TITLE, W - 120):
-                d.text((60, y), ln, font=F_TITLE, fill=FG)
+            tl = self.wrap(d, self.a.title, F_TITLE, W - 120)
+            if BAND:
+                tw_ = max(d.textlength(ln, font=F_TITLE) for ln in tl)
+                d.polygon([(28, y - 6), (60 + tw_ + 44, y - 16), (60 + tw_ + 34, y + 76 * len(tl) + 14), (36, y + 76 * len(tl) + 20)], fill=BAND[0])
+            for ln in tl:
+                d.text((60, y), ln, font=F_TITLE, fill=BAND[1] if BAND else FG)
                 y += 76
+            if BAND:
+                y += 22
             sub = self.a.question if show_q else self.a.subtitle
             col = ACCENT if show_q else MUTED
             for ln in self.wrap(d, sub, F_SUB, W - 120):
@@ -473,14 +510,15 @@ class Renderer:
         v = step
         while v < vmax * 1.05:
             x = self.cl + v * scale
-            d.line([(x, self.ct - 10), (x, self.cb)], fill=GRID, width=2)
+            if not PAPER:
+                d.line([(x, self.ct - 10), (x, self.cb)], fill=GRID, width=2)
             lbl = fmt(v, self.a.prefix)
             d.text((x - d.textlength(lbl, font=F_SMALL) / 2, self.ct - 44), lbl, font=F_SMALL, fill=MUTED)
             v += step
         # big year
         if show_year:
             yt = f"{int(year)}"
-            d.text((W - 90 - d.textlength(yt, font=F_YEAR), H - 330), yt, font=F_YEAR, fill=(62, 66, 82))
+            d.text((W - 90 - d.textlength(yt, font=F_YEAR), H - 330), yt, font=F_YEAR, fill=YEARCOL)
         bar_end = {}
         for e in sorted(self.s.entities, key=lambda k: -self.pos[k]):
             if self.pos[e] > self.top + 0.6:
@@ -496,8 +534,12 @@ class Renderer:
             tgt_e = rank[e] if rank[e] < self.top else self.top + 1.5
             tfade = fade * max(0.0, min(1.0, 1 - (abs(self.pos[e] - tgt_e) - 0.08) * 3.2))
             mixt = lambda c: tuple(int(BG[i] + (c[i] - BG[i]) * tfade) for i in range(3))
+            if OUTLINE and PAPER and fade > 0.9:  # sticker drop shadow
+                d.rounded_rectangle([self.cl + 6, y + 7, max(self.cl + self.bar_h, x1) + 6, y + self.bar_h + 7],
+                                    radius=int(self.bar_h / 2), fill=(196, 188, 170))
             d.rounded_rectangle([self.cl, y, max(self.cl + self.bar_h, x1), y + self.bar_h],
-                                radius=int(self.bar_h / 2), fill=mixc(self.colors[e]))
+                                radius=int(self.bar_h / 2), fill=mixc(self.colors[e]),
+                                outline=mixc(OUTLINE) if OUTLINE else None, width=4 if OUTLINE else 0)
             rx, nx, nmax = (20, 66, self.cl - 80) if self.a.vertical else (self.cl - 400, self.cl - 355, 330)
             if rank[e] < self.top:
                 d.text((rx, self.ct + rank[e] * self.row_h + self.bar_h / 2 - F_RANK.size * 0.6), f"{rank[e] + 1}", font=F_RANK, fill=MUTED)
@@ -593,7 +635,7 @@ def overlay_text_block(img, lines, k, box=True, cy=None, cx=None, maxw_=None):
     y = (H * 0.42 if cy is None else cy) - total / 2
     if box:
         ld.rounded_rectangle([cx - maxw / 2 - 50, y - 40, cx + maxw / 2 + 50, y + total + 30], radius=36,
-                             fill=(10, 11, 16, int(235 * k)))
+                             fill=PLATE + (int((250 if PAPER else 235) * k),))
     for t, f, col in wrapped:
         tw = ld.textlength(t, font=f)
         ld.text((cx - tw / 2, y), t, font=f, fill=col + (int(255 * k),))
@@ -741,6 +783,7 @@ def main():
     ap.add_argument("--cta", default="Comment your country ↓")
     ap.add_argument("--reveal-text", default="", help="custom reveal lines separated by | (2nd line is the big one)")
     ap.add_argument("--podium-ranks", type=int, default=3, help="overtakes into these top ranks count as big moments")
+    ap.add_argument("--theme", default="dark", choices=list(THEMES))
     ap.add_argument("--no-captions", action="store_true", help="no speech bubbles")
     ap.add_argument("--snap-ranks", action="store_true", help="rows reorder once per data step, not every frame")
     ap.add_argument("--ease", type=float, default=0.18, help="row movement speed per frame (0.18 smooth, 0.35 snappy)")
@@ -752,6 +795,7 @@ def main():
     ap.add_argument("--endcard-text", default="Which race should we do next? ↓")
     a = ap.parse_args()
     global W, H, F_LABEL, F_VALUE, F_RANK
+    globals().update(THEMES[a.theme])
     if a.vertical:
         W, H = 1080, 1920
         F_LABEL, F_VALUE, F_RANK = font(44, "SemiBold"), font(40, "Medium"), font(36, "Medium")
