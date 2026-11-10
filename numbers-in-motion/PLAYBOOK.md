@@ -144,3 +144,13 @@ python3 formats.py thumb --csv data/co2_2024.csv --out out/co2_thumb.jpg
 ```
 Round lists (SHORT_ROUNDS, LONG_ROUNDS), the verb ("POLLUTES") and thumbnail text are set in formats.py; edit them per topic.
 CO₂ data: Our World in Data co2-data (GitHub raw), year 2024, countries over 1M people. 2025 values there are projections, so they were not used.
+
+## Playlists (created 10 Nov 2026)
+- **Bar Chart Races** — https://www.youtube.com/playlist?list=PLFv3MyGofp78 (military, richest per person, USA vs China, population)
+- **Country Quizzes** — https://www.youtube.com/playlist?list=PLTuyb-nBcJow (CO₂ quiz)
+
+Every new long video goes into the playlist for its format, and its description ends with
+`More races: <link>` or `More quizzes: <link>`. The point is autoplay: a viewer who finishes one
+video keeps going through the playlist, which is what grows watch hours toward the 4,000 the YPP needs.
+Studio flow: Content → Videos → tick the videos → Add to playlist → New playlist (or an existing one) → Save.
+The `/playlists` Studio URL 404s; reach them from Content → Playlists.
