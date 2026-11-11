@@ -226,83 +226,166 @@ def quiz(data, rounds, topic, year, horiz=False, verb="POLLUTES", endcard=0.0):
 
 
 # ----------------------------------------------------------------------------- knockout
-def knockout(vals, names, topic, year):
-    F_T, F_N, F_BIG, F_S = font(70, "Black"), font(34, "Bold"), font(150, "Black"), font(40, "SemiBold")
+KO = dict(title=("LAST COUNTRY", "STANDING"), unit="internet users", hook="Who has the most people online?",
+          payoff=("More people online than", "USA + Indonesia + Brazil", "+ Pakistan + Russia COMBINED"))
+
+
+def knockout(vals, names, topic, year, horiz=False, endcard=0.0, cfg=KO):
+    """Threshold rises; whoever is under it drops out. Short: 12 countries ~21 s. Long: 40 countries ~3 min."""
+    global W, H
+    W, H = (1920, 1080) if horiz else (1080, 1920)
+    rv.W, rv.H, rv._BGIMG = W, H, None
     order = sorted(names, key=lambda e: vals[e])          # weakest first
     n = len(order)
-    T0, GAP, HOLD = 1.2, 0.72, 2.6
-    out_t = {e: T0 + GAP * (i + 1) for i, e in enumerate(order[:-1])}
     champ = order[-1]
-    t_end = T0 + GAP * n
-    total = t_end + HOLD
-    ev = [(0.05, "whoosh", 0.7)] + [(tt, "bonk", 0.8) for tt in out_t.values()] + [(t_end, "fanfare", 0.9)]
-    cols = 4
+    # ---- timeline
+    T0 = 3.0 if horiz else 1.0
+    out_t, pauses, t = {}, [], T0
+    for i, e in enumerate(order[:-1]):
+        left = n - i
+        if horiz:
+            gap = 3.2 if left > 10 else (5.0 if left > 3 else 8.0)
+        else:
+            gap = 1.3 if left > 4 else (1.8 if left > 2 else 2.4)
+        if horiz and left in (10, 3):                      # stage banner before this round
+            pauses.append((t, t + 3.0, "TOP 10 · Guess the winner!" if left == 10 else "FINAL 3"))
+            t += 3.0
+        t += gap
+        out_t[e] = t
+    t_end = t
+    FIN = 8.0 if horiz else 4.2
+    total = t_end + FIN + endcard
+    ev = [(0.05, "whoosh", 0.7)] + [(tt, "bonk", 0.8) for tt in out_t.values()] + [(a, "ding", 0.7) for a, _, _ in pauses] + [(t_end, "fanfare", 0.9)]
+    starts = [T0] + [out_t[e] for e in order[:-1]]       # threshold climbs to order[i] by out_t[order[i]]
+
+    def thr(t):
+        if t <= T0:
+            return vals[order[0]] * (0.3 + 0.3 * ease(t / T0))
+        for i, e in enumerate(order[:-1]):
+            if t < out_t[e]:
+                a = starts[i]
+                for p0, p1, _ in pauses:                    # hold the threshold during a banner
+                    if a <= p0 < out_t[e]:
+                        if t < p1:
+                            return vals[order[i - 1]] if i else vals[order[0]] * 0.6
+                        a = p1
+                lo = vals[order[i - 1]] if i else vals[order[0]] * 0.6
+                return lo + (vals[e] - lo) * ease((t - a) / (out_t[e] - a))
+        return vals[order[-2]]
+
+    # ---- layout
     import random
     rnd = random.Random(7)
     slots = list(names)
     rnd.shuffle(slots)
-    pos = {e: (150 + (i % cols) * 260, 960 + (i // cols) * 270) for i, e in enumerate(slots)}
+    if horiz:
+        cols, D, F_N, F_T, F_S, F_BIG = 8, 100, font(25, "Bold"), font(72, "Black"), font(34, "SemiBold"), font(118, "Black")
+        pos = {e: (760 + (i % cols) * 150, 290 + (i // cols) * 170) for i, e in enumerate(slots)}
+        panel = (60, 250, 640, 760)
+    else:
+        cols, D, F_N, F_T, F_S, F_BIG = 4, 176, font(34, "Bold"), font(70, "Black"), font(40, "SemiBold"), font(150, "Black")
+        pos = {e: (150 + (i % cols) * 260, 980 + (i // cols) * 270) for i, e in enumerate(slots)}
+        panel = (130, 380, W - 130, 800)
     spin = {e: rnd.choice((-1, 1)) * rnd.uniform(120, 260) for e in names}
-
-    def thr(t):  # threshold: piecewise through each eliminated value
-        if t <= T0:
-            return vals[order[0]] * 0.5 * (t / T0)
-        i = min(int((t - T0) / GAP), n - 2)
-        k = min(1.0, (t - T0 - i * GAP) / GAP)
-        lo = vals[order[i - 1]] if i > 0 else vals[order[0]] * 0.5
-        return lo + (vals[order[i]] - lo) * k if t < t_end else vals[order[-2]]
+    pcx = (panel[0] + panel[2]) / 2
 
     def frames():
         for fi in range(int(total * FPS)):
             t = fi / FPS
             img = rv.bg_image()
             d = ImageDraw.Draw(img)
-            band(d, 110, [("LAST COUNTRY", (255, 255, 255)), ("STANDING", YEL)], F_T)
-            ctext(d, W / 2, 262, f"{topic} · {year}", F_S, rv.MUTED)
+            if t >= t_end + FIN:                            # clean end-screen hold (long)
+                fit_band(d, 70, [("Thanks for watching!", (255, 255, 255)), ("Next video ↓", YEL)], 72, W - 300, tilt=6)
+                yield img
+                continue
+            band(d, 40 if horiz else 110, [(cfg["title"][0], (255, 255, 255)), (cfg["title"][1], YEL)], F_T)
+            ctext(d, W / 2, 152 if horiz else 262, f"{topic} · {year}", F_S, rv.MUTED)
+            if not horiz:
+                ctext(d, W / 2, 312, cfg["hook"], font(46, "Bold"), INK)
             alive = [e for e in names if e == champ or t < out_t[e]]
             fin = t >= t_end
-            # threshold panel
-            d.rounded_rectangle([130 + 10, 350 + 12, W - 130 + 10, 760 + 12], radius=48, fill=SHADOW)
-            d.rounded_rectangle([130, 350, W - 130, 760], radius=48, fill=CARD, outline=INK, width=6)
+            x0, y0, x1, y1 = panel
+            d.rounded_rectangle([x0 + 10, y0 + 12, x1 + 10, y1 + 12], radius=48, fill=SHADOW)
+            d.rounded_rectangle([x0, y0, x1, y1], radius=48, fill=CARD, outline=INK, width=6)
+            ph = y1 - y0
             if not fin:
-                ctext(d, W / 2, 385, "To stay in, you need", F_S, rv.MUTED)
-                ctext(d, W / 2, 440, fmt(thr(t), "$"), F_BIG, RED)
-                ctext(d, W / 2, 655, f"{len(alive)} countries left" if len(alive) > 1 else "1 country left", font(48, "Bold"), INK)
+                ctext(d, pcx, y0 + ph * .08, "To stay in, you need", F_S, rv.MUTED)
+                ctext(d, pcx, y0 + ph * .2, fmt(thr(t)), F_BIG, RED)
+                ctext(d, pcx, y0 + ph * .56, cfg["unit"], F_S, rv.MUTED)
+                ctext(d, pcx, y0 + ph * .74, f"{len(alive)} countries left" if len(alive) > 1 else "1 country left", font(48, "Bold"), INK)
             else:
                 k = pop_scale((t - t_end) / 0.4)
-                ctext(d, W / 2, 385, "WINNER", font(56, "Black"), GREEN)
-                ctext(d, W / 2, 450, short(champ), font(int(120 * max(k, .2)), "Black"), INK)
-                ctext(d, W / 2, 610, fmt(vals[champ], "$") + f" · more than #2–#{n if n < 10 else 4} combined?" if False else fmt(vals[champ], "$"), font(84, "Black"), GREEN)
-            # balls
+                ctext(d, pcx, y0 + ph * .07, "WINNER", font(56, "Black"), GREEN)
+                ctext(d, pcx, y0 + ph * .17, short(champ), font(int((100 if horiz else 120) * max(k, .2)), "Black"), INK)
+                ctext(d, pcx, y0 + ph * .42, fmt(vals[champ]) + " users", font(72, "Black"), GREEN)
+                if t - t_end > 1.0:
+                    for j, ln in enumerate(cfg["payoff"]):
+                        ctext(d, pcx, y0 + ph * (.63 + .095 * j), ln, font(32 if horiz else 38, "Bold" if j == 0 else "Black"), INK)
+            for p0, p1, txt in pauses:                       # stage card inside the panel
+                if p0 <= t < p1:
+                    k = pop_scale((t - p0) / 0.35)
+                    d.rounded_rectangle([x0, y0, x1, y1], radius=48, fill=NAVY, outline=INK, width=6)
+                    a, _, b = txt.partition(" · ")
+                    ctext(d, pcx, y0 + ph * (.22 if b else .32), a, font(int(110 * max(k, .3)), "Black"), YEL)
+                    if b:
+                        ctext(d, pcx, y0 + ph * .6, b, font(50, "Bold"), (255, 255, 255))
             for e in names:
                 x, y = pos[e]
-                D = 176
                 if e != champ and t >= out_t[e]:
                     dt = t - out_t[e]
-                    yy = y - 260 * dt + 2600 * dt * dt       # hop, then fall
+                    yy = y - 260 * dt + 2600 * dt * dt
                     if yy > H + 200:
                         continue
                     ball(img, e, x + spin[e] * 0.4 * dt, yy, D, "shocked", t, rot=spin[e] * dt)
-                    if dt < 0.7:
-                        lab = f"OUT · {fmt(vals[e], '$')}"
+                    if dt < (1.2 if horiz else 0.8):
+                        lab = f"OUT · {fmt(vals[e])}"
                         tw = d.textlength(lab, font=F_N)
-                        d.rounded_rectangle([x - tw / 2 - 16, y - 28, x + tw / 2 + 16, y + 28], radius=20, fill=RED, outline=INK, width=4)
-                        ctext(d, x, y - 22, lab, F_N, (255, 255, 255))
+                        lx = min(max(x, tw / 2 + 24), W - tw / 2 - 24)
+                        d.rounded_rectangle([lx - tw / 2 - 14, y - 26, lx + tw / 2 + 14, y + 26], radius=18, fill=RED, outline=INK, width=4)
+                        ctext(d, lx, y - F_N.size * .62, lab, F_N, (255, 255, 255))
                     continue
                 nxt = (not fin) and e == min(alive, key=lambda q: vals[q]) and e != champ
                 if fin and e == champ:
-                    k = ease((t - t_end) / 0.5)
-                    x, y, D = x + (W / 2 - x) * k, y + (1330 - y) * k - abs(math.sin(t * 8)) * 30 * k, int(150 + 230 * k)
-                    ball(img, e, x, y, D, "happy", t)
+                    k = ease((t - t_end) / 0.6)
+                    tx, ty = (1290, 640) if horiz else (W / 2, 1330)
+                    x, y = x + (tx - x) * k, y + (ty - y) * k - abs(math.sin(t * 8)) * 30 * k
+                    ball(img, e, x, y, int(D + (300 if horiz else 230) * k), "happy", t)
                     continue
-                shake = math.sin(t * 40) * 7 if nxt else 0
-                ball(img, e, x + shake, y + math.sin(t * 4 + x) * 6, D, "worried" if nxt else "neutral", t)
-                ctext(d, x, y + 106, short(e), F_N, INK)
-            if fin and t - t_end > 0.8:
-                band(d, 1700, [("Who went out too early?", (255, 255, 255)), ("↓", YEL)], font(60, "Black"), tilt=6)
+                shake = math.sin(t * 40) * 6 if nxt else 0
+                ball(img, e, x + shake, y + math.sin(t * 4 + x) * 5, D, "worried" if nxt else "neutral", t)
+                ctext(d, x, y + D * .6, short(e), F_N, INK)
+            if fin and t - t_end > 1.2:
+                if horiz:
+                    fit_band(d, 960, [("Did you guess it?", (255, 255, 255)), ("Comment ↓", YEL)], 60, W - 300, tilt=6)
+                else:
+                    band(d, 1700, [("Did you guess it?", (255, 255, 255)), ("↓", YEL)], font(60, "Black"), tilt=6)
             yield img
 
     return frames(), total, ev
+
+
+def ko_thumb(vals, out):
+    global W, H
+    W, H = 1280, 720
+    rv.W, rv.H, rv._BGIMG = W, H, None
+    img = rv.bg_image()
+    d = ImageDraw.Draw(img)
+    fit_band(d, 36, [("LAST COUNTRY", (255, 255, 255)), ("STANDING", YEL)], 104, W - 120, tilt=8)
+    d.rounded_rectangle([60 + 8, 210 + 10, 560 + 8, 650 + 10], radius=40, fill=SHADOW)
+    d.rounded_rectangle([60, 210, 560, 650], radius=40, fill=CARD, outline=INK, width=7)
+    ctext(d, 310, 236, "To stay in, you need", font(38, "SemiBold"), rv.MUTED)
+    ctext(d, 310, 300, "200M", font(150, "Black"), RED)
+    ctext(d, 310, 500, "internet users", font(42, "Bold"), INK)
+    ctext(d, 310, 562, "4 countries left", font(42, "Black"), INK)
+    for e, (x, y), mood, D in (("India", (760, 330), "worried", 200), ("United States", (1080, 300), "shocked", 190),
+                               ("Indonesia", (900, 560), "shocked", 170), ("China", (1160, 560), "neutral", 160)):
+        ball(img, e, x, y, D, mood, 0.3)
+    f = font(64, "Black")
+    tw = d.textlength("WHO SURVIVES?", font=f)
+    d.rounded_rectangle([960 - tw / 2 - 30, 640, 960 + tw / 2 + 30, 712], radius=30, fill=RED, outline=INK, width=5)
+    ctext(d, 960, 640, "WHO SURVIVES?", f, (255, 255, 255))
+    img.save(out, quality=92)
+    print("->", out)
 
 
 def thumb(data, out):
@@ -330,7 +413,8 @@ def thumb(data, out):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("mode", choices=["quiz", "knockout", "thumb"])
+    ap.add_argument("mode", choices=["quiz", "knockout", "thumb", "kothumb"])
+    ap.add_argument("--n", type=int, default=12, help="knockout: number of countries")
     ap.add_argument("--csv", default="data/military.csv")
     ap.add_argument("--year", type=int, default=2025)
     ap.add_argument("--topic", default="Military budget")
@@ -347,8 +431,10 @@ def main():
         fr, total, ev = quiz(data, SHORT_ROUNDS if a.rounds == "short" else LONG_ROUNDS, a.topic, a.year, a.horizontal, endcard=a.endcard)
     else:
         vals = dict(df[df.year == a.year].set_index("entity").value)
-        top = sorted(vals, key=vals.get, reverse=True)[:12]
-        fr, total, ev = knockout(vals, top, a.topic, a.year)
+        if a.mode == "kothumb":
+            return ko_thumb(vals, a.out)
+        top = sorted(vals, key=vals.get, reverse=True)[:a.n]
+        fr, total, ev = knockout(vals, top, a.topic, a.year, a.horizontal, a.endcard)
     tmp = tempfile.mkdtemp()
     silent, wav = os.path.join(tmp, "v.mp4"), os.path.join(tmp, "a.wav")
     ff = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),

@@ -21,6 +21,7 @@ He is busy and dislikes slow polishing loops: ship good-enough fast, flag issues
 | 4 | 9 Countries vs the USA: military budgets 1990–2025 (v3) | youtu.be/yU-GR4q5OG4 (public 10 Nov) | shorts/8RE6H7K-0lM (public 10 Nov; 54% stayed, AVD 0:20/0:22) |
 | 3b | Richest per person Short v3 (1970–2024, 2-year steps) | links to k_mEu5f5vz0 | shorts/Ik1gzJl2umY (public 10 Nov) |
 | 5 | Who Pollutes More? CO₂ quiz 2024 | youtu.be/Clrd3W518lQ (public 10 Nov) | shorts/OXn1Nw7SF6s (public 10 Nov) |
+| 6 | Last Country Standing: internet users 2024 (knockout) | rendered 11 Nov for Sat 14 Nov — not uploaded | rendered — not uploaded |
 
 **Slot rule (overrides the run prompt's Wed→Sat / Sun→Tue mapping):** before producing, check YouTube Studio
 (Content tab, scheduled items) and the table above. If the target slot already has a scheduled or published long video,
@@ -122,7 +123,7 @@ ideas to the list when you have them:
 | Turn | Format | Tool | Status |
 |---|---|---|---|
 | #5 | **Quiz: "Who ___ more?"** two countries, timer, reveal, score | `formats.py quiz` | CO₂ 2024 — PUBLIC 10 Nov: long youtu.be/Clrd3W518lQ · Short youtube.com/shorts/OXn1Nw7SF6s |
-| #6 | **Knockout: "Last Country Standing"** threshold rises, countries fall out | `formats.py knockout` | sample only (military 2025); needs a long (horizontal) version |
+| #6 | **Knockout: "Last Country Standing"** threshold rises, countries fall out | `formats.py knockout` (`--horizontal --n 40 --endcard 14` long ≈2:58; `--n 12` Short ≈21.6 s; `kothumb`) | Internet users 2024 — rendered 11 Nov, NOT uploaded yet (Chrome not selected) |
 | #7+ | New idea each time: countryball sprint race, real-size zoom-out, "X = how many Y" stacking, or the classic bar race in paper theme | to build | |
 
 Rules for every format:
@@ -170,3 +171,13 @@ Lessons:
 - A race only works when ONE bar dominates or the lead actually changes. Ten similar bars = an instant swipe.
 - **One Short per day, maximum.** Three went out on 10 Nov; the third got no seed views for hours. Space them out, and never publish a Short right after one that scored under ~40%.
 - Check "stayed to watch" for the previous Short before publishing the next one, and record it in this table.
+
+## Knockout: internet users (11 Nov 2026)
+- Data: `data/internet_users_2024.csv` = WB IT.NET.USER.ZS (ITU) × SP.POP.TOTL, 2024, countries ≥1M people with 2024 data
+  (missing: Myanmar, Sudan, Yemen, N. Korea, Syria…). Raw bulk files (release 2026-07-13) from GitHub mirrors; 3 mirror copies
+  identical, population matches the 2026-10-08 release. CNNIC says China ≈1.1B (ITU higher) — noted in the description.
+- Payoff "China > USA+Indonesia+Brazil+Pakistan+Russia combined" (1.30B vs 0.99B) holds even with CNNIC's figure.
+- Long re-encoded at crf 33 is 8.7 MB (> 3.8 MB Chrome limit) → owner drags it into Studio; Short is 1.9 MB.
+- Knockout is a new format → needs its own playlist ("Last Country Standing").
+- Chrome: scheduled runs keep hitting "3 browsers connected, none selected". Ahmed must pick his main Chrome once (switch_browser).
+- Next in rotation (#7): new idea (sprint race / zoom-out / stacking) or paper-theme bar race.
