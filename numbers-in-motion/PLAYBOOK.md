@@ -151,6 +151,9 @@ CO₂ data: Our World in Data co2-data (GitHub raw), year 2024, countries over 1
 - **Country Quizzes** — https://www.youtube.com/playlist?list=PLTuyb-nBcJow (CO₂ quiz)
 - **Last Country Standing** — https://www.youtube.com/playlist?list=PLQCm9t3k2PRI (internet users; created 11 Nov)
 
+**Only these 3 playlists (Ahmed, 11 Nov 2026).** Do NOT create new playlists without his OK; a new format goes into the closest of the three
+(races → Bar Chart Races, quiz-style → Country Quizzes, knockouts → Last Country Standing).
+
 Every new long video goes into the playlist for its format, and its description ends with
 `More races: <link>` or `More quizzes: <link>`. The point is autoplay: a viewer who finishes one
 video keeps going through the playlist, which is what grows watch hours toward the 4,000 the YPP needs.
