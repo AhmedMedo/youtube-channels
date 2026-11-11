@@ -21,7 +21,7 @@ He is busy and dislikes slow polishing loops: ship good-enough fast, flag issues
 | 4 | 9 Countries vs the USA: military budgets 1990–2025 (v3) | youtu.be/yU-GR4q5OG4 (public 10 Nov) | shorts/8RE6H7K-0lM (public 10 Nov; 54% stayed, AVD 0:20/0:22) |
 | 3b | Richest per person Short v3 (1970–2024, 2-year steps) | links to k_mEu5f5vz0 | shorts/Ik1gzJl2umY (public 10 Nov) |
 | 5 | Who Pollutes More? CO₂ quiz 2024 | youtu.be/Clrd3W518lQ (public 10 Nov) | shorts/OXn1Nw7SF6s (public 10 Nov) |
-| 6 | Last Country Standing: internet users 2024 (knockout) | rendered 11 Nov for Sat 14 Nov — not uploaded | rendered — not uploaded |
+| 6 | Last Country Standing: internet users 2024 (knockout) | youtu.be/g1OQNLHnK5k (PRIVATE, for Sat 14 Nov 22:00) | shorts/M8v36J-ut-4 (PRIVATE) |
 
 **Slot rule (overrides the run prompt's Wed→Sat / Sun→Tue mapping):** before producing, check YouTube Studio
 (Content tab, scheduled items) and the table above. If the target slot already has a scheduled or published long video,
@@ -123,7 +123,7 @@ ideas to the list when you have them:
 | Turn | Format | Tool | Status |
 |---|---|---|---|
 | #5 | **Quiz: "Who ___ more?"** two countries, timer, reveal, score | `formats.py quiz` | CO₂ 2024 — PUBLIC 10 Nov: long youtu.be/Clrd3W518lQ · Short youtube.com/shorts/OXn1Nw7SF6s |
-| #6 | **Knockout: "Last Country Standing"** threshold rises, countries fall out | `formats.py knockout` (`--horizontal --n 40 --endcard 14` long ≈2:58; `--n 12` Short ≈21.6 s; `kothumb`) | Internet users 2024 — rendered 11 Nov, NOT uploaded yet (Chrome not selected) |
+| #6 | **Knockout: "Last Country Standing"** threshold rises, countries fall out | `formats.py knockout` (`--horizontal --n 40 --endcard 14` long ≈2:58; `--n 12` Short ≈21.6 s; `kothumb`) | Internet users 2024 — uploaded Private 11 Nov (long g1OQNLHnK5k, Short M8v36J-ut-4) |
 | #7+ | New idea each time: countryball sprint race, real-size zoom-out, "X = how many Y" stacking, or the classic bar race in paper theme | to build | |
 
 Rules for every format:
@@ -149,6 +149,7 @@ CO₂ data: Our World in Data co2-data (GitHub raw), year 2024, countries over 1
 ## Playlists (created 10 Nov 2026)
 - **Bar Chart Races** — https://www.youtube.com/playlist?list=PLFv3MyGofp78 (military, richest per person, USA vs China, population)
 - **Country Quizzes** — https://www.youtube.com/playlist?list=PLTuyb-nBcJow (CO₂ quiz)
+- **Last Country Standing** — https://www.youtube.com/playlist?list=PLQCm9t3k2PRI (internet users; created 11 Nov)
 
 Every new long video goes into the playlist for its format, and its description ends with
 `More races: <link>` or `More quizzes: <link>`. The point is autoplay: a viewer who finishes one
@@ -165,7 +166,7 @@ The `/playlists` Studio URL 404s; reach them from Content → Playlists.
 | GDP / USA vs China (v1) | 52.1% | 0:27 / 0:42 | ~1,250 | |
 | Military v3 (bar race, paper hook) | **54.0%** | 0:20 / 0:22 | 1,256 | best so far |
 | Richest per person v3 (bar race) | **16.4%** | 0:18 / 0:21 | 125 | died; 10 near-equal bars, nothing to look at in frame 1 |
-| CO₂ quiz (quiz format) | pending | | | published 10 Nov ~20:45 |
+| CO₂ quiz (quiz format) | 100% (2 engaged views — meaningless) | 0:40 | 5 | published 10 Nov ~20:45; got almost no seed views |
 
 Lessons:
 - A race only works when ONE bar dominates or the lead actually changes. Ten similar bars = an instant swipe.
@@ -177,7 +178,8 @@ Lessons:
   (missing: Myanmar, Sudan, Yemen, N. Korea, Syria…). Raw bulk files (release 2026-07-13) from GitHub mirrors; 3 mirror copies
   identical, population matches the 2026-10-08 release. CNNIC says China ≈1.1B (ITU higher) — noted in the description.
 - Payoff "China > USA+Indonesia+Brazil+Pakistan+Russia combined" (1.30B vs 0.99B) holds even with CNNIC's figure.
-- Long re-encoded at crf 33 is 8.7 MB (> 3.8 MB Chrome limit) → owner drags it into Studio; Short is 1.9 MB.
+- Long 1080p crf 33 was 8.7 MB; uploaded a 720p two-pass 120 kbps version (3.5 MB, still clean). Short 1.9 MB.
+- Studio: pressing Escape after a hashtag inside the UPLOAD dialog closes the whole dialog (draft survives; reopen via Edit draft). Put hashtags last or add them on the edit page. Ctrl+End does not reach the description end — click after the last line.
+- Chrome: Ahmed's main Chrome is **Browser 1** (deviceId 5b24f15f-4337-4e7b-8c4d-d1dc2ab199b8) → select_browser it directly.
 - Knockout is a new format → needs its own playlist ("Last Country Standing").
-- Chrome: scheduled runs keep hitting "3 browsers connected, none selected". Ahmed must pick his main Chrome once (switch_browser).
 - Next in rotation (#7): new idea (sprint race / zoom-out / stacking) or paper-theme bar race.
