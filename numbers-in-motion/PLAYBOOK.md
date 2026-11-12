@@ -176,6 +176,19 @@ Lessons:
 - **One Short per day, maximum.** Three went out on 10 Nov; the third got no seed views for hours. Space them out, and never publish a Short right after one that scored under ~40%.
 - Check "stayed to watch" for the previous Short before publishing the next one, and record it in this table.
 
+### The CO₂ quiz Short got 6 views — what that tells us (12 Nov)
+Everyone who saw it watched it: 100% stayed to watch, and an average view duration of 0:28 on a
+0:21 Short, which means replays. YouTube simply never showed it — 6 views, and the Shorts feed was
+still 83% of them. So the format was not rejected by viewers; it got no impressions.
+The one thing that stands out: it was the **third Short published that day**. Nothing else about it
+differs from the Shorts that did get seeded. Treat the one-per-day rule as the main suspect and keep
+to it. Do not re-upload the same Short; make a new one on the topic if it's worth another try.
+
+### What is working (12 Nov)
+Knockout > bar race > quiz, on the evidence so far. 61% on the knockout against 54% on the best bar
+race. Knockout and quiz both have a question the viewer waits to see answered; the knockout also has
+something moving in every second. Keep rotating, but weight the rotation toward knockout.
+
 ## Knockout: internet users (11 Nov 2026)
 - Data: `data/internet_users_2024.csv` = WB IT.NET.USER.ZS (ITU) × SP.POP.TOTL, 2024, countries ≥1M people with 2024 data
   (missing: Myanmar, Sudan, Yemen, N. Korea, Syria…). Raw bulk files (release 2026-07-13) from GitHub mirrors; 3 mirror copies
