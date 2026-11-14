@@ -199,3 +199,27 @@ something moving in every second. Keep rotating, but weight the rotation toward 
 - Chrome: Ahmed's main Chrome is **Browser 1** (deviceId 5b24f15f-4337-4e7b-8c4d-d1dc2ab199b8) → select_browser it directly.
 - Knockout is a new format → needs its own playlist ("Last Country Standing").
 - Next in rotation (#7): new idea (sprint race / zoom-out / stacking) or paper-theme bar race.
+
+## Planned slots (set 14 Nov 2026) — and why the playlists are NOT a quota
+Live calendar (Ahmed's): https://claude.ai/artifact/5woiayfnQ3J82UXTxQCbgZ
+
+A playlist is a container, not a target. Do **not** try to ship one video per playlist per cycle:
+the channel has 4 subscribers and the formats are not equal — knockout 61% stayed-to-watch against
+54% for the best bar race. Lead with what works and let each playlist fill at its own pace.
+Rotation stays, but weighted: **knockout roughly every other slot** until something beats it.
+
+| Publish (22:00 Cairo) | Topic | Format | Playlist | Prep run |
+|---|---|---|---|---|
+| Tue 17 Nov | Life expectancy | Knockout | Last Country Standing | Sun 15 Nov 20:07 |
+| Sat 21 Nov | Most visited countries (tourism) | Bar race (paper) | Bar Chart Races | Wed 18 Nov |
+| Tue 24 Nov | Biggest cities | Knockout | Last Country Standing | Sun 22 Nov |
+| Sat 28 Nov | Football World Cup wins | Quiz | Country Quizzes | Wed 25 Nov |
+| Tue 1 Dec | Billionaires by country | Knockout | Last Country Standing | Sun 29 Nov |
+
+Why these pairings: tourism earns a bar race because France dominates the #1 spot and 2020 gives a
+collapse worth watching; life expectancy, biggest cities and billionaires all have a single winner
+worth waiting for, which is what knockout is for; World Cup wins is a small set of discrete numbers,
+which is quiz material and gives the quiz the fair solo-day test it never got on 10 Nov.
+
+Each slot ships one long (~3 min) plus one Short, and the Short is the only Short that day.
+Sat 14 Nov was missed — no run produced anything for it.
