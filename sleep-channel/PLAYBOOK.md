@@ -1,4 +1,4 @@
-# Sleep Channel — Team 2 Playbook
+# Sleep Channel (Driftlight) — Playbook
 
 Status: **live** (Nov 2026). Ep001 Public since 2026-11-08. Channel **Driftlight** live: https://www.youtube.com/@Driftlight-sleep (id UChs7vK3HA0kBj-uJEtMj5nQ) — logo, banner, watermark, description, keywords, not-for-kids and Private/Music upload defaults all set. Episode 001 delivered.
 
@@ -49,7 +49,15 @@ python render_scene.py --scene night_sky --mood rain --seed 1014 --key -2 --dura
 Timing on the 2-core box: music ≈ 5 min per hour of audio, scene loop ≈ 9 min (fixed, any length), mux ≈ 1 min.
 Output ≈ 1.0–1.3 GB per hour at crf 22.
 
-## Scheduled run ("Team 2") — every 3–4 days
+## Scheduled run — Saturdays 14:41 Cairo, two episodes per run
+Changed 14 Nov 2026 by Ahmed: the Mon+Thu team is **paused, not deleted**. One Saturday run now
+delivers **two** episodes back to back, so he reviews and uploads them both in one sitting.
+Two is the ceiling, not a choice: one episode took ~50 min end to end on 12 Nov (08:18 → 09:08),
+so four would not fit in a session. Keeping the old twice-a-week pace needs the midweek team back on.
+
+Do both episodes fully (render → check → extras → metadata) before reporting, and number them
+in order from `episodes.md`.
+
 1. `git pull`; read this file; `python metadata.py N` where N = last episode in `episodes.md` + 1.
 2. Render with the recipe. Check: `ffprobe` duration ≥ planned, audio present, thumbnail looks right.
 3. Run `make_extras.py` for the Short / black-screen / pin. **Ahmed uploads by hand** (decided 2026-11-08). The run delivers: the MP4 (keep it under 400 MiB → re-encode the loop at crf 29 and remux, see below), `_thumb.jpg`, and `ep00N_metadata.txt` (title/description/tags). `yt_upload.py` stays as an option for later.

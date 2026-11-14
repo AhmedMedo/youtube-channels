@@ -1,0 +1,419 @@
+entity,group,year,value
+Australia,Oceania,1960,1813
+Australia,Oceania,1964,2134
+Australia,Oceania,1968,2728
+Australia,Oceania,1972,3955
+Australia,Oceania,1976,7497
+Australia,Oceania,1980,10223
+Australia,Oceania,1984,12436
+Australia,Oceania,1988,14303
+Australia,Oceania,1992,18650
+Australia,Oceania,1996,22056
+Australia,Oceania,2000,21909
+Australia,Oceania,2004,30886
+Australia,Oceania,2008,49811
+Australia,Oceania,2012,68301
+Australia,Oceania,2016,50084
+Australia,Oceania,2020,51983
+Australia,Oceania,2024,64610
+Austria,Europe,1960,940
+Austria,Europe,1964,1275
+Austria,Europe,1968,1686
+Austria,Europe,1972,2913
+Austria,Europe,1976,5656
+Austria,Europe,1980,10827
+Austria,Europe,1984,8956
+Austria,Europe,1988,17510
+Austria,Europe,1992,24783
+Austria,Europe,1996,29646
+Austria,Europe,2000,24487
+Austria,Europe,2004,36614
+Austria,Europe,2008,51581
+Austria,Europe,2012,48250
+Austria,Europe,2016,45061
+Austria,Europe,2020,48716
+Austria,Europe,2024,58269
+Belgium,Europe,1960,1290
+Belgium,Europe,1964,1724
+Belgium,Europe,1968,2251
+Belgium,Europe,1972,3832
+Belgium,Europe,1976,7243
+Belgium,Europe,1980,12864
+Belgium,Europe,1984,8457
+Belgium,Europe,1988,16391
+Belgium,Europe,1992,23373
+Belgium,Europe,1996,27490
+Belgium,Europe,2000,23099
+Belgium,Europe,2004,35429
+Belgium,Europe,2008,48303
+Belgium,Europe,2012,44874
+Belgium,Europe,2016,41855
+Belgium,Europe,2020,45906
+Belgium,Europe,2024,56582
+Canada,Americas,1960,2265
+Canada,Americas,1964,2562
+Canada,Americas,1968,3473
+Canada,Americas,1972,5107
+Canada,Americas,1976,8839
+Canada,Americas,1980,11208
+Canada,Americas,1984,13930
+Canada,Americas,1988,19013
+Canada,Americas,1992,20950
+Canada,Americas,1996,21297
+Canada,Americas,2000,24271
+Canada,Americas,2004,32146
+Canada,Americas,2008,46710
+Canada,Americas,2012,52670
+Canada,Americas,2016,42314
+Canada,Americas,2020,43538
+Canada,Americas,2024,55016
+Denmark,Europe,1960,1389
+Denmark,Europe,1964,2049
+Denmark,Europe,1968,2776
+Denmark,Europe,1972,4654
+Denmark,Europe,1976,8773
+Denmark,Europe,1980,13822
+Denmark,Europe,1984,11517
+Denmark,Europe,1988,22525
+Denmark,Europe,1992,29579
+Denmark,Europe,1996,35622
+Denmark,Europe,2000,30722
+Denmark,Europe,2004,46625
+Denmark,Europe,2008,64617
+Denmark,Europe,2012,58444
+Denmark,Europe,2016,54501
+Denmark,Europe,2020,60985
+Denmark,Europe,2024,71026
+Finland,Europe,1960,1192
+Finland,Europe,1964,1726
+Finland,Europe,1968,1927
+Finland,Europe,1972,3178
+Finland,Europe,1976,6740
+Finland,Europe,1980,11225
+Finland,Europe,1984,10830
+Finland,Europe,1988,22044
+Finland,Europe,1992,22320
+Finland,Europe,1996,25757
+Finland,Europe,2000,24336
+Finland,Europe,2004,37768
+Finland,Europe,2008,53769
+Finland,Europe,2012,47552
+Finland,Europe,2016,43451
+Finland,Europe,2020,48829
+Finland,Europe,2024,53156
+France,Europe,1960,1307
+France,Europe,1964,1891
+France,Europe,1968,2518
+France,Europe,1972,3809
+France,Europe,1976,6792
+France,Europe,1980,12565
+France,Europe,1984,9312
+France,Europe,1988,17550
+France,Europe,1992,23615
+France,Europe,1996,26758
+France,Europe,2000,22341
+France,Europe,2004,33645
+France,Europe,2008,45465
+France,Europe,2012,40864
+France,Europe,2016,37024
+France,Europe,2020,39170
+France,Europe,2024,46103
+Germany,Europe,1960,1162
+Germany,Europe,1964,1637
+Germany,Europe,1968,2025
+Germany,Europe,1972,3824
+Germany,Europe,1976,6659
+Germany,Europe,1980,12183
+Germany,Europe,1984,9347
+Germany,Europe,1988,17997
+Germany,Europe,1992,26560
+Germany,Europe,1996,30600
+Germany,Europe,2000,23926
+Germany,Europe,2004,34567
+Germany,Europe,2008,46379
+Germany,Europe,2012,44718
+Germany,Europe,2016,42949
+Germany,Europe,2020,47395
+Germany,Europe,2024,56104
+Ireland,Europe,1960,707
+Ireland,Europe,1964,995
+Ireland,Europe,1968,1159
+Ireland,Europe,1972,2080
+Ireland,Europe,1976,2920
+Ireland,Europe,1980,6372
+Ireland,Europe,1984,5692
+Ireland,Europe,1988,10716
+Ireland,Europe,1992,15714
+Ireland,Europe,1996,20836
+Ireland,Europe,2000,26335
+Ireland,Europe,2004,47754
+Ireland,Europe,2008,61353
+Ireland,Europe,2012,49336
+Ireland,Europe,2016,64130
+Ireland,Europe,2020,86514
+Ireland,Europe,2024,112895
+Israel,Middle East,1960,1452
+Israel,Middle East,1964,1625
+Israel,Middle East,1968,1946
+Israel,Middle East,1972,2928
+Israel,Middle East,1976,4514
+Israel,Middle East,1980,6545
+Israel,Middle East,1984,7364
+Israel,Middle East,1988,11846
+Israel,Middle East,1992,15500
+Israel,Middle East,1996,20213
+Israel,Middle East,2000,21690
+Israel,Middle East,2004,20550
+Israel,Middle East,2008,30231
+Israel,Middle East,2012,33269
+Israel,Middle East,2016,37571
+Israel,Middle East,2020,44591
+Israel,Middle East,2024,54217
+Italy,Europe,1960,837
+Italy,Europe,1964,1272
+Italy,Europe,1968,1718
+Italy,Europe,1972,2677
+Italy,Europe,1976,4042
+Italy,Europe,1980,8476
+Italy,Europe,1984,7758
+Italy,Europe,1988,15781
+Italy,Europe,1992,23297
+Italy,Europe,1996,23123
+Italy,Europe,2000,20190
+Italy,Europe,2004,31348
+Italy,Europe,2008,40829
+Italy,Europe,2012,34854
+Italy,Europe,2016,31392
+Italy,Europe,2020,32091
+Italy,Europe,2024,40430
+Japan,Asia,1960,519
+Japan,Asia,1964,922
+Japan,Asia,1968,1586
+Japan,Asia,1972,3095
+Japan,Asia,1976,5422
+Japan,Asia,1980,9872
+Japan,Asia,1984,11443
+Japan,Asia,1988,26037
+Japan,Asia,1992,32667
+Japan,Asia,1996,39930
+Japan,Asia,2000,39753
+Japan,Asia,2004,38678
+Japan,Asia,2008,40294
+Japan,Asia,2012,49627
+Japan,Asia,2016,40215
+Japan,Asia,2020,41099
+Japan,Asia,2024,33797
+Kuwait,Middle East,1964,4379
+Kuwait,Middle East,1968,3872
+Kuwait,Middle East,1972,4836
+Kuwait,Middle East,1976,11141
+Kuwait,Middle East,1980,19032
+Kuwait,Middle East,1984,11919
+Kuwait,Middle East,1988,9692
+Kuwait,Middle East,1992,12146
+Kuwait,Middle East,1996,18201
+Kuwait,Middle East,2000,19296
+Kuwait,Middle East,2004,27552
+Kuwait,Middle East,2008,55585
+Kuwait,Middle East,2012,52155
+Kuwait,Middle East,2016,27324
+Kuwait,Middle East,2020,25236
+Kuwait,Middle East,2024,32856
+Luxembourg,Europe,1960,2261
+Luxembourg,Europe,1964,2779
+Luxembourg,Europe,1968,3203
+Luxembourg,Europe,1972,5487
+Luxembourg,Europe,1976,9491
+Luxembourg,Europe,1980,16531
+Luxembourg,Europe,1984,12127
+Luxembourg,Europe,1988,25219
+Luxembourg,Europe,1992,39571
+Luxembourg,Europe,1996,50444
+Luxembourg,Europe,2000,48660
+Luxembourg,Europe,2004,76545
+Luxembourg,Europe,2008,120422
+Luxembourg,Europe,2012,112585
+Luxembourg,Europe,2016,106899
+Luxembourg,Europe,2020,116860
+Luxembourg,Europe,2024,137782
+Netherlands,Europe,1960,1156
+Netherlands,Europe,1964,1668
+Netherlands,Europe,1968,2364
+Netherlands,Europe,1972,4110
+Netherlands,Europe,1976,7937
+Netherlands,Europe,1980,13812
+Netherlands,Europe,1984,9992
+Netherlands,Europe,1988,17771
+Netherlands,Europe,1992,23939
+Netherlands,Europe,1996,29064
+Netherlands,Europe,2000,26225
+Netherlands,Europe,2004,40611
+Netherlands,Europe,2008,58247
+Netherlands,Europe,2012,50474
+Netherlands,Europe,2016,46809
+Netherlands,Europe,2020,53468
+Netherlands,Europe,2024,67465
+New Zealand,Oceania,1960,2334
+New Zealand,Oceania,1964,2839
+New Zealand,Oceania,1968,1902
+New Zealand,Oceania,1972,3295
+New Zealand,Oceania,1976,4374
+New Zealand,Oceania,1980,7467
+New Zealand,Oceania,1984,6714
+New Zealand,Oceania,1988,13759
+New Zealand,Oceania,1992,11793
+New Zealand,Oceania,1996,18794
+New Zealand,Oceania,2000,13641
+New Zealand,Oceania,2004,25420
+New Zealand,Oceania,2008,31325
+New Zealand,Oceania,2012,40042
+New Zealand,Oceania,2016,40088
+New Zealand,Oceania,2020,42055
+New Zealand,Oceania,2024,49432
+Norway,Europe,1960,1444
+Norway,Europe,1964,1941
+Norway,Europe,1968,2667
+Norway,Europe,1972,4395
+Norway,Europe,1976,8896
+Norway,Europe,1980,15708
+Norway,Europe,1984,14943
+Norway,Europe,1988,24112
+Norway,Europe,1992,30328
+Norway,Europe,1996,37073
+Norway,Europe,2000,37992
+Norway,Europe,2004,57855
+Norway,Europe,2008,99002
+Norway,Europe,2012,104628
+Norway,Europe,2016,73222
+Norway,Europe,2020,71058
+Norway,Europe,2024,89889
+Qatar,Middle East,1972,3483
+Qatar,Middle East,1976,15710
+Qatar,Middle East,1980,28407
+Qatar,Middle East,1984,19749
+Qatar,Middle East,1988,14682
+Qatar,Middle East,1992,16280
+Qatar,Middle East,1996,17125
+Qatar,Middle East,2000,27535
+Qatar,Middle East,2004,41036
+Qatar,Middle East,2008,80781
+Qatar,Middle East,2012,108470
+Qatar,Middle East,2016,61254
+Qatar,Middle East,2020,51684
+Qatar,Middle East,2024,75685
+Saudi Arabia,Middle East,1960,718
+Saudi Arabia,Middle East,1964,840
+Saudi Arabia,Middle East,1968,1276
+Saudi Arabia,Middle East,1972,2474
+Saudi Arabia,Middle East,1976,13313
+Saudi Arabia,Middle East,1980,27206
+Saudi Arabia,Middle East,1984,15541
+Saudi Arabia,Middle East,1988,9165
+Saudi Arabia,Middle East,1992,11730
+Saudi Arabia,Middle East,1996,11472
+Saudi Arabia,Middle East,2000,11715
+Saudi Arabia,Middle East,2004,13154
+Saudi Arabia,Middle East,2008,22320
+Saudi Arabia,Middle East,2012,28733
+Saudi Arabia,Middle East,2016,22268
+Saudi Arabia,Middle East,2020,24339
+Saudi Arabia,Middle East,2024,35528
+Singapore,Asia,1960,428
+Singapore,Asia,1964,486
+Singapore,Asia,1968,709
+Singapore,Asia,1972,1264
+Singapore,Asia,1976,2759
+Singapore,Asia,1980,4928
+Singapore,Asia,1984,7228
+Singapore,Asia,1988,8914
+Singapore,Asia,1992,16136
+Singapore,Asia,1996,26233
+Singapore,Asia,2000,23853
+Singapore,Asia,2004,27608
+Singapore,Asia,2008,40009
+Singapore,Asia,2012,55548
+Singapore,Asia,2016,57204
+Singapore,Asia,2020,61773
+Singapore,Asia,2024,94897
+Sweden,Europe,1960,2128
+Sweden,Europe,1964,2961
+Sweden,Europe,1968,3953
+Sweden,Europe,1972,6018
+Sweden,Europe,1976,10853
+Sweden,Europe,1980,17073
+Sweden,Europe,1984,13080
+Sweden,Europe,1988,24499
+Sweden,Europe,1992,32753
+Sweden,Europe,1996,33022
+Sweden,Europe,2000,29633
+Sweden,Europe,2004,42758
+Sweden,Europe,2008,55817
+Sweden,Europe,2012,57750
+Sweden,Europe,2016,51704
+Sweden,Europe,2020,52569
+Sweden,Europe,2024,57223
+Switzerland,Europe,1960,1984
+Switzerland,Europe,1964,2776
+Switzerland,Europe,1968,3465
+Switzerland,Europe,1972,5973
+Switzerland,Europe,1976,11029
+Switzerland,Europe,1980,19686
+Switzerland,Europe,1984,17247
+Switzerland,Europe,1988,33183
+Switzerland,Europe,1992,41327
+Switzerland,Europe,1996,48838
+Switzerland,Europe,2000,39298
+Switzerland,Europe,2004,55350
+Switzerland,Europe,2008,75148
+Switzerland,Europe,2012,87270
+Switzerland,Europe,2016,83432
+Switzerland,Europe,2020,87530
+Switzerland,Europe,2024,107702
+United Arab Emirates,Middle East,1972,3675
+United Arab Emirates,Middle East,1976,31197
+United Arab Emirates,Middle East,1980,42925
+United Arab Emirates,Middle East,1984,32012
+United Arab Emirates,Middle East,1988,21570
+United Arab Emirates,Middle East,1992,25648
+United Arab Emirates,Middle East,1996,28323
+United Arab Emirates,Middle East,2000,29866
+United Arab Emirates,Middle East,2004,33377
+United Arab Emirates,Middle East,2008,50054
+United Arab Emirates,Middle East,2012,53142
+United Arab Emirates,Middle East,2016,42721
+United Arab Emirates,Middle East,2020,37992
+United Arab Emirates,Middle East,2024,50274
+United Kingdom,Europe,1960,1398
+United Kingdom,Europe,1964,1748
+United Kingdom,Europe,1968,1952
+United Kingdom,Europe,1972,3030
+United Kingdom,Europe,1976,4138
+United Kingdom,Europe,1980,10032
+United Kingdom,Europe,1984,8179
+United Kingdom,Europe,1988,15987
+United Kingdom,Europe,1992,20487
+United Kingdom,Europe,1996,24503
+United Kingdom,Europe,2000,28384
+United Kingdom,Europe,2004,40504
+United Kingdom,Europe,2008,47652
+United Kingdom,Europe,2012,42688
+United Kingdom,Europe,2016,41259
+United Kingdom,Europe,2020,40815
+United Kingdom,Europe,2024,53341
+United States,Americas,1960,3000
+United States,Americas,1964,3565
+United States,Americas,1968,4685
+United States,Americas,1972,6094
+United States,Americas,1976,8592
+United States,Americas,1980,12575
+United States,Americas,1984,17121
+United States,Americas,1988,21417
+United States,Americas,1992,25419
+United States,Americas,1996,29968
+United States,Americas,2000,36330
+United States,Americas,2004,41725
+United States,Americas,2008,48570
+United States,Americas,2012,51708
+United States,Americas,2016,57977
+United States,Americas,2020,64465
+United States,Americas,2024,86170

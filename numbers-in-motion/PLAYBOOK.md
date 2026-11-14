@@ -1,4 +1,4 @@
-# Numbers in Motion — Team 1 Playbook
+# Numbers in Motion — Playbook
 
 You are the production team for the faceless YouTube channel **Numbers in Motion** (@NumbersInMotionTV).
 Owner: Ahmed (Cairo, GMT+2). He writes in Egyptian Arabic — reply to him in Egyptian Arabic, short and clear.
@@ -23,10 +23,22 @@ He is busy and dislikes slow polishing loops: ship good-enough fast, flag issues
 | 5 | Who Pollutes More? CO₂ quiz 2024 | youtu.be/Clrd3W518lQ (public 10 Nov) | shorts/OXn1Nw7SF6s (public 10 Nov) |
 | 6 | Last Country Standing: internet users 2024 (knockout) | youtu.be/g1OQNLHnK5k (PRIVATE, for Sat 14 Nov 22:00) | shorts/M8v36J-ut-4 (PRIVATE) |
 
-**Slot rule (overrides the run prompt's Wed→Sat / Sun→Tue mapping):** before producing, check YouTube Studio
-(Content tab, scheduled items) and the table above. If the target slot already has a scheduled or published long video,
-prepare the NEXT free Tuesday/Saturday 22:00 slot instead. Never put two long videos on the same day.
-(Example: on Sun 8 Nov 2026, Tue 10 Nov is taken by #3 → that run prepares Sat 14 Nov.)
+## How work is scheduled (changed 14 Nov 2026, by Ahmed)
+The two midweek teams (Sun+Wed for this channel, Mon+Thu for Driftlight) are **paused, not deleted** —
+they can be switched back on. Everything now happens in **one Saturday batch** so Ahmed can watch it happen:
+
+| Run | Cairo time | What it does |
+|---|---|---|
+| Saturday studio — Numbers in Motion | Sat 11:23 | fills every empty Tue/Sat 22:00 slot in the next 14 days |
+| Saturday studio — Driftlight | Sat 14:41 | renders 2 sleep episodes; Ahmed uploads them himself |
+
+**Two weeks ahead, not more.** The first run builds four videos because the buffer is empty; after that
+it is usually two, since only two new slots enter the 14-day window each week. Do not build past that
+window to "get ahead" — unpublished stock goes stale and the format keeps changing.
+
+**Slot rule:** before producing, check YouTube Studio (Content tab, scheduled items) and the table above.
+Skip any slot that already has a scheduled or published long video. Never two long videos on the same day,
+and never two Shorts on the same day.
 
 Topic backlog (pick next unused): Military spending USA vs China vs Russia · Internet users · CO₂ emissions ·
 Life expectancy · Most visited countries (tourism) · Biggest cities · Football World Cup wins · Billionaires by country.
@@ -210,16 +222,26 @@ Rotation stays, but weighted: **knockout roughly every other slot** until someth
 
 | Publish (22:00 Cairo) | Topic | Format | Playlist | Prep run |
 |---|---|---|---|---|
-| Tue 17 Nov | Life expectancy | Knockout | Last Country Standing | Sun 15 Nov 20:07 |
-| Sat 21 Nov | Most visited countries (tourism) | Bar race (paper) | Bar Chart Races | Wed 18 Nov |
-| Tue 24 Nov | Biggest cities | Knockout | Last Country Standing | Sun 22 Nov |
-| Sat 28 Nov | Football World Cup wins | Quiz | Country Quizzes | Wed 25 Nov |
-| Tue 1 Dec | Billionaires by country | Knockout | Last Country Standing | Sun 29 Nov |
+| Sat 14 Nov | — nothing prepared, slot lost | — | — | no run happened |
+| Tue 17 Nov | — nothing prepared, slot lost | — | — | first batch is Sat 21 |
+| Sat 21 Nov | Life expectancy | Knockout | Last Country Standing | Sat 21 Nov 11:23 |
+| Tue 24 Nov | Most visited countries (tourism) | Bar race (paper) | Bar Chart Races | Sat 21 Nov 11:23 |
+| Sat 28 Nov | Biggest cities | Knockout | Last Country Standing | Sat 21 Nov 11:23 |
+| Tue 1 Dec | Football World Cup wins | Quiz | Country Quizzes | Sat 21 Nov 11:23 |
+| Sat 5 Dec | Billionaires by country | Knockout | Last Country Standing | Sat 28 Nov 11:23 |
+
+Everything shifted one slot later than the 14 Nov plan: pausing the midweek teams left Sat 14 and
+Tue 17 Nov with nothing built, so the first Saturday batch (21 Nov) picks the list up from the top.
 
 Why these pairings: tourism earns a bar race because France dominates the #1 spot and 2020 gives a
 collapse worth watching; life expectancy, biggest cities and billionaires all have a single winner
 worth waiting for, which is what knockout is for; World Cup wins is a small set of discrete numbers,
 which is quiz material and gives the quiz the fair solo-day test it never got on 10 Nov.
 
-Each slot ships one long (~3 min) plus one Short, and the Short is the only Short that day.
-Sat 14 Nov was missed — no run produced anything for it.
+Each slot ships one long plus one Short, and the Short is the only Short that day.
+
+**Open question — long-video length.** "Channel facts" above still says 8–12 minutes (the YPP
+watch-hours argument). Every video actually shipped since 10 Nov is about 3 minutes, and the
+Saturday run prompt says ~3 min. Until Ahmed decides, build ~3 min and leave this note here:
+4,000 watch hours will not come from 3-minute videos at 4 subscribers, but padding a weak
+format to 10 minutes wastes the render time. Revisit once a format holds above 60% retention.
