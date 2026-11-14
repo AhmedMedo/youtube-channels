@@ -1,0 +1,1867 @@
+{
+ "countries": [
+  {
+   "name": "Afghanistan",
+   "label": "Afghanistan",
+   "cca2": "af"
+  },
+  {
+   "name": "Albania",
+   "label": "Albania",
+   "cca2": "al"
+  },
+  {
+   "name": "Algeria",
+   "label": "Algeria",
+   "cca2": "dz"
+  },
+  {
+   "name": "Andorra",
+   "label": "Andorra",
+   "cca2": "ad"
+  },
+  {
+   "name": "Angola",
+   "label": "Angola",
+   "cca2": "ao"
+  },
+  {
+   "name": "Antigua and Barbuda",
+   "label": "Antigua",
+   "cca2": "ag"
+  },
+  {
+   "name": "Argentina",
+   "label": "Argentina",
+   "cca2": "ar"
+  },
+  {
+   "name": "Armenia",
+   "label": "Armenia",
+   "cca2": "am"
+  },
+  {
+   "name": "Australia",
+   "label": "Australia",
+   "cca2": "au"
+  },
+  {
+   "name": "Austria",
+   "label": "Austria",
+   "cca2": "at"
+  },
+  {
+   "name": "Azerbaijan",
+   "label": "Azerbaijan",
+   "cca2": "az"
+  },
+  {
+   "name": "Bahamas",
+   "label": "Bahamas",
+   "cca2": "bs"
+  },
+  {
+   "name": "Bahrain",
+   "label": "Bahrain",
+   "cca2": "bh"
+  },
+  {
+   "name": "Bangladesh",
+   "label": "Bangladesh",
+   "cca2": "bd"
+  },
+  {
+   "name": "Barbados",
+   "label": "Barbados",
+   "cca2": "bb"
+  },
+  {
+   "name": "Belarus",
+   "label": "Belarus",
+   "cca2": "by"
+  },
+  {
+   "name": "Belgium",
+   "label": "Belgium",
+   "cca2": "be"
+  },
+  {
+   "name": "Belize",
+   "label": "Belize",
+   "cca2": "bz"
+  },
+  {
+   "name": "Benin",
+   "label": "Benin",
+   "cca2": "bj"
+  },
+  {
+   "name": "Bhutan",
+   "label": "Bhutan",
+   "cca2": "bt"
+  },
+  {
+   "name": "Bolivia",
+   "label": "Bolivia",
+   "cca2": "bo"
+  },
+  {
+   "name": "Bosnia and Herzegovina",
+   "label": "Bosnia",
+   "cca2": "ba"
+  },
+  {
+   "name": "Botswana",
+   "label": "Botswana",
+   "cca2": "bw"
+  },
+  {
+   "name": "Brazil",
+   "label": "Brazil",
+   "cca2": "br"
+  },
+  {
+   "name": "Brunei",
+   "label": "Brunei",
+   "cca2": "bn"
+  },
+  {
+   "name": "Bulgaria",
+   "label": "Bulgaria",
+   "cca2": "bg"
+  },
+  {
+   "name": "Burkina Faso",
+   "label": "Burkina Faso",
+   "cca2": "bf"
+  },
+  {
+   "name": "Burundi",
+   "label": "Burundi",
+   "cca2": "bi"
+  },
+  {
+   "name": "Central African Republic",
+   "label": "C. African Rep.",
+   "cca2": "cf"
+  },
+  {
+   "name": "Cambodia",
+   "label": "Cambodia",
+   "cca2": "kh"
+  },
+  {
+   "name": "Cameroon",
+   "label": "Cameroon",
+   "cca2": "cm"
+  },
+  {
+   "name": "Canada",
+   "label": "Canada",
+   "cca2": "ca"
+  },
+  {
+   "name": "Cape Verde",
+   "label": "Cape Verde",
+   "cca2": "cv"
+  },
+  {
+   "name": "Chad",
+   "label": "Chad",
+   "cca2": "td"
+  },
+  {
+   "name": "Chile",
+   "label": "Chile",
+   "cca2": "cl"
+  },
+  {
+   "name": "China",
+   "label": "China",
+   "cca2": "cn"
+  },
+  {
+   "name": "Colombia",
+   "label": "Colombia",
+   "cca2": "co"
+  },
+  {
+   "name": "Comoros",
+   "label": "Comoros",
+   "cca2": "km"
+  },
+  {
+   "name": "Congo",
+   "label": "Congo",
+   "cca2": "cg"
+  },
+  {
+   "name": "Costa Rica",
+   "label": "Costa Rica",
+   "cca2": "cr"
+  },
+  {
+   "name": "Croatia",
+   "label": "Croatia",
+   "cca2": "hr"
+  },
+  {
+   "name": "Cuba",
+   "label": "Cuba",
+   "cca2": "cu"
+  },
+  {
+   "name": "Cyprus",
+   "label": "Cyprus",
+   "cca2": "cy"
+  },
+  {
+   "name": "Czechia",
+   "label": "Czechia",
+   "cca2": "cz"
+  },
+  {
+   "name": "DR Congo",
+   "label": "DR Congo",
+   "cca2": "cd"
+  },
+  {
+   "name": "Denmark",
+   "label": "Denmark",
+   "cca2": "dk"
+  },
+  {
+   "name": "Djibouti",
+   "label": "Djibouti",
+   "cca2": "dj"
+  },
+  {
+   "name": "Dominica",
+   "label": "Dominica",
+   "cca2": "dm"
+  },
+  {
+   "name": "Dominican Republic",
+   "label": "Dominican Rep.",
+   "cca2": "do"
+  },
+  {
+   "name": "Ecuador",
+   "label": "Ecuador",
+   "cca2": "ec"
+  },
+  {
+   "name": "Egypt",
+   "label": "Egypt",
+   "cca2": "eg"
+  },
+  {
+   "name": "El Salvador",
+   "label": "El Salvador",
+   "cca2": "sv"
+  },
+  {
+   "name": "Equatorial Guinea",
+   "label": "Eq. Guinea",
+   "cca2": "gq"
+  },
+  {
+   "name": "Eritrea",
+   "label": "Eritrea",
+   "cca2": "er"
+  },
+  {
+   "name": "Estonia",
+   "label": "Estonia",
+   "cca2": "ee"
+  },
+  {
+   "name": "Eswatini",
+   "label": "Eswatini",
+   "cca2": "sz"
+  },
+  {
+   "name": "Ethiopia",
+   "label": "Ethiopia",
+   "cca2": "et"
+  },
+  {
+   "name": "Fiji",
+   "label": "Fiji",
+   "cca2": "fj"
+  },
+  {
+   "name": "Finland",
+   "label": "Finland",
+   "cca2": "fi"
+  },
+  {
+   "name": "France",
+   "label": "France",
+   "cca2": "fr"
+  },
+  {
+   "name": "Gabon",
+   "label": "Gabon",
+   "cca2": "ga"
+  },
+  {
+   "name": "Gambia",
+   "label": "Gambia",
+   "cca2": "gm"
+  },
+  {
+   "name": "Georgia",
+   "label": "Georgia",
+   "cca2": "ge"
+  },
+  {
+   "name": "Germany",
+   "label": "Germany",
+   "cca2": "de"
+  },
+  {
+   "name": "Ghana",
+   "label": "Ghana",
+   "cca2": "gh"
+  },
+  {
+   "name": "Greece",
+   "label": "Greece",
+   "cca2": "gr"
+  },
+  {
+   "name": "Grenada",
+   "label": "Grenada",
+   "cca2": "gd"
+  },
+  {
+   "name": "Guatemala",
+   "label": "Guatemala",
+   "cca2": "gt"
+  },
+  {
+   "name": "Guinea",
+   "label": "Guinea",
+   "cca2": "gn"
+  },
+  {
+   "name": "Guinea-Bissau",
+   "label": "Guinea-Bissau",
+   "cca2": "gw"
+  },
+  {
+   "name": "Guyana",
+   "label": "Guyana",
+   "cca2": "gy"
+  },
+  {
+   "name": "Haiti",
+   "label": "Haiti",
+   "cca2": "ht"
+  },
+  {
+   "name": "Honduras",
+   "label": "Honduras",
+   "cca2": "hn"
+  },
+  {
+   "name": "Hungary",
+   "label": "Hungary",
+   "cca2": "hu"
+  },
+  {
+   "name": "Iceland",
+   "label": "Iceland",
+   "cca2": "is"
+  },
+  {
+   "name": "India",
+   "label": "India",
+   "cca2": "in"
+  },
+  {
+   "name": "Indonesia",
+   "label": "Indonesia",
+   "cca2": "id"
+  },
+  {
+   "name": "Iran",
+   "label": "Iran",
+   "cca2": "ir"
+  },
+  {
+   "name": "Iraq",
+   "label": "Iraq",
+   "cca2": "iq"
+  },
+  {
+   "name": "Ireland",
+   "label": "Ireland",
+   "cca2": "ie"
+  },
+  {
+   "name": "Israel",
+   "label": "Israel",
+   "cca2": "il"
+  },
+  {
+   "name": "Italy",
+   "label": "Italy",
+   "cca2": "it"
+  },
+  {
+   "name": "Ivory Coast",
+   "label": "Ivory Coast",
+   "cca2": "ci"
+  },
+  {
+   "name": "Jamaica",
+   "label": "Jamaica",
+   "cca2": "jm"
+  },
+  {
+   "name": "Japan",
+   "label": "Japan",
+   "cca2": "jp"
+  },
+  {
+   "name": "Jordan",
+   "label": "Jordan",
+   "cca2": "jo"
+  },
+  {
+   "name": "Kazakhstan",
+   "label": "Kazakhstan",
+   "cca2": "kz"
+  },
+  {
+   "name": "Kenya",
+   "label": "Kenya",
+   "cca2": "ke"
+  },
+  {
+   "name": "Kiribati",
+   "label": "Kiribati",
+   "cca2": "ki"
+  },
+  {
+   "name": "Kuwait",
+   "label": "Kuwait",
+   "cca2": "kw"
+  },
+  {
+   "name": "Kyrgyzstan",
+   "label": "Kyrgyzstan",
+   "cca2": "kg"
+  },
+  {
+   "name": "Laos",
+   "label": "Laos",
+   "cca2": "la"
+  },
+  {
+   "name": "Latvia",
+   "label": "Latvia",
+   "cca2": "lv"
+  },
+  {
+   "name": "Lebanon",
+   "label": "Lebanon",
+   "cca2": "lb"
+  },
+  {
+   "name": "Lesotho",
+   "label": "Lesotho",
+   "cca2": "ls"
+  },
+  {
+   "name": "Liberia",
+   "label": "Liberia",
+   "cca2": "lr"
+  },
+  {
+   "name": "Libya",
+   "label": "Libya",
+   "cca2": "ly"
+  },
+  {
+   "name": "Liechtenstein",
+   "label": "Liechtenstein",
+   "cca2": "li"
+  },
+  {
+   "name": "Lithuania",
+   "label": "Lithuania",
+   "cca2": "lt"
+  },
+  {
+   "name": "Luxembourg",
+   "label": "Luxembourg",
+   "cca2": "lu"
+  },
+  {
+   "name": "Madagascar",
+   "label": "Madagascar",
+   "cca2": "mg"
+  },
+  {
+   "name": "Malawi",
+   "label": "Malawi",
+   "cca2": "mw"
+  },
+  {
+   "name": "Malaysia",
+   "label": "Malaysia",
+   "cca2": "my"
+  },
+  {
+   "name": "Maldives",
+   "label": "Maldives",
+   "cca2": "mv"
+  },
+  {
+   "name": "Mali",
+   "label": "Mali",
+   "cca2": "ml"
+  },
+  {
+   "name": "Malta",
+   "label": "Malta",
+   "cca2": "mt"
+  },
+  {
+   "name": "Marshall Islands",
+   "label": "Marshall Is.",
+   "cca2": "mh"
+  },
+  {
+   "name": "Mauritania",
+   "label": "Mauritania",
+   "cca2": "mr"
+  },
+  {
+   "name": "Mauritius",
+   "label": "Mauritius",
+   "cca2": "mu"
+  },
+  {
+   "name": "Mexico",
+   "label": "Mexico",
+   "cca2": "mx"
+  },
+  {
+   "name": "Micronesia",
+   "label": "Micronesia",
+   "cca2": "fm"
+  },
+  {
+   "name": "Moldova",
+   "label": "Moldova",
+   "cca2": "md"
+  },
+  {
+   "name": "Monaco",
+   "label": "Monaco",
+   "cca2": "mc"
+  },
+  {
+   "name": "Mongolia",
+   "label": "Mongolia",
+   "cca2": "mn"
+  },
+  {
+   "name": "Montenegro",
+   "label": "Montenegro",
+   "cca2": "me"
+  },
+  {
+   "name": "Morocco",
+   "label": "Morocco",
+   "cca2": "ma"
+  },
+  {
+   "name": "Mozambique",
+   "label": "Mozambique",
+   "cca2": "mz"
+  },
+  {
+   "name": "Myanmar",
+   "label": "Myanmar",
+   "cca2": "mm"
+  },
+  {
+   "name": "Namibia",
+   "label": "Namibia",
+   "cca2": "na"
+  },
+  {
+   "name": "Nauru",
+   "label": "Nauru",
+   "cca2": "nr"
+  },
+  {
+   "name": "Nepal",
+   "label": "Nepal",
+   "cca2": "np"
+  },
+  {
+   "name": "Netherlands",
+   "label": "Netherlands",
+   "cca2": "nl"
+  },
+  {
+   "name": "New Zealand",
+   "label": "New Zealand",
+   "cca2": "nz"
+  },
+  {
+   "name": "Nicaragua",
+   "label": "Nicaragua",
+   "cca2": "ni"
+  },
+  {
+   "name": "Niger",
+   "label": "Niger",
+   "cca2": "ne"
+  },
+  {
+   "name": "Nigeria",
+   "label": "Nigeria",
+   "cca2": "ng"
+  },
+  {
+   "name": "North Korea",
+   "label": "North Korea",
+   "cca2": "kp"
+  },
+  {
+   "name": "North Macedonia",
+   "label": "North Macedonia",
+   "cca2": "mk"
+  },
+  {
+   "name": "Norway",
+   "label": "Norway",
+   "cca2": "no"
+  },
+  {
+   "name": "Oman",
+   "label": "Oman",
+   "cca2": "om"
+  },
+  {
+   "name": "Papua New Guinea",
+   "label": "PNG",
+   "cca2": "pg"
+  },
+  {
+   "name": "Pakistan",
+   "label": "Pakistan",
+   "cca2": "pk"
+  },
+  {
+   "name": "Palau",
+   "label": "Palau",
+   "cca2": "pw"
+  },
+  {
+   "name": "Panama",
+   "label": "Panama",
+   "cca2": "pa"
+  },
+  {
+   "name": "Paraguay",
+   "label": "Paraguay",
+   "cca2": "py"
+  },
+  {
+   "name": "Peru",
+   "label": "Peru",
+   "cca2": "pe"
+  },
+  {
+   "name": "Philippines",
+   "label": "Philippines",
+   "cca2": "ph"
+  },
+  {
+   "name": "Poland",
+   "label": "Poland",
+   "cca2": "pl"
+  },
+  {
+   "name": "Portugal",
+   "label": "Portugal",
+   "cca2": "pt"
+  },
+  {
+   "name": "Qatar",
+   "label": "Qatar",
+   "cca2": "qa"
+  },
+  {
+   "name": "Romania",
+   "label": "Romania",
+   "cca2": "ro"
+  },
+  {
+   "name": "Russia",
+   "label": "Russia",
+   "cca2": "ru"
+  },
+  {
+   "name": "Rwanda",
+   "label": "Rwanda",
+   "cca2": "rw"
+  },
+  {
+   "name": "Samoa",
+   "label": "Samoa",
+   "cca2": "ws"
+  },
+  {
+   "name": "San Marino",
+   "label": "San Marino",
+   "cca2": "sm"
+  },
+  {
+   "name": "Saudi Arabia",
+   "label": "Saudi Arabia",
+   "cca2": "sa"
+  },
+  {
+   "name": "Senegal",
+   "label": "Senegal",
+   "cca2": "sn"
+  },
+  {
+   "name": "Serbia",
+   "label": "Serbia",
+   "cca2": "rs"
+  },
+  {
+   "name": "Seychelles",
+   "label": "Seychelles",
+   "cca2": "sc"
+  },
+  {
+   "name": "Sierra Leone",
+   "label": "Sierra Leone",
+   "cca2": "sl"
+  },
+  {
+   "name": "Singapore",
+   "label": "Singapore",
+   "cca2": "sg"
+  },
+  {
+   "name": "Slovakia",
+   "label": "Slovakia",
+   "cca2": "sk"
+  },
+  {
+   "name": "Slovenia",
+   "label": "Slovenia",
+   "cca2": "si"
+  },
+  {
+   "name": "Solomon Islands",
+   "label": "Solomon Is.",
+   "cca2": "sb"
+  },
+  {
+   "name": "Somalia",
+   "label": "Somalia",
+   "cca2": "so"
+  },
+  {
+   "name": "South Africa",
+   "label": "South Africa",
+   "cca2": "za"
+  },
+  {
+   "name": "South Korea",
+   "label": "South Korea",
+   "cca2": "kr"
+  },
+  {
+   "name": "South Sudan",
+   "label": "South Sudan",
+   "cca2": "ss"
+  },
+  {
+   "name": "Spain",
+   "label": "Spain",
+   "cca2": "es"
+  },
+  {
+   "name": "Sri Lanka",
+   "label": "Sri Lanka",
+   "cca2": "lk"
+  },
+  {
+   "name": "Saint Kitts and Nevis",
+   "label": "St Kitts",
+   "cca2": "kn"
+  },
+  {
+   "name": "Saint Lucia",
+   "label": "St Lucia",
+   "cca2": "lc"
+  },
+  {
+   "name": "Saint Vincent and the Grenadines",
+   "label": "St Vincent",
+   "cca2": "vc"
+  },
+  {
+   "name": "Sudan",
+   "label": "Sudan",
+   "cca2": "sd"
+  },
+  {
+   "name": "Suriname",
+   "label": "Suriname",
+   "cca2": "sr"
+  },
+  {
+   "name": "Sweden",
+   "label": "Sweden",
+   "cca2": "se"
+  },
+  {
+   "name": "Switzerland",
+   "label": "Switzerland",
+   "cca2": "ch"
+  },
+  {
+   "name": "Syria",
+   "label": "Syria",
+   "cca2": "sy"
+  },
+  {
+   "name": "São Tomé and Príncipe",
+   "label": "São Tomé",
+   "cca2": "st"
+  },
+  {
+   "name": "Tajikistan",
+   "label": "Tajikistan",
+   "cca2": "tj"
+  },
+  {
+   "name": "Tanzania",
+   "label": "Tanzania",
+   "cca2": "tz"
+  },
+  {
+   "name": "Thailand",
+   "label": "Thailand",
+   "cca2": "th"
+  },
+  {
+   "name": "Timor-Leste",
+   "label": "Timor-Leste",
+   "cca2": "tl"
+  },
+  {
+   "name": "Togo",
+   "label": "Togo",
+   "cca2": "tg"
+  },
+  {
+   "name": "Tonga",
+   "label": "Tonga",
+   "cca2": "to"
+  },
+  {
+   "name": "Trinidad and Tobago",
+   "label": "Trinidad",
+   "cca2": "tt"
+  },
+  {
+   "name": "Tunisia",
+   "label": "Tunisia",
+   "cca2": "tn"
+  },
+  {
+   "name": "Turkmenistan",
+   "label": "Turkmenistan",
+   "cca2": "tm"
+  },
+  {
+   "name": "Tuvalu",
+   "label": "Tuvalu",
+   "cca2": "tv"
+  },
+  {
+   "name": "Türkiye",
+   "label": "Türkiye",
+   "cca2": "tr"
+  },
+  {
+   "name": "United Arab Emirates",
+   "label": "UAE",
+   "cca2": "ae"
+  },
+  {
+   "name": "United Kingdom",
+   "label": "UK",
+   "cca2": "gb"
+  },
+  {
+   "name": "United States",
+   "label": "USA",
+   "cca2": "us"
+  },
+  {
+   "name": "Uganda",
+   "label": "Uganda",
+   "cca2": "ug"
+  },
+  {
+   "name": "Ukraine",
+   "label": "Ukraine",
+   "cca2": "ua"
+  },
+  {
+   "name": "Uruguay",
+   "label": "Uruguay",
+   "cca2": "uy"
+  },
+  {
+   "name": "Uzbekistan",
+   "label": "Uzbekistan",
+   "cca2": "uz"
+  },
+  {
+   "name": "Vanuatu",
+   "label": "Vanuatu",
+   "cca2": "vu"
+  },
+  {
+   "name": "Venezuela",
+   "label": "Venezuela",
+   "cca2": "ve"
+  },
+  {
+   "name": "Vietnam",
+   "label": "Vietnam",
+   "cca2": "vn"
+  },
+  {
+   "name": "Yemen",
+   "label": "Yemen",
+   "cca2": "ye"
+  },
+  {
+   "name": "Zambia",
+   "label": "Zambia",
+   "cca2": "zm"
+  },
+  {
+   "name": "Zimbabwe",
+   "label": "Zimbabwe",
+   "cca2": "zw"
+  }
+ ],
+ "rounds": [
+  {
+   "rule": [
+    "Fewer than 1 million people",
+    "→ OUT"
+   ],
+   "source": "UN World Population Prospects 2024 · via Our World in Data",
+   "out": [
+    {
+     "name": "Tuvalu",
+     "value": "10K people"
+    },
+    {
+     "name": "Nauru",
+     "value": "12K people"
+    },
+    {
+     "name": "Palau",
+     "value": "18K people"
+    },
+    {
+     "name": "San Marino",
+     "value": "34K people"
+    },
+    {
+     "name": "Marshall Islands",
+     "value": "38K people"
+    },
+    {
+     "name": "Monaco",
+     "value": "39K people"
+    },
+    {
+     "name": "Liechtenstein",
+     "value": "40K people"
+    },
+    {
+     "name": "Saint Kitts and Nevis",
+     "value": "47K people"
+    },
+    {
+     "name": "Dominica",
+     "value": "66K people"
+    },
+    {
+     "name": "Andorra",
+     "value": "82K people"
+    },
+    {
+     "name": "Antigua and Barbuda",
+     "value": "94K people"
+    },
+    {
+     "name": "Saint Vincent and the Grenadines",
+     "value": "101K people"
+    },
+    {
+     "name": "Tonga",
+     "value": "104K people"
+    },
+    {
+     "name": "Micronesia",
+     "value": "113K people"
+    },
+    {
+     "name": "Grenada",
+     "value": "117K people"
+    },
+    {
+     "name": "Seychelles",
+     "value": "130K people"
+    },
+    {
+     "name": "Kiribati",
+     "value": "135K people"
+    },
+    {
+     "name": "Saint Lucia",
+     "value": "180K people"
+    },
+    {
+     "name": "Samoa",
+     "value": "218K people"
+    },
+    {
+     "name": "São Tomé and Príncipe",
+     "value": "236K people"
+    },
+    {
+     "name": "Barbados",
+     "value": "282K people"
+    },
+    {
+     "name": "Vanuatu",
+     "value": "328K people"
+    },
+    {
+     "name": "Iceland",
+     "value": "393K people"
+    },
+    {
+     "name": "Bahamas",
+     "value": "401K people"
+    },
+    {
+     "name": "Belize",
+     "value": "417K people"
+    },
+    {
+     "name": "Brunei",
+     "value": "463K people"
+    },
+    {
+     "name": "Cape Verde",
+     "value": "525K people"
+    },
+    {
+     "name": "Maldives",
+     "value": "528K people"
+    },
+    {
+     "name": "Malta",
+     "value": "540K people"
+    },
+    {
+     "name": "Suriname",
+     "value": "634K people"
+    },
+    {
+     "name": "Montenegro",
+     "value": "638K people"
+    },
+    {
+     "name": "Luxembourg",
+     "value": "673K people"
+    },
+    {
+     "name": "Bhutan",
+     "value": "792K people"
+    },
+    {
+     "name": "Solomon Islands",
+     "value": "819K people"
+    },
+    {
+     "name": "Guyana",
+     "value": "831K people"
+    },
+    {
+     "name": "Comoros",
+     "value": "867K people"
+    },
+    {
+     "name": "Fiji",
+     "value": "929K people"
+    }
+   ],
+   "close": {
+    "name": "Djibouti",
+    "value": "1.2M people"
+   }
+  },
+  {
+   "rule": [
+    "No coastline",
+    "(landlocked) → OUT"
+   ],
+   "source": "mledoze/countries dataset",
+   "out": [
+    {
+     "name": "Afghanistan",
+     "value": "landlocked"
+    },
+    {
+     "name": "Armenia",
+     "value": "landlocked"
+    },
+    {
+     "name": "Austria",
+     "value": "landlocked"
+    },
+    {
+     "name": "Azerbaijan",
+     "value": "landlocked"
+    },
+    {
+     "name": "Belarus",
+     "value": "landlocked"
+    },
+    {
+     "name": "Bolivia",
+     "value": "landlocked"
+    },
+    {
+     "name": "Botswana",
+     "value": "landlocked"
+    },
+    {
+     "name": "Burkina Faso",
+     "value": "landlocked"
+    },
+    {
+     "name": "Burundi",
+     "value": "landlocked"
+    },
+    {
+     "name": "Central African Republic",
+     "value": "landlocked"
+    },
+    {
+     "name": "Chad",
+     "value": "landlocked"
+    },
+    {
+     "name": "Czechia",
+     "value": "landlocked"
+    },
+    {
+     "name": "Eswatini",
+     "value": "landlocked"
+    },
+    {
+     "name": "Ethiopia",
+     "value": "landlocked"
+    },
+    {
+     "name": "Hungary",
+     "value": "landlocked"
+    },
+    {
+     "name": "Kazakhstan",
+     "value": "landlocked"
+    },
+    {
+     "name": "Kyrgyzstan",
+     "value": "landlocked"
+    },
+    {
+     "name": "Laos",
+     "value": "landlocked"
+    },
+    {
+     "name": "Lesotho",
+     "value": "landlocked"
+    },
+    {
+     "name": "Malawi",
+     "value": "landlocked"
+    },
+    {
+     "name": "Mali",
+     "value": "landlocked"
+    },
+    {
+     "name": "Moldova",
+     "value": "landlocked"
+    },
+    {
+     "name": "Mongolia",
+     "value": "landlocked"
+    },
+    {
+     "name": "Nepal",
+     "value": "landlocked"
+    },
+    {
+     "name": "Niger",
+     "value": "landlocked"
+    },
+    {
+     "name": "North Macedonia",
+     "value": "landlocked"
+    },
+    {
+     "name": "Paraguay",
+     "value": "landlocked"
+    },
+    {
+     "name": "Rwanda",
+     "value": "landlocked"
+    },
+    {
+     "name": "Serbia",
+     "value": "landlocked"
+    },
+    {
+     "name": "Slovakia",
+     "value": "landlocked"
+    },
+    {
+     "name": "South Sudan",
+     "value": "landlocked"
+    },
+    {
+     "name": "Switzerland",
+     "value": "landlocked"
+    },
+    {
+     "name": "Tajikistan",
+     "value": "landlocked"
+    },
+    {
+     "name": "Turkmenistan",
+     "value": "landlocked"
+    },
+    {
+     "name": "Uganda",
+     "value": "landlocked"
+    },
+    {
+     "name": "Uzbekistan",
+     "value": "landlocked"
+    },
+    {
+     "name": "Zambia",
+     "value": "landlocked"
+    },
+    {
+     "name": "Zimbabwe",
+     "value": "landlocked"
+    }
+   ],
+   "close": null
+  },
+  {
+   "rule": [
+    "Smaller than 100,000 km²",
+    "→ OUT"
+   ],
+   "source": "Land area · mledoze/countries dataset",
+   "out": [
+    {
+     "name": "Singapore",
+     "value": "710 km²"
+    },
+    {
+     "name": "Bahrain",
+     "value": "765 km²"
+    },
+    {
+     "name": "Mauritius",
+     "value": "2,040 km²"
+    },
+    {
+     "name": "Trinidad and Tobago",
+     "value": "5,130 km²"
+    },
+    {
+     "name": "Cyprus",
+     "value": "9,251 km²"
+    },
+    {
+     "name": "Lebanon",
+     "value": "10,452 km²"
+    },
+    {
+     "name": "Gambia",
+     "value": "10,689 km²"
+    },
+    {
+     "name": "Jamaica",
+     "value": "10,991 km²"
+    },
+    {
+     "name": "Qatar",
+     "value": "11,586 km²"
+    },
+    {
+     "name": "Timor-Leste",
+     "value": "14,874 km²"
+    },
+    {
+     "name": "Kuwait",
+     "value": "17,818 km²"
+    },
+    {
+     "name": "Slovenia",
+     "value": "20,273 km²"
+    },
+    {
+     "name": "Israel",
+     "value": "20,770 km²"
+    },
+    {
+     "name": "El Salvador",
+     "value": "21,041 km²"
+    },
+    {
+     "name": "Djibouti",
+     "value": "23,200 km²"
+    },
+    {
+     "name": "Haiti",
+     "value": "27,750 km²"
+    },
+    {
+     "name": "Equatorial Guinea",
+     "value": "28,051 km²"
+    },
+    {
+     "name": "Albania",
+     "value": "28,748 km²"
+    },
+    {
+     "name": "Belgium",
+     "value": "30,528 km²"
+    },
+    {
+     "name": "Guinea-Bissau",
+     "value": "36,125 km²"
+    },
+    {
+     "name": "Netherlands",
+     "value": "41,850 km²"
+    },
+    {
+     "name": "Denmark",
+     "value": "43,094 km²"
+    },
+    {
+     "name": "Estonia",
+     "value": "45,227 km²"
+    },
+    {
+     "name": "Dominican Republic",
+     "value": "48,671 km²"
+    },
+    {
+     "name": "Costa Rica",
+     "value": "51,100 km²"
+    },
+    {
+     "name": "Bosnia and Herzegovina",
+     "value": "51,209 km²"
+    },
+    {
+     "name": "Croatia",
+     "value": "56,594 km²"
+    },
+    {
+     "name": "Togo",
+     "value": "56,785 km²"
+    },
+    {
+     "name": "Latvia",
+     "value": "64,559 km²"
+    },
+    {
+     "name": "Lithuania",
+     "value": "65,300 km²"
+    },
+    {
+     "name": "Sri Lanka",
+     "value": "65,610 km²"
+    },
+    {
+     "name": "Georgia",
+     "value": "69,700 km²"
+    },
+    {
+     "name": "Ireland",
+     "value": "70,273 km²"
+    },
+    {
+     "name": "Sierra Leone",
+     "value": "71,740 km²"
+    },
+    {
+     "name": "Panama",
+     "value": "75,417 km²"
+    },
+    {
+     "name": "United Arab Emirates",
+     "value": "83,600 km²"
+    },
+    {
+     "name": "Jordan",
+     "value": "89,342 km²"
+    },
+    {
+     "name": "Portugal",
+     "value": "92,090 km²"
+    }
+   ],
+   "close": {
+    "name": "South Korea",
+    "value": "100,210 km²"
+   }
+  },
+  {
+   "rule": [
+    "Under 70% of people",
+    "online → OUT"
+   ],
+   "source": "World Bank / ITU · latest year available",
+   "out": [
+    {
+     "name": "Eritrea",
+     "value": "14% online"
+    },
+    {
+     "name": "Yemen",
+     "value": "17% online"
+    },
+    {
+     "name": "Sudan",
+     "value": "19% online"
+    },
+    {
+     "name": "Madagascar",
+     "value": "19% online"
+    },
+    {
+     "name": "Papua New Guinea",
+     "value": "19% online"
+    },
+    {
+     "name": "DR Congo",
+     "value": "20% online"
+    },
+    {
+     "name": "Mozambique",
+     "value": "21% online"
+    },
+    {
+     "name": "Somalia",
+     "value": "28% online"
+    },
+    {
+     "name": "Tanzania",
+     "value": "31% online"
+    },
+    {
+     "name": "Liberia",
+     "value": "32% online"
+    },
+    {
+     "name": "Guinea",
+     "value": "33% online"
+    },
+    {
+     "name": "Syria",
+     "value": "34% online"
+    },
+    {
+     "name": "Benin",
+     "value": "34% online"
+    },
+    {
+     "name": "Kenya",
+     "value": "35% online"
+    },
+    {
+     "name": "Angola",
+     "value": "41% online"
+    },
+    {
+     "name": "Nigeria",
+     "value": "41% online"
+    },
+    {
+     "name": "Ivory Coast",
+     "value": "41% online"
+    },
+    {
+     "name": "Myanmar",
+     "value": "45% online"
+    },
+    {
+     "name": "Mauritania",
+     "value": "46% online"
+    },
+    {
+     "name": "Cameroon",
+     "value": "46% online"
+    },
+    {
+     "name": "Congo",
+     "value": "47% online"
+    },
+    {
+     "name": "Bangladesh",
+     "value": "53% online"
+    },
+    {
+     "name": "Pakistan",
+     "value": "57% online"
+    },
+    {
+     "name": "Honduras",
+     "value": "59% online"
+    },
+    {
+     "name": "Senegal",
+     "value": "60% online"
+    },
+    {
+     "name": "Guatemala",
+     "value": "60% online"
+    },
+    {
+     "name": "Nicaragua",
+     "value": "61% online"
+    },
+    {
+     "name": "Namibia",
+     "value": "65% online"
+    },
+    {
+     "name": "Philippines",
+     "value": "67% online"
+    },
+    {
+     "name": "Cambodia",
+     "value": "68% online"
+    },
+    {
+     "name": "Gabon",
+     "value": "69% online"
+    },
+    {
+     "name": "North Korea",
+     "value": "no data"
+    }
+   ],
+   "close": {
+    "name": "India",
+    "value": "70% online"
+   }
+  },
+  {
+   "rule": [
+    "Fewer than 3",
+    "land neighbours → OUT"
+   ],
+   "source": "Land borders · mledoze/countries dataset",
+   "out": [
+    {
+     "name": "Australia",
+     "value": "0 neighbours"
+    },
+    {
+     "name": "Cuba",
+     "value": "0 neighbours"
+    },
+    {
+     "name": "Japan",
+     "value": "0 neighbours"
+    },
+    {
+     "name": "New Zealand",
+     "value": "0 neighbours"
+    },
+    {
+     "name": "Canada",
+     "value": "1 neighbour"
+    },
+    {
+     "name": "South Korea",
+     "value": "1 neighbour"
+    },
+    {
+     "name": "United Kingdom",
+     "value": "1 neighbour"
+    },
+    {
+     "name": "Ecuador",
+     "value": "2 neighbours"
+    },
+    {
+     "name": "Sweden",
+     "value": "2 neighbours"
+    },
+    {
+     "name": "Tunisia",
+     "value": "2 neighbours"
+    },
+    {
+     "name": "United States",
+     "value": "2 neighbours"
+    },
+    {
+     "name": "Uruguay",
+     "value": "2 neighbours"
+    }
+   ],
+   "close": {
+    "name": "Chile",
+    "value": "3 neighbours"
+   }
+  },
+  {
+   "rule": [
+    "More than 10 tonnes of",
+    "CO₂ per person → OUT"
+   ],
+   "source": "Global Carbon Budget · 2024 · via Our World in Data",
+   "out": [
+    {
+     "name": "Saudi Arabia",
+     "value": "18.6 t per person"
+    },
+    {
+     "name": "Oman",
+     "value": "16.1 t per person"
+    },
+    {
+     "name": "Russia",
+     "value": "12.3 t per person"
+    }
+   ],
+   "close": {
+    "name": "Libya",
+    "value": "9.8 t per person"
+   }
+  },
+  {
+   "rule": [
+    "Fewer than 40 million",
+    "people → OUT"
+   ],
+   "source": "UN World Population Prospects 2024 · via Our World in Data",
+   "out": [
+    {
+     "name": "Norway",
+     "value": "5.6M people"
+    },
+    {
+     "name": "Finland",
+     "value": "5.6M people"
+    },
+    {
+     "name": "Bulgaria",
+     "value": "6.8M people"
+    },
+    {
+     "name": "Libya",
+     "value": "7.4M people"
+    },
+    {
+     "name": "Greece",
+     "value": "10.0M people"
+    },
+    {
+     "name": "Romania",
+     "value": "19.0M people"
+    },
+    {
+     "name": "Chile",
+     "value": "19.8M people"
+    },
+    {
+     "name": "Venezuela",
+     "value": "28.4M people"
+    },
+    {
+     "name": "Peru",
+     "value": "34.2M people"
+    },
+    {
+     "name": "Ghana",
+     "value": "34.4M people"
+    },
+    {
+     "name": "Malaysia",
+     "value": "35.6M people"
+    },
+    {
+     "name": "Ukraine",
+     "value": "37.9M people"
+    },
+    {
+     "name": "Morocco",
+     "value": "38.1M people"
+    },
+    {
+     "name": "Poland",
+     "value": "38.5M people"
+    }
+   ],
+   "close": {
+    "name": "Argentina",
+    "value": "45.7M people"
+   }
+  },
+  {
+   "rule": [
+    "Under 85% of people",
+    "online → OUT"
+   ],
+   "source": "World Bank / ITU · latest year available",
+   "out": [
+    {
+     "name": "India",
+     "value": "70% online"
+    },
+    {
+     "name": "Indonesia",
+     "value": "73% online"
+    },
+    {
+     "name": "Egypt",
+     "value": "75% online"
+    },
+    {
+     "name": "Algeria",
+     "value": "77% online"
+    },
+    {
+     "name": "South Africa",
+     "value": "78% online"
+    },
+    {
+     "name": "Colombia",
+     "value": "79% online"
+    },
+    {
+     "name": "Iraq",
+     "value": "81% online"
+    },
+    {
+     "name": "Mexico",
+     "value": "83% online"
+    },
+    {
+     "name": "Vietnam",
+     "value": "84% online"
+    },
+    {
+     "name": "Brazil",
+     "value": "84% online"
+    }
+   ],
+   "close": {
+    "name": "Iran",
+    "value": "85% online"
+   }
+  },
+  {
+   "rule": [
+    "Fewer than 6",
+    "land neighbours → OUT"
+   ],
+   "source": "Land borders · mledoze/countries dataset",
+   "out": [
+    {
+     "name": "Thailand",
+     "value": "4 neighbours"
+    },
+    {
+     "name": "Argentina",
+     "value": "5 neighbours"
+    },
+    {
+     "name": "Spain",
+     "value": "5 neighbours"
+    }
+   ],
+   "close": {
+    "name": "Italy",
+    "value": "6 neighbours"
+   }
+  },
+  {
+   "rule": [
+    "Only ONE",
+    "time zone → OUT"
+   ],
+   "source": "CIA World Factbook",
+   "out": [
+    {
+     "name": "China",
+     "value": "1 time zone"
+    },
+    {
+     "name": "Germany",
+     "value": "1 time zone"
+    },
+    {
+     "name": "Iran",
+     "value": "1 time zone"
+    },
+    {
+     "name": "Italy",
+     "value": "1 time zone"
+    },
+    {
+     "name": "Türkiye",
+     "value": "1 time zone"
+    }
+   ],
+   "close": null
+  }
+ ],
+ "winner": {
+  "name": "France",
+  "value": "12 time zones"
+ }
+}
