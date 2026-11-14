@@ -29,7 +29,7 @@ round/era structure; a 5-week-old silent channel doing country elimination games
 | 4 | 9 Countries vs the USA: military budgets 1990–2025 (v3) | youtu.be/yU-GR4q5OG4 (public 10 Nov) | shorts/8RE6H7K-0lM (public 10 Nov; 54% stayed, AVD 0:20/0:22) |
 | 3b | Richest per person Short v3 (1970–2024, 2-year steps) | links to k_mEu5f5vz0 | shorts/Ik1gzJl2umY (public 10 Nov) |
 | 5 | Who Pollutes More? CO₂ quiz 2024 | youtu.be/Clrd3W518lQ (public 10 Nov) | shorts/OXn1Nw7SF6s (public 10 Nov) |
-| 6 | Last Country Standing: internet users 2024 (knockout) | youtu.be/g1OQNLHnK5k (PRIVATE, for Sat 14 Nov 22:00) | shorts/M8v36J-ut-4 (PRIVATE) |
+| 6 | Last Country Standing: internet users 2024 (knockout) | youtu.be/g1OQNLHnK5k (public since 11–12 Nov; 5 views by 13 Nov) | shorts/M8v36J-ut-4 (public; 1,437 views, 61% stayed, 90% avg viewed by 13 Nov) |
 
 ## How work is scheduled (changed 14 Nov 2026, by Ahmed)
 The two midweek teams (Sun+Wed for this channel, Mon+Thu for Driftlight) are **paused, not deleted** —
@@ -248,8 +248,8 @@ which is quiz material and gives the quiz the fair solo-day test it never got on
 
 Each slot ships one long plus one Short, and the Short is the only Short that day.
 
-**Open question — long-video length.** "Channel facts" above still says 8–12 minutes (the YPP
-watch-hours argument). Every video actually shipped since 10 Nov is about 3 minutes, and the
-Saturday run prompt says ~3 min. Until Ahmed decides, build ~3 min and leave this note here:
-4,000 watch hours will not come from 3-minute videos at 4 subscribers, but padding a weak
-format to 10 minutes wastes the render time. Revisit once a format holds above 60% retention.
+**Long-video length — superseded by the notice at the top of this file (14 Nov).** "Channel facts"
+says 8–12 minutes; everything shipped since 10 Nov is about 3 minutes. The research settles the
+direction of travel: every current hit in the niche is 6–17 minutes, and our own retention curve
+is flat after the first 35 seconds, so length pays once the opening holds. The exact target waits
+for Ahmed's decision; do not build 3-minute videos from the table above in the meantime.
