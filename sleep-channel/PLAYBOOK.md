@@ -22,7 +22,7 @@ Fixes, now built into the code — **this section wins over older text and over 
 - `python metadata.py N` returns `render_args` — pass it verbatim: `python render_scene.py <render_args> --out …/video.mp4`.
   It also returns `thumb_big`, `thumb_sub`, `short_title_yt`, `blackscreen_title` for the metadata txt.
 - `make_extras.py --title "<short_title>"` as before (Short, black screen + its own thumbnail, pin).
-- On upload: link each Short to its full video (Studio → Short → Related video), add to the playlist,
+- **MANDATORY, after the Short is published** (not available in the upload dialog — only on studio.youtube.com/video/<SHORT_ID>/edit → right column → Related video): link each Short to its full video (Studio → Short → Related video), add to the playlist,
   AI use = No (Ahmed's decision: procedural synthesis), Private first.
 - Ahmed's `~/Downloads` can be granted to a session: small files (Short, thumbnails) can then be uploaded from Chrome
   by Claude; files over ~3.8 MB need Ahmed to pick them in the upload dialog.
