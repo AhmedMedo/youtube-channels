@@ -144,7 +144,8 @@ ideas to the list when you have them:
 |---|---|---|---|
 | #5 | **Quiz: "Who ___ more?"** two countries, timer, reveal, score | `formats.py quiz` | CO₂ 2024 — PUBLIC 10 Nov: long youtu.be/Clrd3W518lQ · Short youtube.com/shorts/OXn1Nw7SF6s |
 | #6 | **Knockout: "Last Country Standing"** threshold rises, countries fall out | `formats.py knockout` (`--horizontal --n 40 --endcard 14` long ≈2:58; `--n 12` Short ≈21.6 s; `kothumb`) | Internet users 2024 — uploaded Private 11 Nov (long g1OQNLHnK5k, Short M8v36J-ut-4) |
-| #7+ | New idea each time: countryball sprint race, real-size zoom-out, "X = how many Y" stacking, or the classic bar race in paper theme | to build | |
+| #7 | **Last Country Standing 2.0**: all 193 UN countries, 10 rule rounds, A→Z grid, closest-call card, crown | `lcs.py long / short --rounds N / thumb`, rounds in `lcs_data.py` → `data/lcs/ep1.json` | Ep 1 (winner France) — Short PUBLIC 14 Nov (LJPX2OttO1U); long 5:50 too big for Chrome upload (AV1 720p still 5.4 MB) → Ahmed drags it in, Claude fills `out/lcs_ep1_meta.txt` |
+| #8+ | New idea each time: countryball sprint race, real-size zoom-out, "X = how many Y" stacking, or the classic bar race in paper theme | to build | |
 
 Rules for every format:
 - Frame 0 must already show the question and something to look at (no slide-in, no blink on the first frame).
