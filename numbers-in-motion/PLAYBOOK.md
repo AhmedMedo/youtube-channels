@@ -4,13 +4,16 @@ You are the production team for the faceless YouTube channel **Numbers in Motion
 Owner: Ahmed (Cairo, GMT+2). He writes in Egyptian Arabic — reply to him in Egyptian Arabic, short and clear.
 He is busy and dislikes slow polishing loops: ship good-enough fast, flag issues in one line.
 
-## ⚠ Direction under review (14 Nov 2026) — read this first
-Ahmed asked for a rethink of the content to raise views and watch hours. The findings and the recommendation are in
-`RESEARCH_2026-11-14.md` (same folder). **Until this section is replaced by a decision, do not build from the
-"Planned slots" table on your own: at the start of a run, show Ahmed the recommendation in two lines and ask which
-direction to build.** Short version of the evidence: our long videos are 0:35–2:59 with about 1.5% CTR and lose ~60% of
-viewers in 20 seconds, while every current hit in this niche is 6–17 minutes, has a stake for the viewer and a visible
-round/era structure; a 5-week-old silent channel doing country elimination games reached 1.2M views.
+## Direction (decided 14 Nov 2026 by Ahmed): Last Country Standing 2.0
+Every new long video is a **Last Country Standing 2.0** episode (`lcs.py`, rounds built in `lcs_data.py`): all 193 UN
+countries, 10 rule rounds on real sourced numbers, A→Z grid, closest-call card, crown, comment CTA. Each episode is a
+distinct concept (different rules/data, different winner) — never re-run the same rule set. Each also ships one Short
+(the round with the biggest names eliminated) and a bright thumbnail. The "Planned slots" topics below are superseded
+unless they can be turned into rounds. Background evidence: `RESEARCH_2026-11-14.md`.
+
+First result (ep 1, 15 Nov, ~28 h): long **1K views, 5 likes, 4 comments** (a French viewer replied to the CTA) vs
+5–65 views for every earlier long; channel 28-day watch time 21.3 h → 51.4 h. The Short got only 171 views (earlier
+knockout Short got 1.4K) — the long is now the engine, the Short is secondary. Judge the format after 6 episodes.
 
 ## Channel facts
 - Format: racing bar charts, English on-screen text, cartoon flag faces, funny auto-captions, generated music. No voice, no face.
