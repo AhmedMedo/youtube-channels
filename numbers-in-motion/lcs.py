@@ -25,7 +25,9 @@ FPS = 30
 NAVY, YEL, INK, CARD = (18, 30, 86), (255, 209, 64), (20, 26, 52), (255, 252, 244)
 GREEN, RED, SHADOW, WHITE = (38, 176, 104), (226, 74, 74), (196, 188, 170), (255, 255, 255)
 font = rv.font
-EP = json.load(open(os.path.join(HERE, "data/lcs/ep1.json")))
+EPN = os.environ.get("LCS_EP", "ep1")
+EP = json.load(open(os.path.join(HERE, f"data/lcs/{EPN}.json")))
+META = EP.get("meta", {})
 CODE = {c["name"]: c["cca2"] for c in EP["countries"]}
 LABEL = {c["name"]: c["label"] for c in EP["countries"]}
 ORDER = [c["name"] for c in EP["countries"]]          # A→Z by label
@@ -256,7 +258,7 @@ class Episode:
             k = pop((t - 0.3) / 0.35)
             gx = (g.grid[0] + g.grid[2]) / 2
             f = font(int(64 * max(k, .2)), "Black")
-            txt = "Even the USA is OUT by round 5!"
+            txt = META.get("teaser", "Even the USA is OUT by round 5!")
             tw = d.textlength(txt, font=f)
             d.rounded_rectangle([gx - tw / 2 - 36, 470, gx + tw / 2 + 36, 470 + f.size * 1.6], radius=30, fill=RED, outline=INK, width=6)
             ctext(d, gx, 470 + f.size * .22, txt, f, WHITE)
@@ -424,8 +426,9 @@ class Episode:
             bx = (cb[0] + cb[2]) / 2
             ctext(d, bx, cb[1] + 34, "WINNER", font(44, "Black"), YEL)
             ctext(d, bx, cb[1] + 96, LABEL[self.final_alive[0]], font(84, "Black"), WHITE)
-            ctext(d, bx, cb[1] + 206, "12 time zones", font(48, "Black"), YEL)
-            ctext(d, bx, cb[1] + 268, "Thanks to its overseas territories", font(28, "SemiBold"), WHITE)
+            wv = META.get("win_value") or EP["winner"]["value"]
+            ctext(d, bx, cb[1] + 206, wv, fit(d, wv, 48, cb[2] - cb[0] - 40), YEL)
+            ctext(d, bx, cb[1] + 268, META.get("win_note", ""), font(28, "SemiBold"), WHITE)
         # counter
         cy0 = cb[3] + (40 if hz else 30)
         n = self.counter(t) if t >= (self.rounds[0]["a"] if self.rounds else 0) else len(self.start_alive)
@@ -647,13 +650,13 @@ def thumb(out):
     ov = Image.new("RGBA", (W, H), (238, 233, 222, 120))
     img.paste(ov, (0, 0), ov)
     d = ImageDraw.Draw(img)
-    for e, x, y, D, mood in (("United States", 210, 430, 230, "shocked"), ("China", 1080, 420, 230, "worried"),
-                             ("Egypt", 640, 470, 270, "worried")):
+    th = META.get("thumb", [["United States", "shocked"], ["Egypt", "worried"], ["China", "worried"]])
+    for (e, mood), x, y, D in zip(th, (210, 640, 1080), (430, 470, 420), (230, 270, 230)):
         put(img, sprite(e, D, mood), x, y)
     xmark(d, 210 + 90, 430 - 90, 52)
     band(d, W / 2, 34, [("193", YEL), ("COUNTRIES →", WHITE), ("1", YEL)], font(96, "Black"))
     f = font(70, "Black")
-    txt = "WHO SURVIVES?"
+    txt = META.get("thumb_pill", "WHO SURVIVES?")
     tw = d.textlength(txt, font=f)
     d.rounded_rectangle([W / 2 - tw / 2 - 34, 610, W / 2 + tw / 2 + 34, 700], radius=34, fill=RED, outline=INK, width=6)
     ctext(d, W / 2, 615, txt, f, WHITE)

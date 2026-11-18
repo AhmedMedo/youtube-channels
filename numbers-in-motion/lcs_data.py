@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Build the rounds for "Last Country Standing" episode 1 from data/lcs/base.csv.
-Writes data/lcs/ep1.json: countries, and per round the rule, source, who goes out (with values)."""
+"""Build the rounds for "Last Country Standing" episodes from data/lcs/base2.csv.
+Usage: python3 lcs_data.py ep2   → writes data/lcs/ep2.json: countries, and per round the rule, source, who goes out (with values)."""
 import json, os
 import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-D = pd.read_csv(os.path.join(HERE, "data/lcs/base.csv"))
+D = pd.read_csv(os.path.join(HERE, "data/lcs/base2.csv"))
 D = D[D.name != "Vatican City"].set_index("name")            # 193 UN member states
 # CIA World Factbook: France has 12 time zones (13 counting its Antarctic claim). Dataset says 13.
 D.loc["France", "tz"] = 12
@@ -21,7 +21,7 @@ def f_pop(v):
     return f"{v / 1e6:.1f}M people" if v >= 1e6 else f"{v / 1e3:.0f}K people"
 
 
-ROUNDS = [  # (title line, detail, source, column, out-test, value formatter, closest-call side)
+EP1 = [  # (title line, detail, source, column, out-test, value formatter, closest-call side)
     ("Fewer than 1 million people", "→ OUT", "UN World Population Prospects 2024 · via Our World in Data", "pop",
      lambda r: r["pop"] < 1e6, f_pop, "min"),
     ("No coastline", "(landlocked) → OUT", "mledoze/countries dataset", "landlocked",
@@ -45,7 +45,45 @@ ROUNDS = [  # (title line, detail, source, column, out-test, value formatter, cl
 ]
 
 
-def build():
+def lat(v):
+    return f"{abs(v):.0f}°{'S' if v < 0 else 'N'}" if round(abs(v)) else "0° (on the line)"
+
+
+EP2 = [
+    ("Centre is south of", "the equator → OUT", "Country centre point · mledoze/countries dataset", "lat",
+     lambda r: r["lat"] < 0, lat, "min"),
+    ("Smaller than 20,000 km²", "→ OUT", "Land area · mledoze/countries dataset", "area",
+     lambda r: r["area"] < 2e4, lambda v: f"{v:,.0f} km²", "min"),
+    ("Under 20% of electricity", "from renewables → OUT", "Ember & Energy Institute · via Our World in Data · latest year",
+     "renewables_share_elec", lambda r: not (r["renewables_share_elec"] >= 20), lambda v: f"{v:.1f}% renewable", "min"),
+    ("Under 2,000 kWh of", "electricity per person → OUT", "Ember & Energy Institute · via Our World in Data · latest year",
+     "per_capita_electricity", lambda r: r["per_capita_electricity"] < 2000, lambda v: f"{v:,.0f} kWh", "min"),
+    ("Fewer than 10 million", "people → OUT", "UN World Population Prospects 2024 · via Our World in Data", "pop",
+     lambda r: r["pop"] < 10e6, f_pop, "min"),
+    ("Fewer than 2", "land neighbours → OUT", "Land borders · mledoze/countries dataset", "borders",
+     lambda r: r["borders"] < 2, lambda v: f"{int(v)} neighbour" + ("" if v == 1 else "s"), "min"),
+    ("No nuclear power", "→ OUT", "Ember & Energy Institute · via Our World in Data · latest year", "nuclear_share_elec",
+     lambda r: not (r["nuclear_share_elec"] > 0), lambda v: f"{v:.0f}% nuclear", "min"),
+    ("Bigger than 1 million km²", "→ OUT", "Land area · mledoze/countries dataset", "area",
+     lambda r: r["area"] > 1e6, lambda v: f"{v / 1e6:.1f}M km²", "max"),
+    ("Under 50% of electricity", "from renewables → OUT", "Ember & Energy Institute · via Our World in Data · latest year",
+     "renewables_share_elec", lambda r: not (r["renewables_share_elec"] >= 50), lambda v: f"{v:.1f}% renewable", "min"),
+    ("FINAL: least electricity", "per person → OUT", "Ember & Energy Institute · via Our World in Data · latest year",
+     "per_capita_electricity", lambda r: r["per_capita_electricity"] < 10000, lambda v: f"{v:,.0f} kWh", None),
+]
+
+EPISODES = {
+    "ep1": (EP1, {"teaser": "Even the USA is OUT by round 5!", "win_value": "12 time zones",
+                  "win_note": "Thanks to its overseas territories",
+                  "thumb": [["United States", "shocked"], ["Egypt", "worried"], ["China", "worried"]]}),
+    "ep2": (EP2, {"teaser": "China & the USA don't make the final 3!", "win_value": None,
+                  "win_note": "Mostly hydro & nuclear power",
+                  "thumb": [["United States", "shocked"], ["Germany", "worried"], ["Japan", "worried"]], "thumb_pill": "POWER EDITION"}),
+}
+
+
+def build(ep="ep1"):
+    ROUNDS, meta = EPISODES[ep]
     alive = sorted(D.index, key=lambda n: NAMES.get(n, n))
     out = {"countries": [{"name": n, "label": NAMES.get(n, n), "cca2": D.loc[n, "cca2"]} for n in alive], "rounds": []}
     for title, detail, src, col, test, fmt, side in ROUNDS:
@@ -62,10 +100,13 @@ def build():
                               "out": [{"name": n, "value": fmt(v)} for n, v in gone], "close": close})
         alive = [n for n, _ in stay]
         print(f"{title} {detail}: -{len(gone)} -> {len(alive)}   close={close}")
-    out["winner"] = {"name": alive[0], "value": f"{int(D.loc[alive[0], 'tz'])} time zones"} if len(alive) == 1 else None
+    out["meta"] = meta
+    if len(alive) == 1:
+        out["winner"] = {"name": alive[0], "value": fmt(D.loc[alive[0], col]) + " per person" if col == "per_capita_electricity" else fmt(D.loc[alive[0], col])}
     print("alive:", alive)
-    json.dump(out, open(os.path.join(HERE, "data/lcs/ep1.json"), "w"), ensure_ascii=False, indent=1)
+    json.dump(out, open(os.path.join(HERE, f"data/lcs/{ep}.json"), "w"), ensure_ascii=False, indent=1)
 
 
 if __name__ == "__main__":
-    build()
+    import sys
+    build(sys.argv[1] if len(sys.argv) > 1 else "ep1")
