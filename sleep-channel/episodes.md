@@ -5,7 +5,12 @@
 | 001 | 2026-11-08 | Starlight Drift — 1 Hour of Original Ambient Sleep Music | WrpGMyRWZjg (Public) · black screen 24dzpN_M1oc (Public) | 1:00:00 |
 | 002 | 2026-11-09 | Rain on the Window — 2 Hours of Original Ambient Sleep Music | YwFnzD5MC0M (Public) · black screen FilFOjDIWUc (Private) · Short (Private) | 2:00:00 |
 | 003 | 2026-11-10 | Rain Sounds for Sleeping 🌧️ 2 Hours of Soft Rain & Calm Music \| Cozy Window Ambience | L7dzhCWfhU4 · black screen AEOA5m0hs… · Short tMoBryW77hY (all Private, uploaded 2026-11-10) | 2:00:00 |
+| 005 | 2026-11-18 | Can't Switch Off? 8 Hours of Deep Sleep Music for a Racing Mind \| Black Screen | (delivered, awaiting upload) | 8:00:00 |
 | 004 | 2026-11-12 | Deep Sleep Music 🌙 3 Hours of Calm Ambient Music to Fall Asleep Fast \| Starry Night | main IaAqQZXHae0 · Short 0mIRLkzuxdw (→ main) · all Public 11-14 | 3:00:00 |
 
 
 Shorts → Related video (set 11-14): aJ4WQXesUPU→WrpGMyRWZjg, 0nOOgqAaLKQ→YwFnzD5MC0M, tMoBryW77hY→L7dzhCWfhU4, 0mIRLkzuxdw→IaAqQZXHae0
+
+v3 from ep005: ONE upload per episode, 8 h, title card 18 s then black. No Short, no separate black-screen
+upload, no pin. ep005 audio: seed 1052, key -3, mood night, rendered as two parallel PCM halves (WAV cannot
+hold 8 h), gain +8 dB with a limiter to reach -18 LUFS, delivered at 405 MB with 92k AAC.

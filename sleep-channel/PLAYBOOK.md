@@ -155,6 +155,20 @@ ffmpeg -y -i video_only.mp4 -f s16le -ar 44100 -ac 2 -i audio.pcm -map 0:v -map 
 nothing shrinks that except a lower frame rate), so 96k audio would put the file at 404 MB, over the limit.
 92k lands at ~390 MB. Check `ls -la` before delivering.
 
+**Check the loudness before delivering.** The `night` mood renders about 8 dB quieter than `rain`
+(`rain` carries a loud rain bed, `night` has almost none): ep005 came out at **-27.0 LUFS** against
+ep003's **-18.8**. YouTube turns loud audio down but never turns quiet audio up, so an episode left at
+-27 plays far quieter than everything around it and the next autoplayed video startles the listener.
+
+A flat gain is not enough on its own — ep005's true peak was -7.45 dBFS, so +8 dB would have clipped.
+Add a limiter in the mux and measure the result:
+```bash
+-af "volume=8dB,alimiter=limit=0.891:attack=5:release=60"      # ep005: -27.0 -> -17.4..-18.5 LUFS
+ffmpeg -nostats -ss 3600 -t 300 -i final.mp4 -af ebur128=peak=true -f null -   # must land near -19
+```
+Target **-18 to -19 LUFS**, matching what is already published. Measure a 5-minute window, not 10 seconds:
+short windows on sparse ambient read several dB low.
+
 One 8-hour episode is what fits in a single scheduled run.
 `brand/out/` is not in git: on a fresh clone run `cd brand && python3 final_brand.py out` before `make_extras.py` (it needs `driftlight_character_rgba.png`). The `render_scene.py` thumbnail has no mascot — composite it in (ep002: 250 px at x=1005,y=440 on the 1280×720 thumb).
 Rendering must be polled in the foreground (sleep + tail the log); a background process left alone is killed within minutes.
