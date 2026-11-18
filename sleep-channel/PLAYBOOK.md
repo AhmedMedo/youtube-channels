@@ -127,8 +127,35 @@ python3 -c "print('file intro.mp4'); print('file black60.mp4\n'*480, end='')" > 
 ffmpeg -y -f concat -safe 0 -i list.txt -c copy video_only.mp4
 ffmpeg -y -i video_only.mp4 -i audio.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 96k -t 28800 -movflags +faststart final.mp4
 ```
-The 8 h music render takes about **55 minutes** on 2 cores and writes a 5 GB WAV, so check disk first and poll
-the log in the foreground. One 8-hour episode is roughly what fits in a single scheduled run.
+### The 8-hour audio must NOT go through `ambient.render()`
+
+A WAV file stores its sizes in 32 bits, so it cannot exceed 4 GiB. Eight hours of 44.1 kHz stereo 16-bit is
+**4.73 GiB**, so `ambient.render()` runs for 50 minutes and then dies on `_patchheader` with
+`struct.error: 'L' format requires 0 <= number <= 4294967295`, losing the lot. This happened on ep005
+(18 Nov). `render()` now refuses durations over the limit with a message instead of wasting the hour.
+
+Use **`ambient.render_pcm()`**, which writes headerless PCM that ffmpeg reads with `-f s16le -ar 44100 -ac 2`.
+
+It also takes `t0`/`t1`, so the render splits across both cores and takes **~28 minutes instead of ~55**.
+That is safe because everything in a Piece is a function of absolute time except the reverb tail (~2.8 s)
+and the noise filter state; a segment starts `warmup` seconds early (default 30) and throws that part away,
+so its state has settled and the splice is inaudible. Do NOT build the second half from a fresh Piece —
+the chord sequence and bell schedule are planned for the whole duration and would jump.
+
+```bash
+# two halves at once, then one file
+python3 -c "import ambient; ambient.render_pcm('seg0.pcm', 28800, seed=S, key=K, mood='M', t0=0,     t1=14400)" &
+python3 -c "import ambient; ambient.render_pcm('seg1.pcm', 28800, seed=S, key=K, mood='M', t0=14400, t1=28800)" &
+wait
+cat seg0.pcm seg1.pcm > audio.pcm        # must be exactly 28800 * 44100 * 4 = 5,080,320,000 bytes
+ffmpeg -y -i video_only.mp4 -f s16le -ar 44100 -ac 2 -i audio.pcm -map 0:v -map 1:a \
+       -c:v copy -c:a aac -b:a 92k -t 28800 -movflags +faststart final.mp4
+```
+**92k, not 96k:** the black video comes out at ~59 MB (x264 spends ~84 bytes on every black frame and
+nothing shrinks that except a lower frame rate), so 96k audio would put the file at 404 MB, over the limit.
+92k lands at ~390 MB. Check `ls -la` before delivering.
+
+One 8-hour episode is what fits in a single scheduled run.
 `brand/out/` is not in git: on a fresh clone run `cd brand && python3 final_brand.py out` before `make_extras.py` (it needs `driftlight_character_rgba.png`). The `render_scene.py` thumbnail has no mascot — composite it in (ep002: 250 px at x=1005,y=440 on the 1280×720 thumb).
 Rendering must be polled in the foreground (sleep + tail the log); a background process left alone is killed within minutes.
 

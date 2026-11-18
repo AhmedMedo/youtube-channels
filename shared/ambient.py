@@ -185,7 +185,57 @@ class Piece:
         return (out * fade).astype(np.float32)
 
 
+WAV_LIMIT = 4 * 1024 ** 3 - (1 << 20)   # the wave module writes 32-bit sizes: a WAV cannot hold 4 GiB
+
+
+def pcm_bytes(duration):
+    return int(duration * SR) * 2 * 2       # stereo, 16-bit
+
+
+def render_pcm(path, duration, seed=1, key=0, mood="night", rain=None, gain=1.0,
+               t0=0.0, t1=None, warmup=30.0, log=print):
+    """Write headerless 16-bit stereo PCM for [t0, t1) of the piece defined over [0, duration).
+
+    Two reasons this exists instead of render():
+      1. WAV tops out at 4 GiB and 8 hours of 44.1 kHz stereo is ~5 GiB, so a long episode
+         cannot be a WAV at all. ffmpeg reads this with `-f s16le -ar 44100 -ac 2`.
+      2. It can be split across processes. Everything in the piece is a function of absolute
+         time except the reverb tail (~2.8 s) and the noise filter state, so a segment that
+         starts `warmup` seconds early and discards that warm-up continues the previous
+         segment seamlessly. Two 4-hour halves on two cores take about as long as one.
+    """
+    t1 = duration if t1 is None else t1
+    p = Piece(duration, seed=seed, key=key, mood=mood, rain=rain)
+    start = max(0.0, t0 - warmup)
+    start -= start % CHUNK                  # chunk grid, so the warm-up covers the splice
+    peak, sq, cnt = 0.0, 0.0, 0
+    with open(path, "wb") as f:
+        while start < t1:
+            ch = p.render_chunk(start) * gain
+            n = ch.shape[1]
+            a, b = 0, n
+            if start < t0:                  # inside the warm-up: keep the state, drop the audio
+                a = min(n, max(0, int(round((t0 - start) * SR))))
+            if start + n / SR > t1:
+                b = min(n, max(0, int(round((t1 - start) * SR))))
+            if b > a:
+                seg = ch[:, a:b]
+                peak = max(peak, float(np.abs(seg).max()))
+                sq += float((seg.astype(np.float64) ** 2).sum()); cnt += seg.size
+                f.write((np.clip(seg.T, -1, 1) * 32767).astype("<i2").tobytes())
+            start += CHUNK
+            if int(start) % 600 == 0:
+                log(f"  audio {int(start) // 60} min")
+    rms = 20 * math.log10(math.sqrt(sq / max(cnt, 1)) + 1e-12)
+    log(f"pcm done [{t0:.0f}, {t1:.0f}): peak {20 * math.log10(peak + 1e-12):.1f} dBFS, rms {rms:.1f} dBFS")
+    return peak, rms
+
+
 def render(path, duration, seed=1, key=0, mood="night", rain=None, gain=1.0, log=print):
+    if pcm_bytes(duration) > WAV_LIMIT:
+        raise ValueError(
+            f"{duration / 3600:.1f} h of audio is {pcm_bytes(duration) / 1024 ** 3:.2f} GiB and WAV stops at 4 GiB — "
+            "use render_pcm() and let ffmpeg encode it (see PLAYBOOK)")
     p = Piece(duration, seed=seed, key=key, mood=mood, rain=rain)
     with wave.open(path, "wb") as w:
         w.setnchannels(2)
