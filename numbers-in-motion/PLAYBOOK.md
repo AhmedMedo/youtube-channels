@@ -7,6 +7,13 @@ He is busy and dislikes slow polishing loops: ship good-enough fast, flag issues
 ## Scheduled runs: OFF (21 Nov 2026, Ahmed)
 Ahmed cancelled all scheduled tasks and runs the channel manually from chat. Ep 2 (Power edition, winner Sweden) was built 18 Nov and is the 21 Nov upload.
 
+## Where finished episodes go (Ahmed, 21 Nov 2026)
+Every finished episode goes to Ahmed's Mac: `~/Documents/Number of Motions/<YYYY-MM-DD> - <short title>/` with
+`long.mp4`, `short.mp4`, `thumbnail.jpg`, `metadata.txt` (titles, descriptions, settings). Date = publish date.
+Write with device_commit_files (use the SendUserFile fileUuid for files over ~50 MB). Ask for ~/Documents access if needed.
+Not on the Mac (rendered by older team runs, files gone): Most Populous 1952–2007, USA vs China economy,
+Richest per Person long, Internet knockout #6.
+
 ## Direction (decided 14 Nov 2026 by Ahmed): Last Country Standing 2.0
 Every new long video is a **Last Country Standing 2.0** episode (`lcs.py`, rounds built in `lcs_data.py`): all 193 UN
 countries, 10 rule rounds on real sourced numbers, A→Z grid, closest-call card, crown, comment CTA. Each episode is a
