@@ -18,6 +18,11 @@ Richest per Person long, Internet knockout #6.
 Every episode from ep 3 on: animated SUBSCRIBE button + "to see who wins the next episode!" after the crown (long, built
 into `lcs.py`), and a SUBSCRIBE button on the Short's end card. Titles end with "Ep N" (ep 1 and 2 titles updated 21 Nov).
 
+## Motion pass (approved by Ahmed, 21 Nov 2026) — from ep 4 on
+`lcs.py` renders with the motion pass ON by default (`LCS_MOTION=1`): shudder + squash on the hit, small hop before
+the fall, neighbours flinch away, counter pops red on each elimination, pitch-varied hit sounds. Rules behind it:
+Ahmed's `motion-design-rules` skill. Ep 1–3 were rendered without it; `LCS_MOTION=0` reproduces the old look.
+
 ## Direction (decided 14 Nov 2026 by Ahmed): Last Country Standing 2.0
 Every new long video is a **Last Country Standing 2.0** episode (`lcs.py`, rounds built in `lcs_data.py`): all 193 UN
 countries, 10 rule rounds on real sourced numbers, A→Z grid, closest-call card, crown, comment CTA. Each episode is a
