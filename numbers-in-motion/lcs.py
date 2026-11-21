@@ -80,7 +80,12 @@ def sprite(name, D, mood="neutral", ring=None):
     return lay
 
 
-def put(img, spr, x, y, alpha=1.0, rot=0.0):
+MOTION = os.environ.get("LCS_MOTION", "1") == "1"
+
+
+def put(img, spr, x, y, alpha=1.0, rot=0.0, sx=1.0, sy=1.0):
+    if sx != 1.0 or sy != 1.0:
+        spr = spr.resize((max(2, int(spr.width * sx)), max(2, int(spr.height * sy))), Image.BICUBIC)
     if rot:
         spr = spr.rotate(rot, resample=Image.BICUBIC)
     if alpha < 1:
@@ -345,13 +350,22 @@ class Episode:
                 dt = t - to
                 hold = 0.9 if D >= 80 else 0.35
                 if dt < hold:
-                    put(img, sprite(e, D, "shocked"), x, y)
+                    if MOTION:
+                        k = min(1.0, dt / 0.25)
+                        shake = math.sin(dt * 70) * D * 0.07 * (1 - k)          # anticipation: shudder on the hit
+                        sq = math.exp(-dt * 14) * math.cos(dt * 30) * 0.14       # squash, then spring back
+                        hop = -D * 0.10 * ease(max(0.0, (dt - (hold - 0.18)) / 0.18))  # small rise right before the drop
+                        put(img, sprite(e, D, "shocked"), x + shake, y + hop, sx=1 + sq, sy=1 - sq)
+                    else:
+                        put(img, sprite(e, D, "shocked"), x, y)
                     xmark(d, x + D * .32, y - D * .32, max(10, D * .28 * pop(dt / 0.25)))
                     if D >= 80:
                         tags.append((x, y, D, R["values"][e]))
                     continue
                 ft = dt - hold
                 yy = y - D * 1.4 * ft + 2600 * ft * ft
+                if MOTION:
+                    yy = y - D * 0.10 - D * 0.6 * ft + 3200 * ft * ft
                 if yy < g.H + D:
                     rnd = random.Random(e)
                     put(img, sprite(e, D, "shocked"), x + rnd.uniform(-1, 1) * 160 * ft, yy, rot=rnd.choice((-1, 1)) * 220 * ft)
@@ -371,7 +385,20 @@ class Episode:
             yb = y + (math.sin(t * 3.2 + j * 0.7) * DD * 0.03 if DD >= 60 else 0)
             if e == close and R["d"] <= t < R["e"]:
                 yb -= abs(math.sin((t - R["d"]) * 7)) * DD * 0.12
-            put(img, sprite(e, DD, mood, ring), x, yb)
+            fx = fy = 0.0
+            if MOTION and R and R["c"] <= t < R["d"] + 0.5:
+                for o, to2 in R["tout"].items():
+                    dt2 = t - to2
+                    if 0 <= dt2 < 0.45 and o in pos:
+                        ox, oy = pos[o]
+                        dx, dy = x - ox, y - oy
+                        dist = math.hypot(dx, dy)
+                        if 0 < dist < DD * 2.2:
+                            f = DD * 0.10 * math.sin(dt2 / 0.45 * math.pi) * (1 - dist / (DD * 2.2))
+                            fx += dx / dist * f
+                            fy += dy / dist * f
+                            mood = "shocked" if dt2 < 0.3 else mood
+            put(img, sprite(e, DD, mood, ring), x + fx, yb + fy)
             if show:
                 fl2 = font(max(18, min(38, int(DD * 0.22))), "Bold")
                 txt = LABEL[e]
@@ -479,16 +506,20 @@ class Episode:
             return
         n = self.counter(t) if t >= (self.rounds[0]["a"] if self.rounds else 0) else len(self.start_alive)
         if hz:
-            ctext(d, cx, cy0 - 10, str(n), font(128, "Black"), INK)
+            last = max([to for to in (R["tout"].values() if R else []) if to <= t] or [-9])
+            pk = max(0.0, 1 - (t - last) / 0.18) if MOTION else 0.0
+            ctext(d, cx, cy0 - 10 - 8 * pk, str(n), font(int(128 * (1 + 0.15 * pk)), "Black"), RED if pk > 0.3 else INK)
             ctext(d, cx, cy0 + 138, "countries left" if n != 1 else "country left", font(36, "Bold"), rv.MUTED)
         else:
-            f = font(120, "Black")
+            last = max([to for to in (R["tout"].values() if R else []) if to <= t] or [-9])
+            pk = max(0.0, 1 - (t - last) / 0.18) if MOTION else 0.0
+            f = font(int(120 * (1 + 0.15 * pk)), "Black")
             s = str(n)
             sw = d.textlength(s, font=f)
             lab = "countries left" if n != 1 else "country left"
             lw = d.textlength(lab, font=font(44, "Bold"))
             sx = cx - (sw + 24 + lw) / 2
-            d.text((sx, cy0), s, font=f, fill=INK)
+            d.text((sx, cy0 - 10 * pk), s, font=f, fill=RED if pk > 0.3 else INK)
             d.text((sx + sw + 24, cy0 + 62), lab, font=font(44, "Bold"), fill=rv.MUTED)
         # ticker of recent outs (long only)
         if hz and R and t >= R["c"]:
@@ -651,6 +682,10 @@ def soundtrack(ep, wav):
             cache[name] = audio.SFX[name]()
         s = int(t0 * audio.SR)
         y = cache[name] * gn
+        if MOTION and name == "bonk":
+            r = random.Random(int(t0 * 1000)).uniform(0.85, 1.18)          # no machine-gun repeats
+            n = int(len(y) / r)
+            y = np.interp(np.linspace(0, len(y) - 1, n), np.arange(len(y)), y) * random.Random(int(t0 * 997)).uniform(0.8, 1.0)
         e = min(len(out), s + len(y))
         if s < len(out):
             out[s:e] += y[: e - s]
