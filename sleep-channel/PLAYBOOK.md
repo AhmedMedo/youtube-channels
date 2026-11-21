@@ -12,6 +12,10 @@ Status: **live** (Nov 2026). Ep001 Public since 2026-11-08. Channel **Driftlight
 
 Owner: Ahmed (Cairo, GMT+2), replies in Egyptian Arabic.
 
+**Day-13 review (21 Nov): `REVIEW_2026-11-21.md`.** Verdict: normal cold start, but time alone will not fix
+it — the stuck channels in the niche use our exact 8-hour black-screen package; the ones that broke out have a
+sound with a name. Recommended next: six named-rain episodes, two a week, judged at day 7. PENDING Ahmed.
+
 ## HOW TO BUILD AN EPISODE — one command
 
 ```bash
