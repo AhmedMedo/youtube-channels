@@ -52,7 +52,7 @@ THEMES = [
                    ("Quiet an Anxious Mind ✨ {h} of Slow Ambient Music for Deep Rest", "ANXIOUS|MIND", "slow music for rest")]),
 ]
 HOURS = [8]          # 8 h throughout; the picture is a title card, so the file is mostly audio (see PLAYBOOK)
-INTRO = 18           # seconds of title card before it dissolves into black
+INTRO = 26           # seconds of title card: title, then the subscribe line, then 5 s into black
 # ep005 is the first 8-hour episode and Ahmed asked for ep004's music, so it takes the night-sky theme
 # rather than its turn in the rotation.
 # ep005 is the first 8-hour episode: Ahmed asked for ep004's music, so it takes the night-sky theme out of

@@ -30,6 +30,7 @@ import sys
 import time
 
 SR = 44100
+CTA_IN = 13.0                # seconds: when the subscribe line appears on the card
 TARGET_LUFS = -18.5          # what ep001-004 measured; YouTube turns loud down but never quiet up
 LIMIT_BYTES = 400 * 1024 ** 2   # SendUserFile's ceiling. The device bridge is stricter (400 MB
                                 # decimal), so FPS below keeps a real file near 370 MB and under both.
@@ -123,18 +124,28 @@ def build_video(d, out_dir, log):
         return ImageFont.truetype(f"/usr/share/fonts/opentype/inter/Inter-{w}.otf", sz)
 
     sub = f"{d['hours']:g} Hours · Original Ambient · Black Screen"
+    cta = "Subscribe for new episodes"
+    # The card is the only moment anyone is looking at the screen, so the ask goes here, late enough
+    # that the title has landed and early enough to be gone well before anyone is trying to sleep.
     n = int(intro * fps)
     for i in range(n):
         t = i / fps
         im = Image.fromarray(scene.frame(t)).convert("RGB")
         dr = ImageDraw.Draw(im, "RGBA")
         dr.rectangle([0, 0, RS.W, RS.H], fill=(3, 5, 14, 90))
-        f1, f2 = F(96, "Bold"), F(40, "Medium")
+        f1, f2, f3 = F(96, "Bold"), F(40, "Medium"), F(34, "SemiBold")
         a = min(1.0, max(0.0, (t - 0.8) / 1.5))
         tw = dr.textlength(d["short_title"], font=f1)
         dr.text((RS.W / 2 - tw / 2, RS.H * 0.42), d["short_title"], font=f1, fill=(246, 243, 232, int(255 * a)))
         sw = dr.textlength(sub, font=f2)
         dr.text((RS.W / 2 - sw / 2, RS.H * 0.42 + 120), sub, font=f2, fill=(196, 202, 226, int(235 * a)))
+        ca = min(1.0, max(0.0, (t - CTA_IN) / 1.8))
+        if ca > 0:
+            cw = dr.textlength(cta, font=f3)
+            x, y = RS.W / 2 - cw / 2, RS.H * 0.42 + 215
+            dr.rounded_rectangle([x - 34, y - 16, x + cw + 34, y + 58], 38,
+                                 fill=(255, 214, 112, int(30 * ca)), outline=(255, 214, 112, int(150 * ca)), width=2)
+            dr.text((x, y), cta, font=f3, fill=(255, 221, 140, int(246 * ca)))
         arr = np.asarray(im).astype(np.float32)
         fade = 1.0 if t < intro - 5 else max(0.0, (intro - t) / 5.0) ** 1.4
         Image.fromarray(np.clip(arr * fade, 0, 255).astype(np.uint8)).save(f"{frames}/{i:05d}.png")

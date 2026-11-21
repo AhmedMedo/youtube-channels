@@ -29,7 +29,11 @@ is dead. `--hours` on build_episode.py is for smoke-testing only — it does not
 
 ## v3 format — DECIDED by Ahmed 18 Nov 2026
 
-**One upload per episode. Eight hours. A title card that dissolves into black after 18 s.**
+**One upload per episode. Eight hours. A title card that dissolves into black after 26 s.**
+The card holds the episode name and length, then a **"Subscribe for new episodes"** line appears at 13 s
+(`CTA_IN` in build_episode.py) and the whole thing dissolves over the last 5 s. The card is the only moment
+anyone is looking at the screen, so the ask belongs there — not on an end screen 8 hours later, when the
+viewer is asleep. Added 21 Nov at Ahmed's request.
 Evidence, from the channel's own first ten days (`RESEARCH_2026-11-14.md` has the market research):
 watch hours per 1,000 impressions go 1 h → 1.56, 2 h → 2.58, 3 h → 2.84. Episode 004 alone (3 h) produced
 11.2 of the channel's 18.4 watch hours — 61% of the watch time from 19% of the views. The best yield of all
