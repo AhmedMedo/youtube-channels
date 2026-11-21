@@ -31,6 +31,10 @@ META = EP.get("meta", {})
 CODE = {c["name"]: c["cca2"] for c in EP["countries"]}
 LABEL = {c["name"]: c["label"] for c in EP["countries"]}
 ORDER = [c["name"] for c in EP["countries"]]          # A→Z by label
+UNIT1, UNITN = META.get("unit", ["country", "countries"])     # ep 4 (US states): "state", "states"
+TOTAL = META.get("total", len(ORDER))
+BRAND = META.get("brand", ["LAST COUNTRY", "STANDING"])
+STICKER = META.get("sticker", 0.6)                            # sticker size as a share of its grid cell (when labels show)
 
 
 def ease(k):
@@ -50,10 +54,13 @@ def pop(k):
 # ----------------------------------------------------------------------------- sprites
 @lru_cache(maxsize=None)
 def flag(code, D):
-    import cairosvg
-    p = os.path.join(rv.FLAG_DIR, f"{code}.svg")
-    png = cairosvg.svg2png(url=p, output_width=D * 2, output_height=D * 2)
-    im = Image.open(io.BytesIO(png)).convert("RGBA").resize((D, D), Image.LANCZOS)
+    if META.get("flag_dir"):                                  # pre-cropped square stickers (us_flags_build.py)
+        im = Image.open(os.path.join(HERE, "data/lcs", META["flag_dir"], f"{code}.jpg")).convert("RGBA").resize((D, D), Image.LANCZOS)
+    else:
+        import cairosvg
+        p = os.path.join(rv.FLAG_DIR, f"{code}.svg")
+        png = cairosvg.svg2png(url=p, output_width=D * 2, output_height=D * 2)
+        im = Image.open(io.BytesIO(png)).convert("RGBA").resize((D, D), Image.LANCZOS)
     m = Image.new("L", (D, D), 0)
     ImageDraw.Draw(m).ellipse([0, 0, D - 1, D - 1], fill=255)
     im.putalpha(m)
@@ -191,7 +198,7 @@ class Geo:
                 best = (cell, cols, rows)
         cell, cols, rows = best
         lab = cell >= 118
-        D = int(min(260, cell * (0.6 if lab else 0.8)))
+        D = int(min(260, cell * (STICKER if lab else 0.8)))
         ox = x0 + (w - cols * cell) / 2 + cell / 2
         oy = y0 + (h - rows * cell) / 2 + cell / 2 - (cell * 0.08 if lab else 0)
         pos = {}
@@ -408,12 +415,14 @@ class Episode:
                 fl2 = font(max(18, min(38, int(DD * 0.22))), "Bold")
                 txt = LABEL[e]
                 ff = fl2 if d.textlength(txt, font=fl2) < DD * 1.9 else font(max(16, int(fl2.size * .8)), "Bold")
+                while ff.size > 13 and d.textlength(txt, font=ff) > DD / STICKER * 0.97:      # never run into the next cell
+                    ff = font(ff.size - 1, "Bold")
                 ctext(d, x, yb + DD * 0.62, txt, ff, INK)
         for x, y, D_, v in tags:
             fv = font(30 if self.horiz else 34, "Black")
             tw = d.textlength(v, font=fv)
             lx = min(max(x, g.grid[0] + tw / 2 + 20), g.grid[2] - tw / 2 - 20)
-            ly = y - D_ * 0.85
+            ly = max(8, y - D_ * 0.85)
             d.rounded_rectangle([lx - tw / 2 - 16, ly - 4, lx + tw / 2 + 16, ly + fv.size * 1.3], radius=18, fill=RED, outline=INK, width=4)
             ctext(d, lx, ly + 2, v, fv, WHITE)
 
@@ -450,7 +459,7 @@ class Episode:
                    (x + cw / 2, by - ch), (x + cw / 2, by)]
             d.polygon(pts, fill=YEL, outline=INK, width=6)
         ctext(d, cx, cy + 240, LABEL[e].upper(), font(96, "Black"), INK)
-        ctext(d, cx, cy + 360, "Last country standing", font(42, "Bold"), rv.MUTED)
+        ctext(d, cx, cy + 360, f"Last {UNIT1} standing", font(42, "Bold"), rv.MUTED)
 
     def draw_panel(self, img, d, t, R):
         g = self.g
@@ -458,7 +467,7 @@ class Episode:
         cx = (x0 + x1) / 2
         hz = self.horiz
         # title band
-        band(d, cx, y0 + 6 if hz else 40, [("LAST COUNTRY", WHITE), ("STANDING", YEL)], font(42 if hz else 60, "Black"))
+        band(d, cx, y0 + 6 if hz else 40, [(BRAND[0], WHITE), (BRAND[1], YEL)], font(42 if hz else 60, "Black"))
         top = y0 + 110 if hz else y0
         # round pill
         if R:
@@ -486,12 +495,12 @@ class Episode:
             card(d, cb)
             bx = (cb[0] + cb[2]) / 2
             if hz:
-                ctext(d, bx, cb[1] + 36, "193 countries.", font(58, "Black"), INK)
+                ctext(d, bx, cb[1] + 36, f"{TOTAL} {UNITN}.", font(58, "Black"), INK)
                 ctext(d, bx, cb[1] + 110, "10 rounds.", font(58, "Black"), INK)
                 ctext(d, bx, cb[1] + 184, "1 survivor.", font(58, "Black"), RED)
                 ctext(d, bx, cb[1] + 268, "Does yours make it?", font(36, "Bold"), rv.MUTED)
             else:
-                ctext(d, bx, cb[1] + 40, f"{len(self.start_alive)} countries left.", font(64, "Black"), INK)
+                ctext(d, bx, cb[1] + 40, f"{len(self.start_alive)} {UNITN} left.", font(64, "Black"), INK)
                 ctext(d, bx, cb[1] + 150, "Who's OUT next?", font(72, "Black"), RED)
         elif self.win and t >= self.win[0]:
             card(d, cb, fill=NAVY)
@@ -514,14 +523,14 @@ class Episode:
             last = max([to for to in (R["tout"].values() if R else []) if to <= t] or [-9])
             pk = max(0.0, 1 - (t - last) / 0.18) if MOTION else 0.0
             ctext(d, cx, cy0 - 10 - 8 * pk, str(n), font(int(128 * (1 + 0.15 * pk)), "Black"), RED if pk > 0.3 else INK)
-            ctext(d, cx, cy0 + 138, "countries left" if n != 1 else "country left", font(36, "Bold"), rv.MUTED)
+            ctext(d, cx, cy0 + 138, f"{UNITN} left" if n != 1 else f"{UNIT1} left", font(36, "Bold"), rv.MUTED)
         else:
             last = max([to for to in (R["tout"].values() if R else []) if to <= t] or [-9])
             pk = max(0.0, 1 - (t - last) / 0.18) if MOTION else 0.0
             f = font(int(120 * (1 + 0.15 * pk)), "Black")
             s = str(n)
             sw = d.textlength(s, font=f)
-            lab = "countries left" if n != 1 else "country left"
+            lab = f"{UNITN} left" if n != 1 else f"{UNIT1} left"
             lw = d.textlength(lab, font=font(44, "Bold"))
             sx = cx - (sw + 24 + lw) / 2
             d.text((sx, cy0 - 10 * pk), s, font=f, fill=RED if pk > 0.3 else INK)
@@ -593,7 +602,7 @@ class Episode:
         fb = fit(d, b, int((96 if self.horiz else 92) * s), w)
         ctext(d, cx, box[1] + 200 * s, a, fa, WHITE)
         ctext(d, cx, box[1] + 200 * s + fa.size * 1.2, b, fb, YEL)
-        ctext(d, cx, box[3] - 70 * s, f"{len(R['before'])} countries left · is yours safe?", font(int(36 * s), "Bold"), WHITE)
+        ctext(d, cx, box[3] - 70 * s, f"{len(R['before'])} {UNITN} left · is yours safe?", font(int(36 * s), "Bold"), WHITE)
 
     def rules_card(self, img, d, t):
         g = self.g
@@ -611,8 +620,8 @@ class Episode:
         if s < 0.5:
             return
         ctext(d, cx, box[1] + 40 * s, "HOW IT WORKS", font(int(64 * s), "Black"), RED)
-        lines = [("1", "Every round has a new rule."), ("2", "Break the rule → your country is OUT."),
-                 ("3", "All numbers are real. Sources on screen."), ("4", "Countries are A → Z. Find yours!")]
+        lines = [("1", "Every round has a new rule."), ("2", f"Break the rule → your {UNIT1} is OUT."),
+                 ("3", "All numbers are real. Sources on screen."), ("4", f"{UNITN.capitalize()} are A → Z. Find yours!")]
         for j, (n, txt) in enumerate(lines):
             yy = box[1] + (170 + j * 105) * s
             if t < a + 0.5 + j * 0.9:
@@ -633,14 +642,14 @@ class Episode:
         card(d, box, fill=NAVY, r=48, w=7)
         if k > 0.6:
             ctext(d, g.W / 2, box[1] + 60, "Watch all 10 rounds" if self.win else "Who wins it all?", font(76, "Black"), YEL)
-            ctext(d, g.W / 2, box[1] + 170, "Full game (193 → 1)", font(54, "Bold"), WHITE)
+            ctext(d, g.W / 2, box[1] + 170, f"Full game ({TOTAL} → 1)", font(54, "Bold"), WHITE)
             ctext(d, g.W / 2, box[1] + 250, "on the channel ↑", font(54, "Bold"), WHITE)
         sub_button(img, d, g.W / 2, 1530, self.end[0] + 0.5, t, scale=1.25, line="")
 
     def end_screen(self, img, d, t):
         g = self.g
         band(d, g.W / 2, 90, [("Thanks for", WHITE), ("watching!", YEL)], font(80, "Black"))
-        ctext(d, g.W / 2, 230, "How far did YOUR country get? Tell us in the comments.", font(44, "Bold"), INK)
+        ctext(d, g.W / 2, 230, f"How far did YOUR {UNIT1} get? Tell us in the comments.", font(44, "Bold"), INK)
         for bx in ((g.W / 2 - 560, 420, g.W / 2 - 60, 700), (g.W / 2 + 60, 420, g.W / 2 + 560, 700)):
             d.rounded_rectangle(bx, radius=24, outline=SHADOW, width=4)   # where YouTube end-screen videos sit
         return img
@@ -670,7 +679,7 @@ def _render_chunk(args):
         im = ep.frame(fi / FPS)
         if ep.win and ep.win[1] <= fi / FPS < ep.end[0]:
             d = ImageDraw.Draw(im)
-            band(d, (ep.g.grid[0] + ep.g.grid[2]) / 2, 940, [("How far did YOUR country get?", WHITE), ("Comment ↓", YEL)], font(50, "Black"))
+            band(d, (ep.g.grid[0] + ep.g.grid[2]) / 2, 940, [(f"How far did YOUR {UNIT1} get?", WHITE), ("Comment ↓", YEL)], font(50, "Black"))
         ff.stdin.write(im.convert("RGB").tobytes())
     ff.stdin.close()
     if ff.wait() == 0:
@@ -753,7 +762,7 @@ def thumb(out):
             tw = d.textlength(w2, font=f2)
             d.rounded_rectangle([630, 370, 660 + tw + 30, 370 + f2.size * 1.25], radius=30, fill=RED, outline=INK, width=8)
             d.text((660, 370 + f2.size * 0.06), w2, font=f2, fill=WHITE)
-            band(d, W / 2, 30, [("193", YEL), ("COUNTRIES →", WHITE), ("1", YEL)], font(84, "Black"))
+            band(d, W / 2, 30, [(str(TOTAL), YEL), (UNITN.upper() + " →", WHITE), ("1", YEL)], font(84, "Black"))
         else:                                                       # c: three faces, big question on top
             th = META.get("thumb")
             if os.environ.get("LCS_THUMB_FACES"):
@@ -769,7 +778,7 @@ def thumb(out):
     for (e, mood), x, y, D in zip(th, (210, 640, 1080), (430, 470, 420), (230, 270, 230)):
         put(img, sprite(e, D, mood), x, y)
     xmark(d, 210 + 90, 430 - 90, 52)
-    band(d, W / 2, 34, [("193", YEL), ("COUNTRIES →", WHITE), ("1", YEL)], font(96, "Black"))
+    band(d, W / 2, 34, [(str(TOTAL), YEL), (UNITN.upper() + " →", WHITE), ("1", YEL)], font(96, "Black"))
     f = font(70, "Black")
     txt = META.get("thumb_pill", "WHO SURVIVES?")
     tw = d.textlength(txt, font=f)

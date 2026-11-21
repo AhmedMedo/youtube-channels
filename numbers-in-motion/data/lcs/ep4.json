@@ -1,0 +1,609 @@
+{
+ "countries": [
+  {
+   "name": "Alabama",
+   "label": "Alabama",
+   "cca2": "AL"
+  },
+  {
+   "name": "Alaska",
+   "label": "Alaska",
+   "cca2": "AK"
+  },
+  {
+   "name": "Arizona",
+   "label": "Arizona",
+   "cca2": "AZ"
+  },
+  {
+   "name": "Arkansas",
+   "label": "Arkansas",
+   "cca2": "AR"
+  },
+  {
+   "name": "California",
+   "label": "California",
+   "cca2": "CA"
+  },
+  {
+   "name": "Colorado",
+   "label": "Colorado",
+   "cca2": "CO"
+  },
+  {
+   "name": "Connecticut",
+   "label": "Connecticut",
+   "cca2": "CT"
+  },
+  {
+   "name": "Delaware",
+   "label": "Delaware",
+   "cca2": "DE"
+  },
+  {
+   "name": "Florida",
+   "label": "Florida",
+   "cca2": "FL"
+  },
+  {
+   "name": "Georgia",
+   "label": "Georgia",
+   "cca2": "GA"
+  },
+  {
+   "name": "Hawaii",
+   "label": "Hawaii",
+   "cca2": "HI"
+  },
+  {
+   "name": "Idaho",
+   "label": "Idaho",
+   "cca2": "ID"
+  },
+  {
+   "name": "Illinois",
+   "label": "Illinois",
+   "cca2": "IL"
+  },
+  {
+   "name": "Indiana",
+   "label": "Indiana",
+   "cca2": "IN"
+  },
+  {
+   "name": "Iowa",
+   "label": "Iowa",
+   "cca2": "IA"
+  },
+  {
+   "name": "Kansas",
+   "label": "Kansas",
+   "cca2": "KS"
+  },
+  {
+   "name": "Kentucky",
+   "label": "Kentucky",
+   "cca2": "KY"
+  },
+  {
+   "name": "Louisiana",
+   "label": "Louisiana",
+   "cca2": "LA"
+  },
+  {
+   "name": "Maine",
+   "label": "Maine",
+   "cca2": "ME"
+  },
+  {
+   "name": "Maryland",
+   "label": "Maryland",
+   "cca2": "MD"
+  },
+  {
+   "name": "Massachusetts",
+   "label": "Massachusetts",
+   "cca2": "MA"
+  },
+  {
+   "name": "Michigan",
+   "label": "Michigan",
+   "cca2": "MI"
+  },
+  {
+   "name": "Minnesota",
+   "label": "Minnesota",
+   "cca2": "MN"
+  },
+  {
+   "name": "Mississippi",
+   "label": "Mississippi",
+   "cca2": "MS"
+  },
+  {
+   "name": "Missouri",
+   "label": "Missouri",
+   "cca2": "MO"
+  },
+  {
+   "name": "Montana",
+   "label": "Montana",
+   "cca2": "MT"
+  },
+  {
+   "name": "Nebraska",
+   "label": "Nebraska",
+   "cca2": "NE"
+  },
+  {
+   "name": "Nevada",
+   "label": "Nevada",
+   "cca2": "NV"
+  },
+  {
+   "name": "New Hampshire",
+   "label": "New Hampshire",
+   "cca2": "NH"
+  },
+  {
+   "name": "New Jersey",
+   "label": "New Jersey",
+   "cca2": "NJ"
+  },
+  {
+   "name": "New Mexico",
+   "label": "New Mexico",
+   "cca2": "NM"
+  },
+  {
+   "name": "New York",
+   "label": "New York",
+   "cca2": "NY"
+  },
+  {
+   "name": "North Carolina",
+   "label": "North Carolina",
+   "cca2": "NC"
+  },
+  {
+   "name": "North Dakota",
+   "label": "North Dakota",
+   "cca2": "ND"
+  },
+  {
+   "name": "Ohio",
+   "label": "Ohio",
+   "cca2": "OH"
+  },
+  {
+   "name": "Oklahoma",
+   "label": "Oklahoma",
+   "cca2": "OK"
+  },
+  {
+   "name": "Oregon",
+   "label": "Oregon",
+   "cca2": "OR"
+  },
+  {
+   "name": "Pennsylvania",
+   "label": "Pennsylvania",
+   "cca2": "PA"
+  },
+  {
+   "name": "Rhode Island",
+   "label": "Rhode Island",
+   "cca2": "RI"
+  },
+  {
+   "name": "South Carolina",
+   "label": "South Carolina",
+   "cca2": "SC"
+  },
+  {
+   "name": "South Dakota",
+   "label": "South Dakota",
+   "cca2": "SD"
+  },
+  {
+   "name": "Tennessee",
+   "label": "Tennessee",
+   "cca2": "TN"
+  },
+  {
+   "name": "Texas",
+   "label": "Texas",
+   "cca2": "TX"
+  },
+  {
+   "name": "Utah",
+   "label": "Utah",
+   "cca2": "UT"
+  },
+  {
+   "name": "Vermont",
+   "label": "Vermont",
+   "cca2": "VT"
+  },
+  {
+   "name": "Virginia",
+   "label": "Virginia",
+   "cca2": "VA"
+  },
+  {
+   "name": "Washington",
+   "label": "Washington",
+   "cca2": "WA"
+  },
+  {
+   "name": "West Virginia",
+   "label": "West Virginia",
+   "cca2": "WV"
+  },
+  {
+   "name": "Wisconsin",
+   "label": "Wisconsin",
+   "cca2": "WI"
+  },
+  {
+   "name": "Wyoming",
+   "label": "Wyoming",
+   "cca2": "WY"
+  }
+ ],
+ "rounds": [
+  {
+   "rule": [
+    "Fewer people than",
+    "in 2020 → OUT"
+   ],
+   "source": "U.S. Census Bureau · Vintage 2025 population estimates",
+   "out": [
+    {
+     "name": "New York",
+     "value": "-201,269 people"
+    },
+    {
+     "name": "California",
+     "value": "-200,394 people"
+    },
+    {
+     "name": "Illinois",
+     "value": "-102,600 people"
+    },
+    {
+     "name": "Louisiana",
+     "value": "-39,705 people"
+    },
+    {
+     "name": "West Virginia",
+     "value": "-27,612 people"
+    },
+    {
+     "name": "Hawaii",
+     "value": "-22,447 people"
+    },
+    {
+     "name": "Mississippi",
+     "value": "-7,104 people"
+    }
+   ],
+   "close": {
+    "name": "Vermont",
+    "value": "+1,586 people"
+   }
+  },
+  {
+   "rule": [
+    "Smaller than",
+    "9,500 sq mi → OUT"
+   ],
+   "source": "Land area · U.S. Census Bureau",
+   "out": [
+    {
+     "name": "Rhode Island",
+     "value": "1,034 sq mi"
+    },
+    {
+     "name": "Delaware",
+     "value": "1,949 sq mi"
+    },
+    {
+     "name": "Connecticut",
+     "value": "4,843 sq mi"
+    },
+    {
+     "name": "New Jersey",
+     "value": "7,355 sq mi"
+    },
+    {
+     "name": "Massachusetts",
+     "value": "7,801 sq mi"
+    },
+    {
+     "name": "New Hampshire",
+     "value": "8,953 sq mi"
+    },
+    {
+     "name": "Vermont",
+     "value": "9,217 sq mi"
+    }
+   ],
+   "close": {
+    "name": "Maryland",
+    "value": "9,709 sq mi"
+   }
+  },
+  {
+   "rule": [
+    "Fewer than 2 million",
+    "people → OUT"
+   ],
+   "source": "U.S. Census Bureau · Vintage 2025 population estimates",
+   "out": [
+    {
+     "name": "Wyoming",
+     "value": "589K people"
+    },
+    {
+     "name": "Alaska",
+     "value": "737K people"
+    },
+    {
+     "name": "North Dakota",
+     "value": "799K people"
+    },
+    {
+     "name": "South Dakota",
+     "value": "935K people"
+    },
+    {
+     "name": "Montana",
+     "value": "1.14M people"
+    },
+    {
+     "name": "Maine",
+     "value": "1.41M people"
+    }
+   ],
+   "close": {
+    "name": "Nebraska",
+    "value": "2.02M people"
+   }
+  },
+  {
+   "rule": [
+    "More people moved out",
+    "than moved in → OUT"
+   ],
+   "source": "U.S. Census Bureau · moves between states, July 2024 – July 2025",
+   "out": [
+    {
+     "name": "Maryland",
+     "value": "net -12,127"
+    },
+    {
+     "name": "Colorado",
+     "value": "net -12,100"
+    },
+    {
+     "name": "Pennsylvania",
+     "value": "net -2,936"
+    },
+    {
+     "name": "New Mexico",
+     "value": "net -2,267"
+    },
+    {
+     "name": "Iowa",
+     "value": "net -970"
+    },
+    {
+     "name": "Kansas",
+     "value": "net -519"
+    },
+    {
+     "name": "Nebraska",
+     "value": "net -366"
+    }
+   ],
+   "close": {
+    "name": "Michigan",
+    "value": "net +1,796"
+   }
+  },
+  {
+   "rule": [
+    "Became a state",
+    "before 1800 → OUT"
+   ],
+   "source": "Year each state joined the Union",
+   "out": [
+    {
+     "name": "Georgia",
+     "value": "state since 1788"
+    },
+    {
+     "name": "South Carolina",
+     "value": "state since 1788"
+    },
+    {
+     "name": "Virginia",
+     "value": "state since 1788"
+    },
+    {
+     "name": "North Carolina",
+     "value": "state since 1789"
+    },
+    {
+     "name": "Kentucky",
+     "value": "state since 1792"
+    },
+    {
+     "name": "Tennessee",
+     "value": "state since 1796"
+    }
+   ],
+   "close": {
+    "name": "Ohio",
+    "value": "state since 1803"
+   }
+  },
+  {
+   "rule": [
+    "Highest point is under",
+    "2,000 ft → OUT"
+   ],
+   "source": "U.S. Geological Survey · Elevations and Distances in the U.S.",
+   "out": [
+    {
+     "name": "Florida",
+     "value": "345 ft"
+    },
+    {
+     "name": "Indiana",
+     "value": "1,257 ft"
+    },
+    {
+     "name": "Ohio",
+     "value": "1,550 ft"
+    },
+    {
+     "name": "Missouri",
+     "value": "1,772 ft"
+    },
+    {
+     "name": "Wisconsin",
+     "value": "1,951 ft"
+    },
+    {
+     "name": "Michigan",
+     "value": "1,979 ft"
+    }
+   ],
+   "close": {
+    "name": "Minnesota",
+    "value": "2,301 ft"
+   }
+  },
+  {
+   "rule": [
+    "Smaller than",
+    "80,000 sq mi → OUT"
+   ],
+   "source": "Land area · U.S. Census Bureau",
+   "out": [
+    {
+     "name": "Alabama",
+     "value": "50,646 sq mi"
+    },
+    {
+     "name": "Arkansas",
+     "value": "52,035 sq mi"
+    },
+    {
+     "name": "Washington",
+     "value": "66,456 sq mi"
+    },
+    {
+     "name": "Oklahoma",
+     "value": "68,596 sq mi"
+    },
+    {
+     "name": "Minnesota",
+     "value": "79,628 sq mi"
+    }
+   ],
+   "close": {
+    "name": "Utah",
+    "value": "82,195 sq mi"
+   }
+  },
+  {
+   "rule": [
+    "Borders California",
+    "→ OUT"
+   ],
+   "source": "State borders · U.S. Census Bureau",
+   "out": [
+    {
+     "name": "Arizona",
+     "value": "borders California"
+    },
+    {
+     "name": "Nevada",
+     "value": "borders California"
+    },
+    {
+     "name": "Oregon",
+     "value": "borders California"
+    }
+   ],
+   "close": null
+  },
+  {
+   "rule": [
+    "Only ONE",
+    "time zone → OUT"
+   ],
+   "source": "U.S. Department of Transportation · 49 CFR Part 71",
+   "out": [
+    {
+     "name": "Utah",
+     "value": "1 time zone"
+    }
+   ],
+   "close": null
+  },
+  {
+   "rule": [
+    "FINAL: slower growth",
+    "since 2020 → OUT"
+   ],
+   "source": "U.S. Census Bureau · Vintage 2025 population estimates",
+   "out": [
+    {
+     "name": "Texas",
+     "value": "+8.8% since 2020"
+    }
+   ],
+   "close": null
+  }
+ ],
+ "meta": {
+  "base": "us",
+  "flag_dir": "us_flags",
+  "unit": [
+   "state",
+   "states"
+  ],
+  "total": 50,
+  "brand": [
+   "LAST STATE",
+   "STANDING"
+  ],
+  "sticker": 0.66,
+  "teaser": "California & New York are OUT in round 1!",
+  "win_value": "+10.4% people since 2020",
+  "win_note": "Fastest-growing state since 2020",
+  "thumb": [
+   [
+    "California",
+    "shocked"
+   ],
+   [
+    "Texas",
+    "worried"
+   ],
+   [
+    "New York",
+    "worried"
+   ]
+  ],
+  "thumb_pill": "US STATES EDITION"
+ },
+ "winner": {
+  "name": "Idaho",
+  "value": "+10.4% since 2020"
+ }
+}

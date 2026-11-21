@@ -41,6 +41,22 @@ a running A/B test and 5 translations. Extra Shorts: GTN5sHYMgYs (Sun 22), sN9_T
 EZBrUWLNIaQ (Tue 24), MimgZH8cuTU (Wed 25), hS8kzeDD3sA (Fri 27). The three ep 3 Shorts still need Related video
 (reminder set for Tue 24 Nov 22:10). Old ep 3 Short PEfJWPUqdJs is Private; Ahmed decides whether to delete it.
 
+## Ep 4 — US States edition (built 21 Nov 2026, publishes Thu 26 Nov 22:00 Cairo)
+"Last State Standing": 50 states, winner **Idaho** (+10.4% people since 2020, fastest-growing state; beats Texas in the final).
+California, New York and Illinois go out in round 1 (fewer people than in 2020); Florida in round 6 (highest point 345 ft).
+- Build: `python3 lcs_data.py ep4` → `data/lcs/ep4.json`; render with `LCS_EP=ep4` (long 5:26, about 6.5 min to render).
+- `lcs.py` now takes the unit from the episode meta (`unit`, `total`, `brand`, `flag_dir`, `sticker`), so an episode can be
+  about anything with a flag set, not only countries. Ep 1–3 render exactly as before.
+- Data `data/lcs/us_base.csv`: U.S. Census Bureau Vintage 2025 estimates (NST-EST2025-ALLDATA.csv from two GitHub mirrors that
+  agree; spot-checked against the Census release), Census TIGER land area, USGS highest points, 49 CFR Part 71 time zones.
+- Flags: Wikimedia Commons files (public domain, current Minnesota/Utah/Mississippi designs) cropped to square stickers by
+  `us_flags_build.py` → `data/lcs/us_flags/XX.jpg`.
+- Shorts (all scheduled 22:00 Cairo, playlist Last Country Standing): n0MqcfESfyE round 1 (Thu 26 Nov, with the long),
+  Wih2sDavKZ0 round 6 (Sun 29 Nov), RLf9_lvD7Es winner (Mon 30 Nov). With 3 episodes a week there is room for the main
+  Short plus two extras per episode (one Short a day), not three.
+- Long: Ahmed drags `long.mp4` from the Mac folder into Studio; then title/description from `metadata.txt`, playlist,
+  A/B thumbnails, end screen from 5:14, 5 translations, schedule Thu 26 Nov 22:00, pinned comment after it is public.
+
 ## Motion pass (approved by Ahmed, 21 Nov 2026) — from ep 4 on
 `lcs.py` renders with the motion pass ON by default (`LCS_MOTION=1`): shudder + squash on the hit, small hop before
 the fall, neighbours flinch away, counter pops red on each elimination, pitch-varied hit sounds. Rules behind it:

@@ -7,6 +7,7 @@ import pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = pd.read_csv(os.path.join(HERE, "data/lcs/base3.csv"))
 D = D[D.name != "Vatican City"].set_index("name")            # 193 UN member states
+WORLD = D
 # CIA World Factbook: France has 12 time zones (13 counting its Antarctic claim). Dataset says 13.
 D.loc["France", "tz"] = 12
 NAMES = {"Türkiye": "Türkiye", "United States": "USA", "United Kingdom": "UK", "Central African Republic": "C. African Rep.",
@@ -97,7 +98,46 @@ EP3 = [
      lambda r: r["co2pc"] > 4.5, lambda v: f"{v:.1f} t CO₂ per person", None),
 ]
 
+# ---- Episode 4: the 50 US states (data/lcs/us_base.csv, built 21 Nov 2026)
+# pop/base20/dom: U.S. Census Bureau Vintage 2025 estimates (NST-EST2025-ALLDATA.csv; base20 = April 1 2020 estimates base,
+# dom = net domestic migration July 2024 – July 2025). land_sqmi: Census TIGER ALAND. high_ft: USGS "Elevations and
+# Distances in the United States". tz: 49 CFR Part 71. year: year of statehood.
+US = pd.read_csv(os.path.join(HERE, "data/lcs/us_base.csv")).set_index("name")
+
+
+def f_pop2(v):
+    return f"{v / 1e6:.2f}M people" if v >= 1e6 else f"{v / 1e3:.0f}K people"
+
+
+EP4 = [
+    ("Fewer people than", "in 2020 → OUT", "U.S. Census Bureau · Vintage 2025 population estimates", "chg",
+     lambda r: r["chg"] < 0, lambda v: f"{int(v):+,} people", "min"),
+    ("Smaller than", "9,500 sq mi → OUT", "Land area · U.S. Census Bureau", "land_sqmi",
+     lambda r: r["land_sqmi"] < 9500, lambda v: f"{int(v):,} sq mi", "min"),
+    ("Fewer than 2 million", "people → OUT", "U.S. Census Bureau · Vintage 2025 population estimates", "pop",
+     lambda r: r["pop"] < 2e6, f_pop2, "min"),
+    ("More people moved out", "than moved in → OUT", "U.S. Census Bureau · moves between states, July 2024 – July 2025", "dom",
+     lambda r: r["dom"] < 0, lambda v: f"net {int(v):+,}", "min"),
+    ("Became a state", "before 1800 → OUT", "Year each state joined the Union", "year",
+     lambda r: r["year"] < 1800, lambda v: f"state since {int(v)}", "min"),
+    ("Highest point is under", "2,000 ft → OUT", "U.S. Geological Survey · Elevations and Distances in the U.S.", "high_ft",
+     lambda r: r["high_ft"] < 2000, lambda v: f"{int(v):,} ft", "min"),
+    ("Smaller than", "80,000 sq mi → OUT", "Land area · U.S. Census Bureau", "land_sqmi",
+     lambda r: r["land_sqmi"] < 80000, lambda v: f"{int(v):,} sq mi", "min"),
+    ("Borders California", "→ OUT", "State borders · U.S. Census Bureau", "borders_ca",
+     lambda r: bool(r["borders_ca"]), lambda v: "borders California", None),
+    ("Only ONE", "time zone → OUT", "U.S. Department of Transportation · 49 CFR Part 71", "tz",
+     lambda r: r["tz"] <= 1, lambda v: f"{int(v)} time zone" + ("" if v == 1 else "s"), None),
+    ("FINAL: slower growth", "since 2020 → OUT", "U.S. Census Bureau · Vintage 2025 population estimates", "growth",
+     lambda r: r["growth"] < 10, lambda v: f"{v:+.1f}% since 2020", None),
+]
+
 EPISODES = {
+    "ep4": (EP4, {"base": "us", "flag_dir": "us_flags", "unit": ["state", "states"], "total": 50,
+                  "brand": ["LAST STATE", "STANDING"], "sticker": 0.66, "teaser": "California & New York are OUT in round 1!",
+                  "win_value": "+10.4% people since 2020", "win_note": "Fastest-growing state since 2020",
+                  "thumb": [["California", "shocked"], ["Texas", "worried"], ["New York", "worried"]],
+                  "thumb_pill": "US STATES EDITION"}),
     "ep1": (EP1, {"teaser": "Even the USA is OUT by round 5!", "win_value": "12 time zones",
                   "win_note": "Thanks to its overseas territories",
                   "thumb": [["United States", "shocked"], ["Egypt", "worried"], ["China", "worried"]]}),
@@ -112,8 +152,10 @@ EPISODES = {
 
 def build(ep="ep1"):
     ROUNDS, meta = EPISODES[ep]
+    D = US if meta.get("base") == "us" else WORLD
+    code = "code" if meta.get("base") == "us" else "cca2"
     alive = sorted(D.index, key=lambda n: NAMES.get(n, n))
-    out = {"countries": [{"name": n, "label": NAMES.get(n, n), "cca2": D.loc[n, "cca2"]} for n in alive], "rounds": []}
+    out = {"countries": [{"name": n, "label": NAMES.get(n, n), "cca2": D.loc[n, code]} for n in alive], "rounds": []}
     for title, detail, src, col, test, fmt, side in ROUNDS:
         rows = [(n, D.loc[n]) for n in alive]
         gone = [(n, r[col]) for n, r in rows if test(r)]
