@@ -268,6 +268,11 @@ class Episode:
             self.end = (t + 15.0, t + 27.0)                   # end-screen hold (12 s for YouTube end elements)
             self.total = t + 27.0
         else:
+            if os.environ.get("LCS_WINNER") == "1" and len(alive) == 1:   # winner Short: crown, then the end card
+                self.win = (t, t + 5.0, t + 5.0)
+                self.ev.append((t + 0.1, "fanfare", 1.0))
+                self.hits.append((t, "drop"))
+                t += 5.0
             self.end = (t, t + 3.6)
             self.total = t + 3.6
             self.ev.append((t + 0.05, "ding", 0.8))
@@ -627,7 +632,7 @@ class Episode:
         box = (g.W / 2 - bw / 2, 1180 - bh / 2, g.W / 2 + bw / 2, 1180 + bh / 2)
         card(d, box, fill=NAVY, r=48, w=7)
         if k > 0.6:
-            ctext(d, g.W / 2, box[1] + 60, "Who wins it all?", font(76, "Black"), YEL)
+            ctext(d, g.W / 2, box[1] + 60, "Watch all 10 rounds" if self.win else "Who wins it all?", font(76, "Black"), YEL)
             ctext(d, g.W / 2, box[1] + 170, "Full game (193 → 1)", font(54, "Bold"), WHITE)
             ctext(d, g.W / 2, box[1] + 250, "on the channel ↑", font(54, "Bold"), WHITE)
         sub_button(img, d, g.W / 2, 1530, self.end[0] + 0.5, t, scale=1.25, line="")
@@ -732,9 +737,34 @@ def thumb(out):
             put(img, sprite(e, 58), x, y, alpha=0.55)
             if rnd.random() < 0.55:
                 xmark(d, x + 16, y - 16, 15)
-    ov = Image.new("RGBA", (W, H), (238, 233, 222, 120))
+    var = os.environ.get("LCS_THUMB", "a")
+    tint = {"a": (238, 233, 222, 120), "b": (255, 209, 64, 205), "c": (120, 190, 255, 205)}[var]
+    ov = Image.new("RGBA", (W, H), tint)
     img.paste(ov, (0, 0), ov)
     d = ImageDraw.Draw(img)
+    if var != "a":
+        e0, w1, w2 = os.environ["LCS_THUMB_TXT"].split("|")          # country | white words | yellow words
+        if var == "b":                                              # one giant shocked face + hook words
+            put(img, sprite(e0, 400, "shocked"), 330, 420)
+            xmark(d, 330 + 160, 420 - 160, 80)
+            f1 = fit(d, w1, 150, 620)
+            d.text((640, 200), w1, font=f1, fill=INK)
+            f2 = fit(d, w2, 190, 520)
+            tw = d.textlength(w2, font=f2)
+            d.rounded_rectangle([630, 370, 660 + tw + 30, 370 + f2.size * 1.25], radius=30, fill=RED, outline=INK, width=8)
+            d.text((660, 370 + f2.size * 0.06), w2, font=f2, fill=WHITE)
+            band(d, W / 2, 30, [("193", YEL), ("COUNTRIES →", WHITE), ("1", YEL)], font(84, "Black"))
+        else:                                                       # c: three faces, big question on top
+            th = META.get("thumb")
+            if os.environ.get("LCS_THUMB_FACES"):
+                th = [[n, m] for n, m in zip(os.environ["LCS_THUMB_FACES"].split("|"), ("shocked", "worried", "shocked"))]
+            for (e, mood), x, y, D in zip(th, (230, 640, 1050), (470, 500, 470), (260, 300, 260)):
+                put(img, sprite(e, D, mood), x, y)
+                xmark(d, x + D * .36, y - D * .36, D * .2)
+            band(d, W / 2, 40, [(w1, WHITE), (w2, YEL)], fit(d, w1 + " " + w2, 120, 1100))
+        img.convert("RGB").save(out, quality=92)
+        print("->", out)
+        return
     th = META.get("thumb", [["United States", "shocked"], ["Egypt", "worried"], ["China", "worried"]])
     for (e, mood), x, y, D in zip(th, (210, 640, 1080), (430, 470, 420), (230, 270, 230)):
         put(img, sprite(e, D, mood), x, y)

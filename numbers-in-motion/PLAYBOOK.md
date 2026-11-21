@@ -22,6 +22,25 @@ into `lcs.py`), and a SUBSCRIBE button on the Short's end card. Titles end with 
 Read `GROWTH_PLAN_2026-11-21.md`: 3 episodes a week (Sat/Tue/Thu 22:00 Cairo), hook titles, 3 Shorts + winner Short per
 episode, translated titles, per-episode checklist, weekly review numbers.
 
+## Episode packaging (done on ep 2 + ep 3, 21 Nov 2026) — do this for every episode
+- **Hook title**: biggest names eliminated + "193 Countries, 1 Survivor" + emoji + "Last Country Standing Ep N".
+  The claim must be true in the data (ep 3: USA and Brazil really go out in round 1).
+- **A/B thumbnails** (Studio → video Details → A/B Testing → Thumbnail only, 3 variants):
+  `LCS_EP=epN LCS_THUMB=b|c python3 lcs.py thumb --out …`; text via `LCS_THUMB_TXT="Country|WHITE|YELLOW"`, faces via
+  `LCS_THUMB_FACES="A|B|C"`. Check every X'd face really is out in the round the text names.
+- **Extra Shorts**: a second round Short (`short --rounds N`) and a winner Short (`LCS_WINNER=1`, final round + crown).
+  One Short per day at 22:00 Cairo, in the Last Country Standing playlist, Related video → the long (only possible
+  once the long is public). Chrome upload: re-encode to under 3.8 MB (`-crf 27`, or `-crf 30 -b:a 80k`).
+- **Translations**: `studio.youtube.com/video/<id>/translations` → video language English (leave "default for my
+  channel" unticked) → Add language → title + description for Arabic, Spanish, French, Portuguese, Hindi → Update.
+  If the list does not show the new language after Update, reload and redo it (happened once with Spanish).
+- Ask Ahmed before scheduling anything he has not given a time for.
+
+State on 21 Nov: ep 2 long hTz2S6vJENc and ep 3 long I5CcoUcm6Ls (scheduled Tue 24 Nov 22:00) both have the hook title,
+a running A/B test and 5 translations. Extra Shorts: GTN5sHYMgYs (Sun 22), sN9_TL64Zi8 (Mon 23), ep 3 Short
+EZBrUWLNIaQ (Tue 24), MimgZH8cuTU (Wed 25), hS8kzeDD3sA (Fri 27). The three ep 3 Shorts still need Related video
+(reminder set for Tue 24 Nov 22:10). Old ep 3 Short PEfJWPUqdJs is Private; Ahmed decides whether to delete it.
+
 ## Motion pass (approved by Ahmed, 21 Nov 2026) — from ep 4 on
 `lcs.py` renders with the motion pass ON by default (`LCS_MOTION=1`): shudder + squash on the hit, small hop before
 the fall, neighbours flinch away, counter pops red on each elimination, pitch-varied hit sounds. Rules behind it:
