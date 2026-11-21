@@ -14,6 +14,10 @@ Write with device_commit_files (use the SendUserFile fileUuid for files over ~50
 Not on the Mac (rendered by older team runs, files gone): Most Populous 1952–2007, USA vs China economy,
 Richest per Person long, Internet knockout #6.
 
+## Subscriber push (Ahmed, 21 Nov 2026)
+Every episode from ep 3 on: animated SUBSCRIBE button + "to see who wins the next episode!" after the crown (long, built
+into `lcs.py`), and a SUBSCRIBE button on the Short's end card. Titles end with "Ep N" (ep 1 and 2 titles updated 21 Nov).
+
 ## Direction (decided 14 Nov 2026 by Ahmed): Last Country Standing 2.0
 Every new long video is a **Last Country Standing 2.0** episode (`lcs.py`, rounds built in `lcs_data.py`): all 193 UN
 countries, 10 rule rounds on real sourced numbers, A→Z grid, closest-call card, crown, comment CTA. Each episode is a

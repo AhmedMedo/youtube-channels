@@ -121,6 +121,46 @@ def xmark(d, cx, cy, r):
         d.line([(cx - r * .4, cy - s * r * .4), (cx + r * .4, cy + s * r * .4)], fill=WHITE, width=max(3, int(r * .26)))
 
 
+def sub_button(img, d, cx, cy, t0, t, scale=1.0, line="Subscribe to see who wins next episode"):
+    """Animated SUBSCRIBE pill: pops in, a cursor taps it at +1.2 s, it turns grey 'SUBSCRIBED' with a bell ring."""
+    k = pop((t - t0) / 0.45)
+    if k <= 0.02:
+        return
+    s = scale * k
+    tap = t - t0 - 1.2
+    pressed = tap > 0.15
+    press_k = 0.92 if 0 < tap < 0.15 else 1.0
+    w, h = 430 * s * press_k, 96 * s * press_k
+    fill = (110, 110, 118) if pressed else (230, 33, 23)
+    d.rounded_rectangle([cx - w / 2 + 6, cy - h / 2 + 8, cx + w / 2 + 6, cy + h / 2 + 8], radius=h / 2, fill=SHADOW)
+    d.rounded_rectangle([cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2], radius=h / 2, fill=fill, outline=INK, width=max(3, int(5 * s)))
+    txt = "SUBSCRIBED" if pressed else "SUBSCRIBE"
+    f = font(max(12, int(46 * s * press_k)), "Black")
+    ctext(d, cx - 22 * s, cy - f.size * 0.62, txt, f, WHITE)
+    # bell
+    bx, by, br = cx + w / 2 - 52 * s, cy, 20 * s
+    ang = math.sin((t - t0 - 1.35) * 25) * 0.5 if 0 < tap < 1.0 else 0
+    pts = []
+    for a in range(0, 181, 15):
+        r = math.radians(a)
+        pts.append((bx + math.cos(r + math.pi) * br, by - math.sin(r) * br * 0.9))
+    pts += [(bx + br * 1.15, by + br * 0.55), (bx - br * 1.15, by + br * 0.55)]
+    c, sn = math.cos(ang), math.sin(ang)
+    pts = [(bx + (x - bx) * c - (y - by) * sn, by + (x - bx) * sn + (y - by) * c) for x, y in pts]
+    d.polygon(pts, fill=WHITE)
+    d.ellipse([bx - br * .28, by + br * .5, bx + br * .28, by + br * 1.0], fill=WHITE)
+    # cursor (arrow) moving in to tap
+    if -0.8 < tap < 0.9:
+        mk = ease((tap + 0.8) / 0.8)
+        mx, my = cx + 260 * s - 200 * s * mk, cy + 140 * s - 110 * s * mk
+        arrow = [(mx, my), (mx, my + 46 * s), (mx + 12 * s, my + 34 * s), (mx + 22 * s, my + 54 * s),
+                 (mx + 30 * s, my + 50 * s), (mx + 20 * s, my + 30 * s), (mx + 36 * s, my + 30 * s)]
+        d.polygon(arrow, fill=WHITE, outline=INK)
+    if line and k > 0.6:
+        fl = font(max(12, int(34 * scale)), "Black")
+        ctext(d, cx, cy + h / 2 + 22 * scale, line, fl, INK)
+
+
 # ----------------------------------------------------------------------------- layout
 class Geo:
     def __init__(self, horiz):
@@ -429,8 +469,14 @@ class Episode:
             wv = META.get("win_value") or EP["winner"]["value"]
             ctext(d, bx, cb[1] + 206, wv, fit(d, wv, 48, cb[2] - cb[0] - 40), YEL)
             ctext(d, bx, cb[1] + 268, META.get("win_note", ""), font(28, "SemiBold"), WHITE)
-        # counter
+        # counter (replaced by the subscribe button once the winner is crowned)
         cy0 = cb[3] + (40 if hz else 30)
+        if hz and self.win and t >= self.win[0] + 2.5:
+            sub_button(img, d, cx, cy0 + 70, self.win[0] + 2.5, t, scale=1.0,
+                       line="")
+            ctext(d, cx, cy0 + 140, "to see who wins", font(34, "Black"), INK)
+            ctext(d, cx, cy0 + 184, "the next episode!", font(34, "Black"), RED)
+            return
         n = self.counter(t) if t >= (self.rounds[0]["a"] if self.rounds else 0) else len(self.start_alive)
         if hz:
             ctext(d, cx, cy0 - 10, str(n), font(128, "Black"), INK)
@@ -543,6 +589,9 @@ class Episode:
     def short_end(self, img, d, t):
         g = self.g
         k = pop((t - self.end[0]) / 0.4)
+        ov = Image.new("RGBA", (g.W, g.H), (238, 233, 222, int(200 * min(1.0, (t - self.end[0]) / 0.3))))
+        img.paste(ov, (0, 0), ov)
+        d = ImageDraw.Draw(img)
         bw, bh = 940 * k, 420 * k
         box = (g.W / 2 - bw / 2, 1180 - bh / 2, g.W / 2 + bw / 2, 1180 + bh / 2)
         card(d, box, fill=NAVY, r=48, w=7)
@@ -550,6 +599,7 @@ class Episode:
             ctext(d, g.W / 2, box[1] + 60, "Who wins it all?", font(76, "Black"), YEL)
             ctext(d, g.W / 2, box[1] + 170, "Full game (193 → 1)", font(54, "Bold"), WHITE)
             ctext(d, g.W / 2, box[1] + 250, "on the channel ↑", font(54, "Bold"), WHITE)
+        sub_button(img, d, g.W / 2, 1530, self.end[0] + 0.5, t, scale=1.25, line="")
 
     def end_screen(self, img, d, t):
         g = self.g
