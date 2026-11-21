@@ -18,6 +18,10 @@ Richest per Person long, Internet knockout #6.
 Every episode from ep 3 on: animated SUBSCRIBE button + "to see who wins the next episode!" after the crown (long, built
 into `lcs.py`), and a SUBSCRIBE button on the Short's end card. Titles end with "Ep N" (ep 1 and 2 titles updated 21 Nov).
 
+## Growth plan (approved by Ahmed, 21 Nov 2026)
+Read `GROWTH_PLAN_2026-11-21.md`: 3 episodes a week (Sat/Tue/Thu 22:00 Cairo), hook titles, 3 Shorts + winner Short per
+episode, translated titles, per-episode checklist, weekly review numbers.
+
 ## Motion pass (approved by Ahmed, 21 Nov 2026) — from ep 4 on
 `lcs.py` renders with the motion pass ON by default (`LCS_MOTION=1`): shudder + squash on the hit, small hop before
 the fall, neighbours flinch away, counter pops red on each elimination, pitch-varied hit sounds. Rules behind it:
