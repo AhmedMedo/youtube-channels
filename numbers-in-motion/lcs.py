@@ -257,8 +257,8 @@ class Episode:
         if self.horiz and 0.3 <= t < self.intro[1]:
             k = pop((t - 0.3) / 0.35)
             gx = (g.grid[0] + g.grid[2]) / 2
-            f = font(int(64 * max(k, .2)), "Black")
             txt = META.get("teaser", "Even the USA is OUT by round 5!")
+            f = fit(d, txt, int(64 * max(k, .2)), g.grid[2] - g.grid[0] - 100)
             tw = d.textlength(txt, font=f)
             d.rounded_rectangle([gx - tw / 2 - 36, 470, gx + tw / 2 + 36, 470 + f.size * 1.6], radius=30, fill=RED, outline=INK, width=6)
             ctext(d, gx, 470 + f.size * .22, txt, f, WHITE)
