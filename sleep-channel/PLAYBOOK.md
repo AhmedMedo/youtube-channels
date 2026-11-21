@@ -27,6 +27,18 @@ every check. It takes about **45 minutes** for 8 hours (28 min audio on two core
 three-upload pack. `render_scene.py` is still imported for the scene and the thumbnail; `make_extras.py`
 is dead. `--hours` on build_episode.py is for smoke-testing only — it does not change the title text.
 
+## Local archive on Ahmed's Mac
+
+`Documents/Driftlight/<date> - EpNNN Name (length)/`, laid out like his Numbers in Motion folder:
+`epNNN_long.mp4` (the main upload), `epNNN_black_screen.mp4` and `epNNN_short.mp4` for 001-004 only,
+`epNNN_thumbnail.jpg`, and one `metadata.txt` carrying the YouTube links plus the upload text.
+A `README.txt` at the root lists the episodes and their state.
+
+**Every file carries its episode number.** On 21 Nov the files were briefly named plain `long.mp4` in
+each folder, Ahmed uploaded one, and neither of us could tell from Studio which episode it was —
+YouTube had even taken "long" as the title. Never ship a file whose name does not say which episode
+it is. Deliverables from `build_episode.py` are already named `Driftlight_epNNN_...`; keep that.
+
 ## v3 format — DECIDED by Ahmed 18 Nov 2026
 
 **One upload per episode. Eight hours. A title card that dissolves into black after 26 s.**
