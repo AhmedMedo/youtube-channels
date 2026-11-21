@@ -87,12 +87,10 @@ def plan(ep: int) -> dict:
     tags = th["tags"] + ["sleep music", "ambient music", "relaxing music", "deep sleep", f"{hours} hour sleep music",
                          "music for sleeping", "black screen sleep music", "driftlight"]
     tags = list(dict.fromkeys(tags))        # keep order, drop repeats
-    render_args = (f"--scene {th['scene']} --seed {seed} --mood {th['mood']} --key {key} --duration {hours * 3600} "
-                   f"--intro {INTRO} --title \"{th['name']}\" --thumb-big \"{big}\" --thumb-sub \"{sub}\""
-                   + (f" --rain {th['rain']}" if th["rain"] is not None else ""))
+    build_cmd = f"python3 build_episode.py {ep}"      # the ONLY build command; see PLAYBOOK
     return dict(
         episode=ep, scene=th["scene"], mood=th["mood"], seed=seed, key=key, hours=hours, duration=hours * 3600,
-        render_args=render_args, title=title, short_title=th["name"], thumb_big=big, thumb_sub=sub,
+        build_cmd=build_cmd, title=title, short_title=th["name"], thumb_big=big, thumb_sub=sub,
         subtitle=sub, description=desc, tags=tags, intro=INTRO,
         privacy="private", made_for_kids=False, category="Music",
         ai_altered="Ahmed's call — see PLAYBOOK; the music is synthesised by our own code",

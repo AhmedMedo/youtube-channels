@@ -4,6 +4,21 @@ Status: **live** (Nov 2026). Ep001 Public since 2026-11-08. Channel **Driftlight
 
 Owner: Ahmed (Cairo, GMT+2), replies in Egyptian Arabic.
 
+## HOW TO BUILD AN EPISODE — one command
+
+```bash
+cd sleep-channel && python3 build_episode.py N          # N = last episode in episodes.md + 1
+```
+
+That is the whole build: recipe, audio, title card, black, mux, loudness, thumbnail, metadata file, and
+every check. It takes about **45 minutes** for 8 hours (28 min audio on two cores, 13 min mux) and prints
+`all checks passed` or a list of problems. It leaves three files to deliver:
+`Driftlight_epNNN_<Name>_8h.mp4`, `Driftlight_epNNN_thumbnail.jpg`, `epNNN_metadata.txt`.
+
+**Do not use `render_scene.py` or `make_extras.py` to build an episode.** They build the retired v2
+three-upload pack. `render_scene.py` is still imported for the scene and the thumbnail; `make_extras.py`
+is dead. `--hours` on build_episode.py is for smoke-testing only — it does not change the title text.
+
 ## v3 format — DECIDED by Ahmed 18 Nov 2026
 
 **One upload per episode. Eight hours. A title card that dissolves into black after 18 s.**
