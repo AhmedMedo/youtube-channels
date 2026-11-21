@@ -31,7 +31,8 @@ import time
 
 SR = 44100
 TARGET_LUFS = -18.5          # what ep001-004 measured; YouTube turns loud down but never quiet up
-LIMIT_BYTES = 400_000_000    # SendUserFile and the device bridge both cap at 400 MB
+LIMIT_BYTES = 400 * 1024 ** 2   # SendUserFile's ceiling. The device bridge is stricter (400 MB
+                                # decimal), so FPS below keeps a real file near 370 MB and under both.
 AAC_BITRATE = "92k"          # 96k would push an 8 h file past the cap once the black video is added
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -109,7 +110,11 @@ def build_video(d, out_dir, log):
     from PIL import Image, ImageDraw, ImageFont
     import render_scene as RS
 
-    fps, intro = 24, d["intro"]
+    # 15, not 24: the picture is a title card and then black, and x264 spends ~84 bytes on every
+    # black frame whatever is in it. At 24 fps an 8 h black video is 59 MB and the file lands at
+    # 406 MB; at 15 fps it is ~37 MB and the file lands near 370 MB, inside both delivery limits.
+    # A slow drifting sky loses nothing at 15 fps.
+    fps, intro = 15, d["intro"]
     scene = RS.SCENES[d["scene"]](d["seed"], 180)
     frames = os.path.join(out_dir, "frames")
     os.makedirs(frames, exist_ok=True)

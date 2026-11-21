@@ -174,9 +174,12 @@ cat seg0.pcm seg1.pcm > audio.pcm        # must be exactly 28800 * 44100 * 4 = 5
 ffmpeg -y -i video_only.mp4 -f s16le -ar 44100 -ac 2 -i audio.pcm -map 0:v -map 1:a \
        -c:v copy -c:a aac -b:a 92k -t 28800 -movflags +faststart final.mp4
 ```
-**92k, not 96k:** the black video comes out at ~59 MB (x264 spends ~84 bytes on every black frame and
-nothing shrinks that except a lower frame rate), so 96k audio would put the file at 404 MB, over the limit.
-92k lands at ~390 MB. Check `ls -la` before delivering.
+**Size, measured on real 8-hour episodes:** x264 spends ~84 bytes on every black frame no matter what is
+in it, so the only way to shrink the picture is a lower frame rate. At 24 fps the black video is 59 MB and
+the finished file is 406 MB — fine for the chat (400 MiB) but over the device bridge's 400 MB. The build
+now renders at **15 fps**, which costs nothing on a black screen and a slow drifting sky, giving ~37 MB of
+video and a file near 370 MB that fits both. Audio stays at **92k**: at 96k the audio alone is 346 MB.
+ep005 and ep006 both landed at 406 MB at 24 fps.
 
 **Check the loudness before delivering.** The `night` mood renders about 8 dB quieter than `rain`
 (`rain` carries a loud rain bed, `night` has almost none): ep005 came out at **-27.0 LUFS** against
