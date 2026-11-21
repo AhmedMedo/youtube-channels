@@ -25,6 +25,10 @@ First result (ep 1, 15 Nov, ~28 h): long **1K views, 5 likes, 4 comments** (a Fr
 5–65 views for every earlier long; channel 28-day watch time 21.3 h → 51.4 h. The Short got only 171 views (earlier
 knockout Short got 1.4K) — the long is now the engine, the Short is secondary. Judge the format after 6 episodes.
 
+Ep 1 after 7 days (21 Nov): 1.1K views, CTR 6.9% on 11.9K impressions (was ~1.5%), avg view 2:35 = 44% (was 0:23–0:50),
+44.7 h watch time, +3 subs, 76% of views from Browse (home feed). 48-h views down to 108, i.e. a single video decays in
+about a week: the lever now is steady new episodes. Channel 28 days: 8.2K views, 66.9 h, 8 subs. 99% new viewers.
+
 ## Channel facts
 - Format: racing bar charts, English on-screen text, cartoon flag faces, funny auto-captions, generated music. No voice, no face.
 - Schedule: new long video every **Tuesday and Saturday, 22:00 Cairo time**. Each topic also gets a vertical Short (same day).
