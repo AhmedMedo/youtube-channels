@@ -66,16 +66,16 @@ def banner(path):
         d.rounded_rectangle([bx, y, bx + L, y + 40], radius=20, fill=c)
     tx = bx + 320
     d.text((tx, sy0 + 85), "Numbers in Motion", font=f(118, "Bold"), fill=FG)
-    d.text((tx + 4, sy0 + 235), "The world's data, animated through time.",
+    d.text((tx + 4, sy0 + 235), "Real data. 10 rounds. Only one survives.",
            font=f(46, "Medium"), fill=MUTED)
-    d.text((tx + 4, sy0 + 305), "New rankings every Tuesday & Saturday",
+    d.text((tx + 4, sy0 + 305), "New episode every Tuesday, Thursday & Saturday",
            font=f(36, "SemiBold"), fill=BARS[2])
     img.save(path)
 
 
 if __name__ == "__main__":
     import os
-    os.makedirs("/home/claude/brand/out", exist_ok=True)
+    os.makedirs("/home/claude/brand/out", exist_ok=True)  # banner text updated 21 Nov 2026: Last Country Standing, 3 episodes a week
     logo("/home/claude/brand/out/logo_800.png")
     banner("/home/claude/brand/out/banner_2560x1440.png")
     # safe-area preview to check what phones see
