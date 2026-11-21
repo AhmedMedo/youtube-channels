@@ -54,8 +54,10 @@ California, New York and Illinois go out in round 1 (fewer people than in 2020);
 - Shorts (all scheduled 22:00 Cairo, playlist Last Country Standing): n0MqcfESfyE round 1 (Thu 26 Nov, with the long),
   Wih2sDavKZ0 round 6 (Sun 29 Nov), RLf9_lvD7Es winner (Mon 30 Nov). With 3 episodes a week there is room for the main
   Short plus two extras per episode (one Short a day), not three.
-- Long: Ahmed drags `long.mp4` from the Mac folder into Studio; then title/description from `metadata.txt`, playlist,
-  A/B thumbnails, end screen from 5:14, 5 translations, schedule Thu 26 Nov 22:00, pinned comment after it is public.
+- Long **gKmXRnI2Teg**: scheduled Thu 26 Nov 22:00 Cairo, playlist, A/B thumbnail test (3 variants), end screen from 5:14,
+  translations ar/es/fr/pt/hi all published. Still to do after it is public: Related video on the three Shorts (reminder
+  set for 22:10 that day) and the pinned comment (ask Ahmed first).
+- Translated titles must stay at or under 100 characters; over that, Update closes the dialog and saves nothing.
 
 ## Motion pass (approved by Ahmed, 21 Nov 2026) — from ep 4 on
 `lcs.py` renders with the motion pass ON by default (`LCS_MOTION=1`): shudder + squash on the hit, small hop before
